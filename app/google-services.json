@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "903461353548",
+    "firebase_url": "https://pra-pa.firebaseio.com",
+    "project_id": "pra-pa",
+    "storage_bucket": "pra-pa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903461353548:android:38ab4355ccd5f25e",
+        "android_client_info": {
+          "package_name": "com.prapa.seproject.pra_pa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903461353548-60ps5fhivu7h28nf9h8h0aevcs08fb12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlqTC5n5Sz3MnMoNseKizdzgzbuKPSCs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
