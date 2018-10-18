@@ -1,67 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="323dp"
+        android:layout_width="89dp"
         android:layout_height="61dp"
-        android:text="Choose Your Plan"
+        android:text="Plan"
         tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <ImageView
+        android:layout_width="257dp"
+        android:layout_height="217dp"
+        android:src="@drawable/plum_condo"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="66dp" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:text="Submit"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="370dp" />
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="386dp" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="72dp"
-        android:layout_height="45dp"
+        android:layout_width="78dp"
+        android:layout_height="47dp"
         android:text="Phase"
         tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="232dp" />
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="268dp" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="72dp"
+        android:layout_width="71dp"
         android:layout_height="39dp"
         android:text="Floor"
         tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="302dp" />
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="328dp" />
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="125dp"
+        android:layout_width="174dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="232dp">
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="268dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Enter Phase" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="124dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="295dp">
+        android:layout_width="171dp"
+        android:layout_height="39dp"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="328dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Enter Floor" />
     </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>
