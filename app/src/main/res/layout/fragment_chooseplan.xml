@@ -18,7 +18,7 @@
         android:layout_width="257dp"
         android:layout_height="217dp"
         android:src="@drawable/plum_condo"
-        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteX="76dp"
         tools:layout_editor_absoluteY="66dp" />
 
     <Button
@@ -31,11 +31,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="78dp"
-        android:layout_height="47dp"
+        android:layout_width="81dp"
+        android:layout_height="40dp"
         android:text="Phase"
         tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="268dp" />
 
     <TextView
@@ -44,13 +44,13 @@
         android:layout_height="39dp"
         android:text="Floor"
         tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="328dp" />
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="321dp" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="174dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="268dp">
 
         <android.support.design.widget.TextInputEditText
@@ -62,12 +62,12 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="171dp"
         android:layout_height="39dp"
-        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="328dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="Enter Floor" />
     </android.support.design.widget.TextInputLayout>
 
