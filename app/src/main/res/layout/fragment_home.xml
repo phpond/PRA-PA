@@ -1,50 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-=======
->>>>>>> Edit fragment home
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="403dp"
-        android:layout_height="215dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="73dp"
-        tools:srcCompat="@drawable/prapalogo" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="190dp"
-        android:layout_height="53dp"
-        android:text="Resident"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="327dp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="190dp"
-        android:layout_height="53dp"
-        android:text="operational staff"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="380dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="190dp"
-        android:layout_height="53dp"
-        android:text="legal person"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="433dp" />
-=======
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -93,7 +52,6 @@
 
         </LinearLayout>
     </ScrollView>
->>>>>>> Edit fragment home
 
 
 </android.support.constraint.ConstraintLayout>
