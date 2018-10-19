@@ -1,74 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp">
+    app:layout_editor_absoluteY="81dp">
 
+    <!--title-->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_choose_plan"
         android:layout_width="89dp"
         android:layout_height="61dp"
-        android:text="Plan"
-        tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="27dp" />
+        android:text="@string/title_choose_plan"
+        app:autoSizeTextType="uniform"
+        app:layout_editor_absoluteX="148dp"
+        app:layout_editor_absoluteY="27dp"
+        />
 
+    <!--img plan-->
     <ImageView
+        android:id="@+id/img_choose_plan"
         android:layout_width="257dp"
         android:layout_height="217dp"
         android:src="@drawable/plum_condo"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="66dp" />
+        app:layout_editor_absoluteX="76dp"
+        app:layout_editor_absoluteY="66dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="262dp"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="386dp" />
-
+    <!--phase-->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/topic_phase_choose_plan"
         android:layout_width="81dp"
         android:layout_height="40dp"
-        android:text="Phase"
-        tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="268dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="71dp"
-        android:layout_height="39dp"
-        android:text="Floor"
-        tools:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="321dp" />
-
+        android:text="@string/topic_phase"
+        app:autoSizeTextType="uniform"
+        app:layout_editor_absoluteX="71dp"
+        app:layout_editor_absoluteY="268dp" />
     <android.support.design.widget.TextInputLayout
         android:layout_width="174dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="268dp">
+        app:layout_editor_absoluteX="159dp"
+        app:layout_editor_absoluteY="268dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/phase_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Phase" />
+            android:hint="@string/text_enter_phase" />
+
     </android.support.design.widget.TextInputLayout>
 
+    <!--floor-->
+    <TextView
+        android:id="@+id/topic_floor_choose_plan"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:text="@string/topic_floor"
+        app:autoSizeTextType="uniform"
+        app:layout_editor_absoluteX="71dp"
+        app:layout_editor_absoluteY="321dp" />
     <android.support.design.widget.TextInputLayout
         android:layout_width="171dp"
         android:layout_height="39dp"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="328dp">
-
+        app:layout_editor_absoluteX="159dp"
+        app:layout_editor_absoluteY="328dp">
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/floor_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter Floor" />
+            android:hint="@string/text_enter_floor" />
     </android.support.design.widget.TextInputLayout>
+
+    <!--submit-->
+    <Button
+        android:id="@+id/submit_btn_choose_plan"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_btn"
+        app:layout_editor_absoluteX="71dp"
+        app:layout_editor_absoluteY="386dp" />
+
 
 </android.support.constraint.ConstraintLayout>
