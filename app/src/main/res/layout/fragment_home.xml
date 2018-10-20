@@ -8,14 +8,13 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="403dp"
-        android:layout_height="244dp"
+        android:layout_height="215dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="76dp"
         android:layout_marginEnd="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="45dp"
         tools:srcCompat="@drawable/prapalogo" />
 
     <Button
@@ -24,6 +23,22 @@
         android:layout_height="57dp"
         android:text="เข้าใช้งาน"
         tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="345dp" />
+        tools:layout_editor_absoluteY="260dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="102dp"
+        android:layout_height="57dp"
+        android:text="เข้าใช้งาน"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="102dp"
+        android:layout_height="57dp"
+        android:text="เข้าใช้งาน"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="374dp" />
 
 </android.support.constraint.ConstraintLayout>
