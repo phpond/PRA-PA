@@ -1,6 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/water_meter_topic_record_water_bill3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/topic_water_meter"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteY="99dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <TextView
+        android:id="@+id/month_topic_record_water_bill3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/topic_month"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteY="149dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <TextView
+        android:id="@+id/date_topic_record_water_bill3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/topic_date"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteY="198dp"
+        tools:layout_editor_absoluteY="476dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="61dp"
+        android:layout_height="31dp"
+        android:text="NAME"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="268dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="61dp"
+        android:layout_height="31dp"
+        android:text="Phase"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="61dp"
+        android:layout_height="31dp"
+        android:text="Floor"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="224dp"
+        android:layout_height="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="267dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="77dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:text="Water mater db"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:text="Month of bill db"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:text="Record date db"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="476dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="77dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="138dp"
+        android:layout_height="45dp"
+        android:fontFamily="sans-serif"
+        android:text="Grand Total"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="66dp"
+        android:fontFamily="sans-serif"
+        android:text="WATER BILL"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="65dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="26dp"
+        android:layout_height="45dp"
+        android:fontFamily="sans-serif"
+        android:text="฿"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="134dp"
+        android:layout_height="62dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="899"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="162dp" />
 
 </android.support.constraint.ConstraintLayout>
