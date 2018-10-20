@@ -14,31 +14,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="45dp"
+        tools:layout_editor_absoluteY="73dp"
         tools:srcCompat="@drawable/prapalogo" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="260dp" />
-
-    <Button
         android:id="@+id/button2"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="317dp" />
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:text="Resident"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="327dp" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="374dp" />
+        android:id="@+id/button"
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:text="operational staff"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="380dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:text="legal person"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="433dp" />
+
 
 </android.support.constraint.ConstraintLayout>
