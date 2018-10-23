@@ -1,18 +1,15 @@
 package com.prapa.seproject.pra_pa;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 public class Bill {
     private Room room;
 
-    private Date month;
+    private String month;
     private int water_bill;
-    private Timestamp record_date;
+    private String record_date;
 
     private String status = "ยังไม่ชำระเงิน";
 
-    public Bill(Room room, Date month, int water_bill, Timestamp record_date) {
+    public Bill(Room room, int water_bill,String month,  String record_date) {
         this.room = room;
         this.month = month;
         this.water_bill = water_bill;
@@ -27,11 +24,11 @@ public class Bill {
         this.room = room;
     }
 
-    public Date getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(Date month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
@@ -43,11 +40,11 @@ public class Bill {
         this.water_bill = water_bill;
     }
 
-    public Date getRecord_date() {
+    public String getRecord_date() {
         return record_date;
     }
 
-    public void setRecord_date(Timestamp record_date) {
+    public void setRecord_date(String record_date) {
         this.record_date = record_date;
     }
 
