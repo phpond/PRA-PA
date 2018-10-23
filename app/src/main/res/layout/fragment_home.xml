@@ -6,8 +6,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,18 +26,16 @@
                 android:id="@+id/resident_btn_home"
                 android:layout_width="190dp"
                 android:layout_height="53dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/resident_btn"
-                tools:layout_editor_absoluteX="97dp"
-                tools:layout_editor_absoluteY="327dp"
                 android:layout_gravity="center_horizontal"/>
 
             <Button
                 android:id="@+id/staff_btn_home"
                 android:layout_width="190dp"
                 android:layout_height="53dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/staff_btn"
-                tools:layout_editor_absoluteX="97dp"
-                tools:layout_editor_absoluteY="380dp"
                 android:layout_gravity="center_horizontal"/>
 
             <Button
@@ -46,8 +43,6 @@
                 android:layout_width="190dp"
                 android:layout_height="53dp"
                 android:text="@string/legal_person_btn"
-                tools:layout_editor_absoluteX="97dp"
-                tools:layout_editor_absoluteY="433dp"
                 android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>
