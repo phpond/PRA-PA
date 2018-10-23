@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-//import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RecordWaterFragment extends Fragment {
 
-/*    FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
+    FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
 
     @Nullable
     @Override
@@ -49,5 +49,5 @@ public class RecordWaterFragment extends Fragment {
     private void UpToFireBase(){
         _fbfs.collection("Resident");
     }
-    */
+
 }

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EditMeterReading extends Fragment {
 
@@ -14,7 +15,7 @@ public class EditMeterReading extends Fragment {
     private String new_month;
     private String new_date;
 
-/*
+
     FirebaseFirestore database = FirebaseFirestore.getInstance();
 
     @Nullable
@@ -47,5 +48,5 @@ public class EditMeterReading extends Fragment {
 
 
 
-*/
+
 }

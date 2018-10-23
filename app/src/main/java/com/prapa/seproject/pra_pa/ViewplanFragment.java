@@ -1,6 +1,5 @@
 package com.prapa.seproject.pra_pa;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
@@ -9,11 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.concurrent.Phaser;
 
 
 public class ViewplanFragment extends Fragment implements View.OnClickListener {
@@ -55,7 +56,9 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         eleven.setOnClickListener(this);
         ImageView twelve= getView().findViewById(R.id.bottom_6_view_plan);
         twelve.setOnClickListener(this);
-        //ShowNumberRoom();
+
+        ShowPhaseAndFloor();
+
 
     }
 
@@ -65,93 +68,144 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
 
-        switch (v.getId()) {
+       switch (v.getId()) {
 
             case R.id.top_1_view_plan:
                 // do your code
-                Toast.makeText(getActivity(), "01", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("01");
                 break;
 
             case R.id.top_2_view_plan:
                 // do your code
-                //nr.setNumber("02");
-                Toast.makeText(getActivity(), "02", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("02");
                 break;
 
             case R.id.top_3_view_plan:
                 // do your code
-                //nr.setNumber("03");
-                Toast.makeText(getActivity(), "03", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("03");
                 break;
 
             case R.id.top_4_view_plan:
                 // do your code
-                //nr.setNumber("04");
-                Toast.makeText(getActivity(), "04", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("04");
                 break;
 
             case R.id.top_5_view_plan:
                 // do your code
-                //nr.setNumber("05");
-                Toast.makeText(getActivity(), "05", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("05");
                 break;
 
             case R.id.top_6_view_plan:
                 // do your code
-                //nr.setNumber("06");
-                Toast.makeText(getActivity(), "06", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("06");
                 break;
 
             case R.id.bottom_1_view_plan:
                 // do your code
-                //nr.setNumber("07");
-                Toast.makeText(getActivity(), "07", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("07");
                 break;
 
             case R.id.bottom_2_view_plan:
                 // do your code
-                //nr.setNumber("08");
-                Toast.makeText(getActivity(), "08", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("08");
                 break;
 
             case R.id.bottom_3_view_plan:
                 // do your code
-                //nr.setNumber("09");
-                Toast.makeText(getActivity(), "09", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("09");
                 break;
 
             case R.id.bottom_4_view_plan:
                 // do your code
-                //nr.setNumber("10");
-                Toast.makeText(getActivity(), "10", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("10");
                 break;
 
             case R.id.bottom_5_view_plan:
                 // do your code
-                //nr.setNumber("11");
-                Toast.makeText(getActivity(), "11", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("11");
                 break;
 
             case R.id.bottom_6_view_plan:
                 // do your code
-                //nr.setNumber("12");
-                Toast.makeText(getActivity(), "12", Toast.LENGTH_SHORT).show();
+                gotoRecordPage("12");
                 break;
-
 
             default:
                 break;
         }
     }
 
-        void ShowNumberRoom(){
 
-            Room nr = getActivity().getIntent().getParcelableExtra("PhaseFloor");
-            String _PhaseStr = nr.getPhase();
-            EditText editText = getView().findViewById(R.id.editText);
-            editText.setText(_PhaseStr);
+        void ShowPhaseAndFloor(){
+            String Phase;
+            String Floor;
+            Room nr;
 
-            Toast.makeText(getActivity(), _PhaseStr, Toast.LENGTH_SHORT).show();
 
+            Bundle bundle = this.getArguments();
+            if (bundle != null) {
+                nr = bundle.getParcelable("PhaseAndFloor");
+
+
+                Phase = nr.getPhase();
+                Floor = Integer.toString(nr.getFloor());
+                TextView _phaseStr = getView().findViewById(R.id.phase_view_plan);
+                TextView _floorStr = getView().findViewById(R.id.floor_view_plan);
+
+                _phaseStr.setText(Phase);
+                _floorStr.setText(Floor);
+
+                ShowNumberRoom(Phase, Floor);
+
+                }
         }
+
+        void ShowNumberRoom(String Phase, String Floor){
+
+            Integer[] position = {
+                    R.id.top_num_01, R.id.top_num_02,
+                    R.id.top_num_03, R.id.top_num_04,
+                    R.id.top_num_05, R.id.top_num_06,
+                    R.id.top_num_07, R.id.top_num_08,
+                    R.id.top_num_09, R.id.top_num_10,
+                    R.id.top_num_11, R.id.top_num_12,
+            };
+
+            TextView textView;
+            int i;
+            String PhaseandFloor = Phase+Floor;
+            String numberStr = "";
+
+            for (i=0;i<12;i++) {
+                if(i<9) {
+                    numberStr = PhaseandFloor +"0"+ Integer.toString(i + 1);
+                }
+                else {
+                    numberStr = PhaseandFloor + Integer.toString(i + 1);
+                }
+
+                    textView = getView().findViewById(position[i]);
+                    textView.setText(numberStr);
+
+            }
+        }
+
+        void gotoRecordPage(String NumberRoom){
+
+            Room nr;
+
+
+            Bundle bundle = this.getArguments();
+            if (bundle != null) {
+
+                nr = bundle.getParcelable("PhaseAndFloor");
+
+                String Phase = nr.getPhase();
+                int Floor = nr.getFloor();
+                nr.setNumber_room(Integer.parseInt(NumberRoom));
+
+                Log.d("VIEWPLAN", "GOTO RECORD : Room " + Phase + Floor + NumberRoom);
+            }
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();
     }
+}

@@ -1,23 +1,26 @@
 package com.prapa.seproject.pra_pa;
 
-public class Room {
-    private char phase;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Room implements Parcelable {
+    private String phase;
     private int floor;
     private int number_room;
 
     public Room() { }
 
-    public Room(char phase, int floor, int number_room) {
+    public Room(String phase, int floor, int number_room) {
         this.phase = phase;
         this.floor = floor;
         this.number_room = number_room;
     }
 
-    public char getPhase() {
+    public String getPhase() {
         return phase;
     }
 
-    public void setPhase(char phase) {
+    public void setPhase(String phase) {
         this.phase = phase;
     }
 
@@ -36,4 +39,32 @@ public class Room {
     public void setNumber_room(int number_room) {
         this.number_room = number_room;
     }
-}
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+
+            dest.writeString(phase);
+            dest.writeInt(floor);
+            dest.writeInt(number_room);
+        }
+
+        public static final Parcelable.Creator<Room> CREATOR =
+                new Parcelable.Creator<Room>() {
+                    @Override
+                    public Room createFromParcel(Parcel source) {
+                        return new Room();
+                    }
+                    @Override
+                    public Room[] newArray(int size) {
+                        return new Room[size];
+                    }
+                };
+
+    }
+
