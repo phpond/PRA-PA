@@ -1,23 +1,23 @@
 package com.prapa.seproject.pra_pa;
 
 public class Room {
-    private char phase;
+    private String phase;
     private int floor;
     private int number_room;
 
     public Room() { }
 
-    public Room(char phase, int floor, int number_room) {
+    public Room(String phase, int floor, int number_room) {
         this.phase = phase;
         this.floor = floor;
         this.number_room = number_room;
     }
 
-    public char getPhase() {
+    public String getPhase() {
         return phase;
     }
 
-    public void setPhase(char phase) {
+    public void setPhase(String phase) {
         this.phase = phase;
     }
 
