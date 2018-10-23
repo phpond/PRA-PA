@@ -42,6 +42,9 @@ public class EditMeterReading extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //get current room (not yet)
+        Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
+//                final int room_num = 23;
 
 
         EditSubmitBtn();
@@ -54,9 +57,7 @@ public class EditMeterReading extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //get current room (not yet)
-                Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
-//                final int room_num = 23;
+
                 //get string
                 String meter = ((EditText)(getView().findViewById(R.id.water_meter_edit_water_bill))).getText().toString();
                 String month = ((EditText)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
