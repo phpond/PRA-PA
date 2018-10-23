@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="403dp"
-        android:layout_height="215dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="45dp"
-        tools:srcCompat="@drawable/prapalogo" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="260dp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:contentDescription="@string/des_img"
+                android:layout_width="403dp"
+                android:layout_height="215dp"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/plum_condo"
+                android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="317dp" />
+            <Button
+                android:id="@+id/resident_btn_home"
+                android:layout_width="190dp"
+                android:layout_height="53dp"
+                android:text="@string/resident_btn"
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="327dp"
+                android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="102dp"
-        android:layout_height="57dp"
-        android:text="เข้าใช้งาน"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="374dp" />
+            <Button
+                android:id="@+id/staff_btn_home"
+                android:layout_width="190dp"
+                android:layout_height="53dp"
+                android:text="@string/staff_btn"
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="380dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/legal_person_btn_home"
+                android:layout_width="190dp"
+                android:layout_height="53dp"
+                android:text="@string/legal_person_btn"
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="433dp"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>
