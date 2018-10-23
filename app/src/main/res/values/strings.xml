@@ -20,6 +20,12 @@
     <string name="text_enter_phase">Enter Phase</string>
     <string name="text_enter_floor">Enter Floor</string>
 
+    <!--home-->
+    <string name="resident_btn">Resident</string>
+    <string name="staff_btn">Operational staff</string>
+    <string name="legal_person_btn">legal person</string>
+    <string name="des_img">logo_PRA-PA</string>
+
     <!--global-->
     <string name="submit_btn">SUBMIT</string>
 
