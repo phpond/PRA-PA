@@ -12,12 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.concurrent.Phaser;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 
 
 public class ViewplanFragment extends Fragment implements View.OnClickListener {
+
+    FirebaseAuth _mAth;
+    FirebaseFirestore database = FirebaseFirestore.getInstance();
 
     @Nullable
     @Override
@@ -192,20 +195,42 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
         void gotoRecordPage(String NumberRoom){
 
-            Room nr;
-
-
+            Room nr = new Room();
+            String Phase = "";
+            String NumberRoomStr = "";
+            int Floor = 0;
             Bundle bundle = this.getArguments();
             if (bundle != null) {
 
                 nr = bundle.getParcelable("PhaseAndFloor");
 
-                String Phase = nr.getPhase();
-                int Floor = nr.getFloor();
+                Phase = nr.getPhase();
+                Floor = nr.getFloor();
                 nr.setNumber_room(Integer.parseInt(NumberRoom));
 
                 Log.d("VIEWPLAN", "GOTO RECORD : Room " + Phase + Floor + NumberRoom);
             }
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();
+
+            // เลขห้องที่กดเข้าไป แล้วจะได้ตัวนี้ออกมา EX: A309 เป็นต้น
+            NumberRoomStr = Phase+Floor+NumberRoom;
+
+            if(!CheckData(NumberRoomStr)){
+                Log.d("VIEWPLAN","GOTO RECORD WATER ROOM" + NumberRoomStr);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();
+            }
+            else{
+                Log.d("VIEWPLAN","GOTO EDIT BILL WATER ROOM" + NumberRoomStr);
+                getActivity(). getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditMeterReading()).commit();
+            }
+
+    }
+
+    boolean CheckData(String NumberRoomStr){
+
+
+
+
+
+        return false;
     }
 }

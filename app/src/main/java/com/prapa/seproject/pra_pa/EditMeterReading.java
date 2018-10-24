@@ -27,7 +27,7 @@ public class EditMeterReading extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initSubmitBtn();
+        //initSubmitBtn();
     }
 
 
@@ -35,11 +35,11 @@ public class EditMeterReading extends Fragment {
 
     }
 
-    public EditMeterReading(String new_reading, String new_month, String new_date){
+    /*public EditMeterReading(String new_reading, String new_month, String new_date){
         this.new_reading = new_reading;
         this.new_month = new_month;
         this.new_date = new_date;
-    }
+    }*/
 
     //get post value from firebase
     //update new value
