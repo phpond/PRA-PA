@@ -43,12 +43,42 @@ public class EditMeterReading extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //get current room (not yet)
+        c_auth.getCurrentUser().getUid();
         Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
 //                final int room_num = 23;
-
-
+        getDataFromFirebase(current_room);
         EditSubmitBtn();
     }
+
+    void getDataFromFirebase(final Room current_room){
+
+//        fStore.collection("“myfitness”")
+//                .document(_mAuth.getCurrentUser().getUid())
+//                .collection("weight")
+//                .orderBy("date")
+//                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                _weightAdapter.clear();
+//                for (QueryDocumentSnapshot doc: queryDocumentSnapshots) {
+//                    weights.add(doc.toObject(Weight.class));
+//                    Log.d("WEIGHT", "SUCCESS DATE : "+doc.getId());
+//                }
+//                _weightAdapter.notifyDataSetChanged();
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.d("WEIGHT", "GET DATA ON FAIL");
+//
+//            }
+//
+//        });
+
+    }
+
+}
 
     //edit_submit button on click
     private void EditSubmitBtn(){
