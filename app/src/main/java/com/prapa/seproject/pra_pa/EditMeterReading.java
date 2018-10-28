@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -27,8 +30,10 @@ import java.util.Map;
 
 public class EditMeterReading extends Fragment {
 
+    FirebaseFirestore db_cloud = FirebaseFirestore.getInstance();
+//    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference myRef1 = FirebaseDatabase.getInstance().getReference(); //Getting root reference
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth c_auth = FirebaseAuth.getInstance();
 
 
@@ -43,8 +48,8 @@ public class EditMeterReading extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //get current room (not yet)
-        c_auth.getCurrentUser().getUid();
-        Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
+//        c_auth.getCurrentUser().getUid();
+//        Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
 //                final int room_num = 23;
 //        final Room _room = new Room("A", 1, 03);
 //        int room_num = _room.getNumber_room();
@@ -70,10 +75,10 @@ public class EditMeterReading extends Fragment {
                 String month = ((EditText)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
                 String date = ((EditText)(getView().findViewById(R.id.date_meter_edit_water_bill))).getText().toString();
 
+                Bill _bill = new Bill(_room, 120, "FEB", "10/05/2018");
                 //pack new data into new bill
-                final Bill new_bill = new Bill(_room, meter, month, date);
-                updatetoFireBase(_room, new_bill);
-
+//                final Bill new_bill = new Bill(_room, meter, month, date);
+                UpdatetoFireBase(_room, _bill, meter, month, date);
             }
         });
     }
@@ -86,12 +91,22 @@ public class EditMeterReading extends Fragment {
 //    }
 
     // update to firebase
-    private void updatetoFireBase(Room _room, Bill new_bill) {
-        //replace previous bill by new bill(not yet)
-        //get dbref
+    private void UpdatetoFireBase(Room _room, Bill _bill, int meter, String month, String date) {
+        //replace previous bill by new value
+        _bill.setWater_bill(meter);
+        _bill.setMonth(month);
+        _bill.setRecord_date(date);
+        String _number_room = _room.getPhase()+String.valueOf(_room.getFloor())+_room.getNumber_room();
+//        myRef1.child()
+//        DatabaseReference myRef = myRef1.child("waterbill"); //Write your child reference if any
+//        myRef.setValue(new_bill.getWater_bill());
 
-        
-        //check room then set new value(?)
+// Update an existing document
+        DocumentReference docRef = db_cloud.collection("Resident")
+                .document(c_auth.getCurrentUser().getUid())
+                .collection(_number_room)
+                .document("bill");
+        docRef.update("Water_bill", meter);
         //commit to firebase
     }
 
