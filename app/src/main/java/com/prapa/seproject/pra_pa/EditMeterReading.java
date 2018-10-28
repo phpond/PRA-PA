@@ -88,9 +88,10 @@ public class EditMeterReading extends Fragment {
     // update to firebase
     private void updatetoFireBase(Room _room, Bill new_bill) {
         //replace previous bill by new bill(not yet)
-        Bill previous_bill = new Bill(_room, 120, "FEB", "10/05/2018");
+        //get dbref
 
         //check room then set new value(?)
+
         //commit to firebase
     }
 
