@@ -52,41 +52,18 @@ public class EditMeterReading extends Fragment {
 
     void getDataFromFirebase(final int room_num){
 
-//        fStore.collection("“myfitness”")
-//                .document(_mAuth.getCurrentUser().getUid())
-//                .collection("weight")
-//                .orderBy("date")
-//                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//            @Override
-//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                _weightAdapter.clear();
-//                for (QueryDocumentSnapshot doc: queryDocumentSnapshots) {
-//                    weights.add(doc.toObject(Weight.class));
-//                    Log.d("WEIGHT", "SUCCESS DATE : "+doc.getId());
-//                }
-//                _weightAdapter.notifyDataSetChanged();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("WEIGHT", "GET DATA ON FAIL");
-//
-//            }
-//
-//        });
+
 
     }
 
 
 
     //edit_submit button on click
-    private void EditSubmitBtn(){
+    private void EditSubmitBtn(final int room_num){
         Button edit_submit = getView().findViewById(R.id.submit_btn_meter_edit_water_bill);
         edit_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 //get string
                 String meter = ((EditText)(getView().findViewById(R.id.water_meter_edit_water_bill))).getText().toString();
@@ -94,7 +71,7 @@ public class EditMeterReading extends Fragment {
                 String date = ((EditText)(getView().findViewById(R.id.date_meter_edit_water_bill))).getText().toString();
 
                 //pack new string in a new bill
-//                final Bill bill = new Bill(room_num, meter, month, date);
+                final Bill bill = new Bill(room_num, meter, month, date);
                 updatetoFireBase();
             }
         });
@@ -115,58 +92,13 @@ public class EditMeterReading extends Fragment {
 
 
 
-//    public EditMeterReadingFragment(String new_reading, String new_month, String new_date){
-//        this.new_reading = new_reading;
-//        this.new_month = new_month;
-//        this.new_date = new_date;
-//    }
 
-    //get post value from firebase
-
-    //update new value
-//    @Exclude
-//    public Map<String, Object> toMap() {
-//        HashMap<String, Object> result = new HashMap<>();
-//        result.put("uid", uid);
-//        result.put("author", author);
-//        result.put("title", title);
-//        result.put("body", body);
-//        result.put("starCount", starCount);
-//
-//        return result;
-//    }
 
 
     
 
 
-//    private void showUpdateBill(final String uId, String artistName) {
-//
-//
-//
-//        final EditText editMeter = (EditText) dialogView.findViewById(R.id.water_meter_edit_water_bill);
-//        final EditText editMonth = (EditText) dialogView.findViewById(R.id.month_meter_edit_water_bill);
-//        final EditText editDate = (EditText) dialogView.findViewById(R.id.date_meter_edit_water_bill);
-//        final Button buttonSubmit = (Button) dialogView.findViewById(R.id.submit_btn_meter_edit_water_bill);
-//
-//        dialogBuilder.setTitle(artistName);
-//        final AlertDialog b = dialogBuilder.create();
-//        b.show();
-//
-//
-//        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String meter = editMeter.getText().toString().trim();
-//                String month = editMonth.getText().toString().trim();
-//                String date = editDate.getText().toString().trim();
-//                String room =
-//                if (!TextUtils.isEmpty(meter)) {
-//                    updateBill(room, month, meter, date);
-//                    b.dismiss();
-//                }
-//            }
-//        });
+
 
 
 
