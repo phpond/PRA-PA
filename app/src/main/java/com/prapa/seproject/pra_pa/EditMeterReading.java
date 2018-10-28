@@ -45,12 +45,12 @@ public class EditMeterReading extends Fragment {
         //get current room (not yet)
         c_auth.getCurrentUser().getUid();
         Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
-//                final int room_num = 23;
-        getDataFromFirebase(current_room);
+                final int room_num = 23;
+        getDataFromFirebase(room_num);
         EditSubmitBtn();
     }
 
-    void getDataFromFirebase(final Room current_room){
+    void getDataFromFirebase(final int room_num){
 
 //        fStore.collection("“myfitness”")
 //                .document(_mAuth.getCurrentUser().getUid())
@@ -78,7 +78,7 @@ public class EditMeterReading extends Fragment {
 
     }
 
-}
+
 
     //edit_submit button on click
     private void EditSubmitBtn(){
