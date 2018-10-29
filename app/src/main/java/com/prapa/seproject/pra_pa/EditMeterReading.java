@@ -78,6 +78,7 @@ public class EditMeterReading extends Fragment {
         });
     }
     //get previous bill from db by _room
+    //get previous bill from db by _room
 
 //    void getDataFromFirebase(Room _room){
 //
@@ -90,8 +91,22 @@ public class EditMeterReading extends Fragment {
         //replace previous bill by new bill(not yet)
         //get dbref
 
-        
         //check room then set new value(?)
+
+//    void getDataFromFirebase(Room _room){
+//
+//    Bill previous_bill = new Bill(_room, 120, "FEB", "10/05/2018");
+//    updatetoFireBase(previous_bill, _room);
+//    }
+
+    // update to firebase
+    private void updatetoFireBase(Room _room, Bill new_bill) {
+        //replace previous bill by new bill(not yet)
+        //get dbref
+
+
+        //check room then set new value(?)
+        //commit to firebase
         //commit to firebase
     }
 
@@ -106,7 +121,7 @@ public class EditMeterReading extends Fragment {
 
 
 
-    
+
 
 
 
