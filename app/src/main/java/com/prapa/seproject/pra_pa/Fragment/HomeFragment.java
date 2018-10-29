@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new RecordWaterFragment())
+                        .replace(R.id.main_view, new ChoosePlanFragment())
                         .addToBackStack(null).commit();
                 Log.d("HOME", "Go to Record");
             }

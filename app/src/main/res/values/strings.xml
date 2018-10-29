@@ -12,6 +12,7 @@
 
     <!--record_water_will-->
     <string name="title_record">Record a water bill</string>
+    <string name="room_id">A101</string>
 
     <!--choose_plan-->
     <string name="title_choose_plan">Plan</string>

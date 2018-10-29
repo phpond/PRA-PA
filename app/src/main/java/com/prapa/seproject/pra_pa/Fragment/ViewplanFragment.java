@@ -1,4 +1,4 @@
-package com.prapa.seproject.pra_pa;
+package com.prapa.seproject.pra_pa.Fragment;
 
 import android.os.Bundle;
 
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Room;
 
 import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 

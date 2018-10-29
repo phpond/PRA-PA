@@ -47,11 +47,14 @@ public class RecordWaterFragment extends Fragment {
             public void onClick(View v) {
                 final Room _room = new Room("A", 1, 03);
 
-                String _meterstr = ((EditText)(getView().findViewById(R.id.water_meter_record_water_bill))).getText().toString();
+                String _meterStr = ((EditText)(getView().findViewById(R.id.water_meter_record_water_bill))).getText().toString();
                 String _month = ((EditText)(getView().findViewById(R.id.month_meter_record_water_bill))).getText().toString();
                 String _date = ((EditText)(getView().findViewById(R.id.date_meter_record_water_bill))).getText().toString();
-                Log.d("RECORD", "XXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                Log.d("RECORD", "xxx : "+_meterstr+_month+_date);
+
+                if(_meterStr.isEmpty() || _month.isEmpty() || _date.isEmpty()){
+                    Toast.makeText(getActivity(), "Please fill information", Toast.LENGTH_SHORT).show();
+                    Log.d("RECORD", "Information is empty");
+                }
 
                 final int _meter = 23;
 //        final String _month = "FEB";
@@ -60,15 +63,15 @@ public class RecordWaterFragment extends Fragment {
                 final Bill _bill = new Bill(_room,_meter, _month, _date);
 
                 Log.d("RECORD", "Before up to firebase");
-                upToFireBase(_room, _bill);
+                upToFireBase(_bill);
             }
         });
     }
 
-    private void upToFireBase(Room _room, Bill _bill)
+    private void upToFireBase(Bill _bill)
     {
         Log.d("RECORD", "ก่อนเข้า"+_fbfs);
-        String _number_room = _room.getPhase()+String.valueOf(_room.getFloor())+_room.getNumber_room();
+        String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
 
         _fbfs.collection("Resident")
                 .document(_muth.getCurrentUser().getUid())
