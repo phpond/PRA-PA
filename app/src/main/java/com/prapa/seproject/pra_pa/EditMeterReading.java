@@ -34,7 +34,6 @@ public class EditMeterReading extends Fragment {
 //    FirebaseDatabase database = FirebaseDatabase.getInstance();
 //    DatabaseReference myRef1 = FirebaseDatabase.getInstance().getReference(); //Getting root reference
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth c_auth = FirebaseAuth.getInstance();
 
     @Nullable
@@ -47,8 +46,8 @@ public class EditMeterReading extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //get current room (not yet)
-        c_auth.getCurrentUser().getUid();
-        Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
+//        c_auth.getCurrentUser().getUid();
+//        Log.d("room", "GET DATA OF "+c_auth.getCurrentUser().getUid());
 //                final int room_num = 23;
 //        final Room _room = new Room("A", 1, 03);
 //        int room_num = _room.getNumber_room();
@@ -78,9 +77,6 @@ public class EditMeterReading extends Fragment {
                 //pack new data into new bill
 //                final Bill new_bill = new Bill(_room, meter, month, date);
                 UpdatetoFireBase(_room, _bill, meter, month, date);
-                final Bill new_bill = new Bill(_room, meter, month, date);
-                updatetoFireBase(new_bill);
-
             }
         });
     }
@@ -93,25 +89,22 @@ public class EditMeterReading extends Fragment {
 //    }
 
     // update to firebase
-    private void updatetoFireBase(Bill new_bill) {
-        //replace previous bill by new bill(not yet)
-        //get dbref
+    private void UpdatetoFireBase(Room _room, Bill _bill, int meter, String month, String date) {
+        //replace previous bill by new value
+        _bill.setWater_bill(meter);
+        _bill.setMonth(month);
+        _bill.setRecord_date(date);
+        String _number_room = _room.getPhase()+String.valueOf(_room.getFloor())+_room.getNumber_room();
+//        myRef1.child()
+//        DatabaseReference myRef = myRef1.child("waterbill"); //Write your child reference if any
+//        myRef.setValue(new_bill.getWater_bill());
 
-        //check room then set new value(?)
-
-//    void getDataFromFirebase(Room _room){
-//
-//    Bill previous_bill = new Bill(_room, 120, "FEB", "10/05/2018");
-//    updatetoFireBase(previous_bill, _room);
-    }
-
-    // update to firebase
-    private void updatetoFireBase(Room _room, Bill new_bill) {
-        //replace previous bill by new bill(not yet)
-        //get dbref
-
-        
-        //check room then set new value(?)
+// Update an existing document
+        DocumentReference docRef = db_cloud.collection("Resident")
+                .document(c_auth.getCurrentUser().getUid())
+                .collection(_number_room)
+                .document("bill");
+        docRef.update("Water_bill", meter);
         //commit to firebase
     }
 
