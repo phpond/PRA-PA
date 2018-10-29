@@ -18,7 +18,7 @@
                 android:layout_width="403dp"
                 android:layout_height="215dp"
                 android:layout_marginBottom="50dp"
-                android:src="@drawable/plum_condo"
+                android:src="@drawable/prapalogo"
                 android:layout_gravity="center_horizontal"/>
 
             <Button

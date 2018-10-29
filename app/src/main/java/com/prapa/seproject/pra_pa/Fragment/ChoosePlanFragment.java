@@ -1,4 +1,4 @@
-package com.prapa.seproject.pra_pa;
+package com.prapa.seproject.pra_pa.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Room;
 
 public class ChoosePlanFragment extends Fragment {
 
