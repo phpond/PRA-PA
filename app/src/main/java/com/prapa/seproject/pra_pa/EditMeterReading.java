@@ -67,7 +67,7 @@ public class EditMeterReading extends Fragment {
         edit_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Room _room = new Room("A", 1, 03);
+                final Room _room = new Room("A", 1, "03");
                 //get string
                 int meter = Integer.parseInt(((EditText)(getView().findViewById(R.id.water_meter_edit_water_bill))).getText().toString());
                 String month = ((EditText)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
