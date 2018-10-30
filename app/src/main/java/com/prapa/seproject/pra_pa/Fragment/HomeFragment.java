@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.prapa.seproject.pra_pa.ChoosePlanFragment;
 import com.prapa.seproject.pra_pa.R;
 
 public class HomeFragment extends Fragment {
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new RecordWaterFragment())
+                        .replace(R.id.main_view, new ChoosePlanFragment())
                         .addToBackStack(null).commit();
                 Log.d("HOME", "Go to Record");
             }

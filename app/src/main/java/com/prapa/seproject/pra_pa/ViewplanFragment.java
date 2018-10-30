@@ -206,21 +206,21 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
                 Phase = nr.getPhase();
                 Floor = nr.getFloor();
-                nr.setNumber_room(Integer.parseInt(NumberRoom));
+                // เลขห้องที่กดเข้าไป แล้วจะได้ตัวนี้ออกมา EX: A309 เป็นต้น
+                NumberRoomStr = Phase+Floor+NumberRoom;
+
+               bundle.putParcelable("PhaseAndFloor", nr);
 
                 Log.d("VIEWPLAN", "GOTO RECORD : Room " + Phase + Floor + NumberRoom);
             }
 
-            // เลขห้องที่กดเข้าไป แล้วจะได้ตัวนี้ออกมา EX: A309 เป็นต้น
-            NumberRoomStr = Phase+Floor+NumberRoom;
-
             if(!CheckData(NumberRoomStr)){
                 Log.d("VIEWPLAN","GOTO RECORD WATER ROOM" + NumberRoomStr);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).addToBackStack(null).commit();
             }
             else{
                 Log.d("VIEWPLAN","GOTO EDIT BILL WATER ROOM" + NumberRoomStr);
-                getActivity(). getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditMeterReading()).commit();
+                getActivity(). getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditMeterReading()).addToBackStack(null).commit();
             }
 
     }

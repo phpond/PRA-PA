@@ -63,10 +63,14 @@ public class ChoosePlanFragment extends Fragment {
 
        Fragment fragmentGet = new ViewplanFragment();
        fragmentGet.setArguments(bundle);
+      /*
        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
        fragmentTransaction.replace(R.id.main_view, fragmentGet);
        fragmentTransaction.addToBackStack(null);
        fragmentTransaction.commit();
+
+       */
+       getActivity(). getSupportFragmentManager().beginTransaction().replace(R.id.main_view, fragmentGet).addToBackStack(null).commit();
    }
 }
