@@ -1,4 +1,4 @@
-package com.prapa.seproject.pra_pa;
+package com.prapa.seproject.pra_pa.Fragment;
 
 import android.os.Bundle;
 
@@ -12,28 +12,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Room;
+
 import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
+
+import org.w3c.dom.Text;
+
+import java.util.concurrent.Phaser;
 
 
 public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
-    FirebaseAuth _mAth;
-    FirebaseFirestore database = FirebaseFirestore.getInstance();
+    protected static Room _roomOnclick;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_viewplan, container, false);
-
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
 
         ImageView one = getView().findViewById(R.id.top_1_view_plan);
         one.setOnClickListener(this); // calling onClick() method
@@ -61,7 +62,6 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         twelve.setOnClickListener(this);
 
         ShowPhaseAndFloor();
-
 
     }
 
@@ -195,42 +195,19 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
         void gotoRecordPage(String NumberRoom){
 
-            Room nr = new Room();
-            String Phase = "";
-            String NumberRoomStr = "";
-            int Floor = 0;
+            Room nr;
             Bundle bundle = this.getArguments();
             if (bundle != null) {
 
                 nr = bundle.getParcelable("PhaseAndFloor");
 
-                Phase = nr.getPhase();
-                Floor = nr.getFloor();
-                // เลขห้องที่กดเข้าไป แล้วจะได้ตัวนี้ออกมา EX: A309 เป็นต้น
-                NumberRoomStr = Phase+Floor+NumberRoom;
+                String Phase = nr.getPhase();
+                int Floor = nr.getFloor();
+                nr.setNumber_room(NumberRoom);
 
-               bundle.putParcelable("PhaseAndFloor", nr);
-
+                _roomOnclick = nr;
                 Log.d("VIEWPLAN", "GOTO RECORD : Room " + Phase + Floor + NumberRoom);
             }
-
-            if(!CheckData(NumberRoomStr)){
-                Log.d("VIEWPLAN","GOTO RECORD WATER ROOM" + NumberRoomStr);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).addToBackStack(null).commit();
-            }
-            else{
-                Log.d("VIEWPLAN","GOTO EDIT BILL WATER ROOM" + NumberRoomStr);
-                getActivity(). getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditMeterReading()).addToBackStack(null).commit();
-            }
-
-    }
-
-    boolean CheckData(String NumberRoomStr){
-
-
-
-
-
-        return false;
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();
     }
 }

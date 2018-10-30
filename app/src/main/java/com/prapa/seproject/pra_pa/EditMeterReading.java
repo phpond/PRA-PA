@@ -36,8 +36,6 @@ public class EditMeterReading extends Fragment {
 
     FirebaseAuth c_auth = FirebaseAuth.getInstance();
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,28 +80,52 @@ public class EditMeterReading extends Fragment {
             }
         });
     }
+    //get previous bill from db by _room
+
+//    void getDataFromFirebase(Room _room){
+//
+//    Bill previous_bill = new Bill(_room, 120, "FEB", "10/05/2018");
+//    updatetoFireBase(previous_bill, _room);
+//    }
 
     // update to firebase
     private void UpdatetoFireBase(Room _room, Bill _bill, int meter, String month, String date) {
-        //update previous bill in History
-        String _number_room = _room.getPhase()+String.valueOf(_room.getFloor())+_room.getNumber_room();
-//        DocumentReference docRef = db_cloud.collection("Resident")
-//                .document(c_auth.getCurrentUser().getUid())
-//                .collection(_number_room)
-//                .document("bill");
-//        docRef.update("Water_Bill_History", _bill);
-
+        //replace previous bill by new value
         _bill.setWater_bill(meter);
         _bill.setMonth(month);
         _bill.setRecord_date(date);
+        String _number_room = _room.getPhase()+String.valueOf(_room.getFloor())+_room.getNumber_room();
+//        myRef1.child()
+//        DatabaseReference myRef = myRef1.child("waterbill"); //Write your child reference if any
+//        myRef.setValue(new_bill.getWater_bill());
 
-        // Update an existing document
+// Update an existing document
         DocumentReference docRef = db_cloud.collection("Resident")
                 .document(c_auth.getCurrentUser().getUid())
                 .collection(_number_room)
                 .document("bill");
-        docRef.update("Water_Bill", _bill);
-
+        docRef.update("Water_bill", meter);
+        //commit to firebase
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
 
 }

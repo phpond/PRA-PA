@@ -6,11 +6,11 @@ import android.os.Parcelable;
 public class Room implements Parcelable {
     private String phase;
     private int floor;
-    private int number_room;
+    private String number_room;
 
     public Room() { }
 
-    public Room(String phase, int floor, int number_room) {
+    public Room(String phase, int floor, String number_room) {
         this.phase = phase;
         this.floor = floor;
         this.number_room = number_room;
@@ -32,11 +32,11 @@ public class Room implements Parcelable {
         this.floor = floor;
     }
 
-    public int getNumber_room() {
+    public String getNumber_room() {
         return number_room;
     }
 
-    public void setNumber_room(int number_room) {
+    public void setNumber_room(String number_room) {
         this.number_room = number_room;
     }
 
@@ -48,10 +48,9 @@ public class Room implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
-
             dest.writeString(phase);
             dest.writeInt(floor);
-            dest.writeInt(number_room);
+            dest.writeString(number_room);
         }
 
         public static final Parcelable.Creator<Room> CREATOR =
