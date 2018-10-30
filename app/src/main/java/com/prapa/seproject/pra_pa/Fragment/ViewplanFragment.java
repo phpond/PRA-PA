@@ -24,18 +24,17 @@ import java.util.concurrent.Phaser;
 
 public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
+    protected static Room _roomOnclick;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_viewplan, container, false);
-
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
 
         ImageView one = getView().findViewById(R.id.top_1_view_plan);
         one.setOnClickListener(this); // calling onClick() method
@@ -63,7 +62,6 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         twelve.setOnClickListener(this);
 
         ShowPhaseAndFloor();
-
 
     }
 
@@ -198,8 +196,6 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         void gotoRecordPage(String NumberRoom){
 
             Room nr;
-
-
             Bundle bundle = this.getArguments();
             if (bundle != null) {
 
@@ -207,8 +203,9 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
                 String Phase = nr.getPhase();
                 int Floor = nr.getFloor();
-                nr.setNumber_room(Integer.parseInt(NumberRoom));
+                nr.setNumber_room(NumberRoom);
 
+                _roomOnclick = nr;
                 Log.d("VIEWPLAN", "GOTO RECORD : Room " + Phase + Floor + NumberRoom);
             }
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).commit();

@@ -7,7 +7,7 @@
     <string name="text_enter_month">Enter a month of bill</string>
     <string name="text_enter_record_date">Enter a record date</string>
     <string name="topic_water_meter">Water Meter :</string>
-    <string name="topic_month">Month of bill :</string>
+    <string name="topic_month">Year/Month of bill :</string>
     <string name="topic_date">Record Date : </string>
 
     <!--record_water_will-->

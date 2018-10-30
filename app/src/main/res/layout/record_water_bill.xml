@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,6 +22,13 @@
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="50dp"/>
 
+            <TextView
+                android:id="@+id/room_id_record_water_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/room_id"
+                android:textSize="20sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,7 +37,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal">
 
-                <!--water mether-->
+                <!--water meter-->
                 <TextView
                     android:id="@+id/water_meter_topic_record_water_bill"
                     android:layout_width="wrap_content"
@@ -62,11 +67,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/topic_month"/>
-                <EditText
+                <TextView
                     android:id="@+id/month_meter_record_water_bill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:ems="10"
+                    android:textSize="18sp"
                     android:hint="@string/text_enter_month"/>
 
             </LinearLayout>
@@ -84,15 +91,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/topic_date" />
-                <EditText
+                <TextView
                     android:id="@+id/date_meter_record_water_bill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:ems="10"
+                    android:textSize="18sp"
                     android:hint="@string/text_enter_record_date" />
 
             </LinearLayout>
-
 
             <!--submit btn-->
             <Button
@@ -106,55 +114,6 @@
         </LinearLayout>
 
     </ScrollView>
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Phase : "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="100dp" />
 
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="64dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Phase"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Floor :"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="100dp" />
-
-    <EditText
-        android:id="@+id/editText7"
-        tools:layout_editor_absoluteY="86dp"
-        android:layout_width="64dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Floor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
