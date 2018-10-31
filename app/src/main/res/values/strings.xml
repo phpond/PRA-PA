@@ -4,8 +4,8 @@
     <!--edit_water_bill-->
     <string name="title_edit">Edit a water bill</string>
     <string name="text_enter_meters">Enter a water meter</string>
-    <string name="text_enter_month">Enter a month of bill</string>
-    <string name="text_enter_record_date">Enter a record date</string>
+    <string name="text_enter_month">MM/YYYY</string>
+    <string name="text_enter_record_date">DD/MM/YYYY</string>
     <string name="topic_water_meter">Water Meter :</string>
     <string name="topic_month">Year/Month of bill :</string>
     <string name="topic_date">Record Date : </string>
@@ -27,13 +27,22 @@
     <string name="legal_person_btn">legal person</string>
     <string name="des_img">logo_PRA-PA</string>
 
+    <!--show bill-->
+    <string name="topic_showBill">WATER BILL</string>
+    <string name="sample_price_total">899</string>
+    <string name="bath">฿</string>
+    <string name="name_topic">NAME</string>
+    <string name="topic_room">ROOM ID</string>
+    <string name="sample_meter">0</string>
+
     <!--resident choose room-->
     <string name="topic_resident_choose">Enter you room</string>
+
+    <!--Viewplan-->
+    <string name="number_room">N/A</string>
 
 
     <!--global-->
     <string name="submit_btn">SUBMIT</string>
-
-
 
 </resources>
