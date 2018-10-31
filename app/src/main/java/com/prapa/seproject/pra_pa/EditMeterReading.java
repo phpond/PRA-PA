@@ -92,8 +92,6 @@ public class EditMeterReading extends Fragment {
         EditSubmitBtn();
         initBillCalendar();
         initDateRecordCalendar();
-
-
     }
 
     private void setTextOnFragment(Bill _bill){
@@ -234,11 +232,11 @@ public class EditMeterReading extends Fragment {
 
         // Update bill
                 db_cloud.collection("Resident")
-                .document(c_auth.getCurrentUser().getUid())
-                .collection(_number_room)
-                .document("bill")
-                .set(_bill);
-
+//                .document(c_auth.getCurrentUser().getUid())
+                .document("USER")
+                        .collection(_number_room)
+                        .document(_bill.getMonth()+_bill.getYear())
+                        .set(_bill);
 
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
