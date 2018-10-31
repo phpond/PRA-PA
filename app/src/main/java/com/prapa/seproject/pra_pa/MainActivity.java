@@ -6,12 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-<<<<<<< HEAD
-import com.prapa.seproject.pra_pa.Fragment.EditRecordFragment;
-import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
-=======
 import com.prapa.seproject.pra_pa.Fragment.HomeFragment;
->>>>>>> 1b2e4d46fb208a808b553e0d9fec751b096ced13
 
 public class MainActivity extends AppCompatActivity {
 
