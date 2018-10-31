@@ -35,6 +35,13 @@
     <string name="topic_room">ROOM ID</string>
     <string name="sample_meter">0</string>
 
+    <!--resident choose room-->
+    <string name="topic_resident_choose">Enter you room</string>
+
+    <!--Viewplan-->
+    <string name="number_room">N/A</string>
+
+
     <!--global-->
     <string name="submit_btn">SUBMIT</string>
 

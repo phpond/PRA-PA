@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.prapa.seproject.pra_pa.Fragment.ChoosePlanFragment;
 import com.prapa.seproject.pra_pa.Fragment.HomeFragment;
+import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
