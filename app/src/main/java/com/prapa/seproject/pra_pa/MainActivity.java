@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.prapa.seproject.pra_pa.Fragment.ChoosePlanFragment;
 import com.prapa.seproject.pra_pa.Fragment.HomeFragment;
+import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditMeterReading()).commit();
         }
     }
 }

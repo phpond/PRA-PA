@@ -1,107 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--title-->
-    <TextView
-        android:id="@+id/title_edit_water_bill"
-        android:layout_width="153dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/title_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="40dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+            <!--title-->
+            <TextView
+                android:id="@+id/title_edit_water_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/title_edit" />
 
-    <!--water mether-->
-    <TextView
-        android:id="@+id/water_meter_topic_edit_water_bill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/topic_water_meter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="99dp" />
-    <EditText
-        android:id="@+id/water_meter_edit_water_bill"
-        android:layout_width="174dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/text_enter_meters"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="86dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-    <!--month-->
-    <TextView
-        android:id="@+id/month_topic_edit_water_bill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/topic_month"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="149dp" />
-    <EditText
-        android:id="@+id/month_meter_edit_water_bill"
-        android:layout_width="174dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/text_enter_month"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.618"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="137dp" />
+                <!--water mether-->
+                <TextView
+                    android:id="@+id/water_meter_topic_edit_water_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/topic_water_meter" />
+                <EditText
+                    android:id="@+id/water_meter_edit_water_bill"
+                    android:layout_width="174dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:hint="@string/text_enter_meters"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
 
-    <!--date-->
-    <TextView
-        android:id="@+id/date_topic_edit_water_bill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/topic_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="198dp" />
-    <EditText
-        android:id="@+id/date_meter_edit_water_bill"
-        android:layout_width="174dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="128dp"
-        android:ems="10"
-        android:hint="@string/text_enter_record_date"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="190dp" />
 
-    <!--submit btn-->
-    <Button
-        android:id="@+id/submit_btn_meter_edit_water_bill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/submit_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="265dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
+
+                <!--month-->
+                <TextView
+                    android:id="@+id/month_topic_edit_water_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/topic_month" />
+                <EditText
+                    android:id="@+id/month_meter_edit_water_bill"
+                    android:layout_width="174dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:hint="@string/text_enter_month"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
+                <!--date-->
+                <TextView
+                    android:id="@+id/date_topic_edit_water_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/topic_date" />
+                <EditText
+                    android:id="@+id/date_meter_edit_water_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ems="10"
+                    android:hint="@string/text_enter_record_date"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <!--submit btn-->
+            <Button
+                android:id="@+id/submit_btn_meter_edit_water_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/submit_btn" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
