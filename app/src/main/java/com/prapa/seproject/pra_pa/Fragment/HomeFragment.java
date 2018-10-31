@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new ShowBillFragment())
+                        .replace(R.id.main_view, new ResidentFragment())
                         .addToBackStack(null).commit();
             }
         });
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
 
     private void initLegalPersonBtn(){
         Log.d("HOME", "click legal person btn");
-        Button _residentBtn = getView().findViewById(R.id.resident_btn_home);
+        Button _residentBtn = getView().findViewById(R.id.legal_person_btn_home);
         _residentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
