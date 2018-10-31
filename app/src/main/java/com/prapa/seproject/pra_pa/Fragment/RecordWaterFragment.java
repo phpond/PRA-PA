@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
-import com.prapa.seproject.pra_pa.Fragment.ViewplanFragment;
 import com.prapa.seproject.pra_pa.Room;
 
 import java.util.Calendar;
@@ -72,11 +71,13 @@ public class RecordWaterFragment extends Fragment {
                 String _month = ((TextView)(getView().findViewById(R.id.month_meter_record_water_bill))).getText().toString();
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_record_water_bill))).getText().toString();
 
+                String[] _monthYear = _month.split("/");
+
                 if(_meterStr.isEmpty() || _month.isEmpty() || _date.isEmpty()){
                     Toast.makeText(getActivity(), "Please fill information", Toast.LENGTH_SHORT).show();
                     Log.d("RECORD", "Information is empty");
                 }else{
-                    final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _month, _date);
+                    final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
                     Log.d("RECORD", "Before up to firebase");
                     upToFireBase(_bill);
                 }
@@ -140,25 +141,26 @@ public class RecordWaterFragment extends Fragment {
     //up data to firebase
     private void upToFireBase(Bill _bill)
     {
-        Log.d("RECORD", "ก่อนเข้า"+_fbfs);
+        Log.d("RECORD", "Up to firebase"+_fbfs);
         String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
-
         _fbfs.collection("Resident")
-                .document(_muth.getCurrentUser().getUid())
+//                .document(_muth.getCurrentUser().getUid())
+                .document("USER")
                 .collection(_number_room)
-                .document("bill")
+                .document(_bill.getMonth()+_bill.getYear())
                 .set(_bill)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d("RECORD", "SUCCESS");
                 Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ChoosePlanFragment()).addToBackStack(null).commit();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d("RECORD", "FAILED");
-                Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
             }
         });
     }
