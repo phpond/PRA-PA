@@ -17,11 +17,12 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prapa.seproject.pra_pa.Fragment.ChoosePlanFragment;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -77,6 +78,11 @@ public class EditMeterReading extends Fragment {
                 //pack new data into new bill
 //                final Bill new_bill = new Bill(_room, meter, month, date);
                 UpdatetoFireBase(_room, _bill, meter, month, date);
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new ChoosePlanFragment())
+                        .addToBackStack(null).commit();
+                Log.d("HOME", "Go to Record");
             }
         });
     }
@@ -105,6 +111,7 @@ public class EditMeterReading extends Fragment {
                 .collection(_number_room)
                 .document("bill");
         docRef.update("Water_bill", meter);
+
         //commit to firebase
     }
 
