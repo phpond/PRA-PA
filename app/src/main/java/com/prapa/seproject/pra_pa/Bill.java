@@ -7,6 +7,9 @@ public class Bill {
     private int water_bill;
     private String record_date;
 
+    private int total_price_bill;
+    private int price_meter = 18;
+
     private String status = "ยังไม่ชำระเงิน";
 
     public Bill(Room room, int water_bill,String month,  String record_date) {
@@ -14,6 +17,7 @@ public class Bill {
         this.month = month;
         this.water_bill = water_bill;
         this.record_date = record_date;
+        calculateBill();
     }
 
     public Room getRoom() {
@@ -54,5 +58,25 @@ public class Bill {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getPrice_meter() {
+        return price_meter;
+    }
+
+    public void setPrice_meter(int price_meter) {
+        this.price_meter = price_meter;
+    }
+
+    public int getTotal_price_bill() {
+        return total_price_bill;
+    }
+
+    public void setTotal_price_bill(int total_peice_bill) {
+        this.total_price_bill = total_peice_bill;
+    }
+
+    private void calculateBill(){
+        total_price_bill = water_bill*price_meter;
     }
 }

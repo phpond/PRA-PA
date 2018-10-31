@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.prapa.seproject.pra_pa.EditMeterReading;
 import com.prapa.seproject.pra_pa.R;
 
 public class HomeFragment extends Fragment {
@@ -27,23 +28,24 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         _mAth.signInAnonymously();
-        Log.d("HOME", "sign in");
+        Log.d("HOME", "sign in with - "+_mAth.getCurrentUser());
         initResidentBtn();
         initStaffBtn();
         initLegalPersonBtn();
     }
 
     private void initResidentBtn(){
+        Log.d("HOME", "click resident btn");
         Button _residentBtn = getView().findViewById(R.id.resident_btn_home);
-//        _residentBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.main_view, new RecordWaterFragment())
-//                        .addToBackStack(null).commit();
-//            }
-//        });
+        _residentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new ShowBillFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
     }
 
     private void initStaffBtn(){
@@ -62,7 +64,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void initLegalPersonBtn(){
-
+        Log.d("HOME", "click legal person btn");
+        Button _residentBtn = getView().findViewById(R.id.resident_btn_home);
+        _residentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new EditMeterReading())
+                        .addToBackStack(null).commit();
+            }
+        });
     }
 
 }

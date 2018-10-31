@@ -35,6 +35,8 @@ public class RecordWaterFragment extends Fragment {
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
     private DatePickerDialog.OnDateSetListener mDateDataListener2;
+
+    private Room _room;
 //    String[] _month = {"ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."};
 //    String[] _month = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
@@ -47,6 +49,11 @@ public class RecordWaterFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //set room id
+        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
+        _room = ViewplanFragment._roomOnclick;
+        _roomID.setText(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
 
         //check on click
         initSubmitBtn();
@@ -61,7 +68,6 @@ public class RecordWaterFragment extends Fragment {
         _submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Room _room = ViewplanFragment._roomOnclick;
                 String _meterStr = ((EditText)(getView().findViewById(R.id.water_meter_record_water_bill))).getText().toString();
                 String _month = ((TextView)(getView().findViewById(R.id.month_meter_record_water_bill))).getText().toString();
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_record_water_bill))).getText().toString();
@@ -71,14 +77,12 @@ public class RecordWaterFragment extends Fragment {
                     Log.d("RECORD", "Information is empty");
                 }else{
                     final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _month, _date);
-
                     Log.d("RECORD", "Before up to firebase");
                     upToFireBase(_bill);
                 }
 
             }
         });
-
     }
 
     private void initBillCalendar(){

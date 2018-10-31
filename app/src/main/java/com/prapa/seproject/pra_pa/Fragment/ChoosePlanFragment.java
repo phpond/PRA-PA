@@ -59,7 +59,7 @@ public class ChoosePlanFragment extends Fragment {
        int _floorInt = Integer.parseInt(_floorStr);
        nr.setPhase(_phaseStr);
        nr.setFloor(_floorInt);
-       nr.setNumber_room(0);
+       nr.setNumber_room("0");
 
        Bundle bundle = new Bundle();
        bundle.putParcelable("PhaseAndFloor", nr);
