@@ -18,6 +18,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Room;
 
 public class ShowBillFragment extends Fragment {
 
@@ -33,7 +34,9 @@ public class ShowBillFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getDataFromFirebase("A401");
+        Room _room = ResidentChooseFragment._chooseRoom;
+        Log.d("SHOW_BILL", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
+        getDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
     }
 
     private void setTextOnFragment(Bill _bill){

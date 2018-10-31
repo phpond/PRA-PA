@@ -26,7 +26,8 @@
 
         <Button
 
-            android:id="@+id/submit_btn_resident" android:layout_width="match_parent"
+            android:id="@+id/submit_btn_resident"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/submit_btn"
             />

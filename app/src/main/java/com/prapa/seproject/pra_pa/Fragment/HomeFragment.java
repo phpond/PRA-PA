@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new ShowBillFragment())
+                        .replace(R.id.main_view, new ResidentChooseFragment())
                         .addToBackStack(null).commit();
             }
         });
