@@ -65,8 +65,8 @@ public class HomeFragment extends Fragment {
 
     private void initLegalPersonBtn(){
         Log.d("HOME", "click legal person btn");
-        Button _residentBtn = getView().findViewById(R.id.resident_btn_home);
-        _residentBtn.setOnClickListener(new View.OnClickListener() {
+        Button _legalBtn = getView().findViewById(R.id.legal_person_btn_home);
+        _legalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
