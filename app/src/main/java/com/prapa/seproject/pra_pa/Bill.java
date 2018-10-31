@@ -4,7 +4,9 @@ public class Bill {
     private Room room;
 
     private String month;
+    private String year;
     private int water_bill;
+    private int history_water_bill = 0;
     private String record_date;
 
     private int total_price_bill;
@@ -12,20 +14,14 @@ public class Bill {
 
     private String status = "ยังไม่ชำระเงิน";
 
-    public Bill(Room room, int water_bill,String month,  String record_date) {
+    public Bill(){}
+    public Bill(Room room, int water_bill, String month, String year, String record_date) {
         this.room = room;
         this.month = month;
+        this.year = year;
         this.water_bill = water_bill;
         this.record_date = record_date;
         calculateBill();
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 
     public String getMonth() {
@@ -34,6 +30,14 @@ public class Bill {
 
     public void setMonth(String month) {
         this.month = month;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public int getWater_bill() {
@@ -68,6 +72,14 @@ public class Bill {
         this.price_meter = price_meter;
     }
 
+    public int getHistory_water_bill() {
+        return history_water_bill;
+    }
+
+    public void setHistory_water_bill(int history_water_bill) {
+        this.history_water_bill = history_water_bill;
+    }
+
     public int getTotal_price_bill() {
         return total_price_bill;
     }
@@ -75,8 +87,18 @@ public class Bill {
     public void setTotal_price_bill(int total_peice_bill) {
         this.total_price_bill = total_peice_bill;
     }
-
     private void calculateBill(){
         total_price_bill = water_bill*price_meter;
     }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+
+
 }
