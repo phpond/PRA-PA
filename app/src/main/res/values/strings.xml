@@ -27,7 +27,13 @@
     <string name="legal_person_btn">legal person</string>
     <string name="des_img">logo_PRA-PA</string>
 
+    <!--resident choose room-->
+    <string name="topic_resident_choose">Enter you room</string>
+
+
     <!--global-->
     <string name="submit_btn">SUBMIT</string>
+
+
 
 </resources>
