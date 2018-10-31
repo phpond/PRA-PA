@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.prapa.seproject.pra_pa.EditMeterReading;
 import com.prapa.seproject.pra_pa.R;
 
 public class HomeFragment extends Fragment {
