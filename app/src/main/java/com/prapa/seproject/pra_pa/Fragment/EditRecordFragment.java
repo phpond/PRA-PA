@@ -1,4 +1,4 @@
-package com.prapa.seproject.pra_pa;
+package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -30,10 +30,13 @@ import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 import com.prapa.seproject.pra_pa.Fragment.ResidentChooseFragment;
 import com.prapa.seproject.pra_pa.Fragment.ShowBillFragment;
 import com.prapa.seproject.pra_pa.Fragment.ViewplanFragment;
+import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Room;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -43,7 +46,7 @@ import java.util.Map;
 
 import static android.support.constraint.Constraints.TAG;
 
-public class EditMeterReading extends Fragment {
+public class EditRecordFragment extends Fragment {
 
     FirebaseFirestore db_cloud = FirebaseFirestore.getInstance();
     FirebaseAuth c_auth = FirebaseAuth.getInstance();
@@ -52,25 +55,7 @@ public class EditMeterReading extends Fragment {
     private DatePickerDialog.OnDateSetListener mDateDataListener2;
 
     private Room _room;
-//    private void GetdataFromFirebase(String _room){
-//
-//        db_cloud.collection("Resident")
-//                .document(c_auth.getCurrentUser().getUid())
-//                .collection(_room)
-//                .document("bill")
-//                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//            @Override
-//            public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                documentSnapshot.toObject(Bill.class);
-//                Log.d("get previous bill", "get data from firebase SUCCESS!!");
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("get previous bill", "get data from firebase FAIL!!");
-//            }
-//        });
-//    }
+
 
     @Nullable
     @Override
@@ -84,7 +69,7 @@ public class EditMeterReading extends Fragment {
         //set room id
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
-         _room = ViewplanFragment._roomOnclick;
+         _room = new Room("A", 4, "01");
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
@@ -104,7 +89,6 @@ public class EditMeterReading extends Fragment {
 
         Log.d("EDIT", ""+_bill);
         try{
-
             _month.setText(_bill.getMonth()+"/"+_bill.getYear());
             _waterMeter.setText(String.valueOf(_bill.getWater_bill()));
             _recordDate.setText(_bill.getRecord_date());
@@ -130,7 +114,7 @@ public class EditMeterReading extends Fragment {
 
                 String[] _monthYear = _month.split("/");
                 final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
-                Log.d("RECORD", "Before up to firebase");
+                Log.d("edit", "new bill");
 
                 UpdatetoFireBase(_bill);
             }
@@ -158,7 +142,7 @@ public class EditMeterReading extends Fragment {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d("SHOW_BILL", "get data from firebase FAIL!!");
+                Log.d("Edit", "get data from firebase FAIL!!");
             }
         });
 
