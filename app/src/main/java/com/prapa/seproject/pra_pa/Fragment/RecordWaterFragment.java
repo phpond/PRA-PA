@@ -159,6 +159,8 @@ public class RecordWaterFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+
+
                 Log.d("RECORD", "FAILED");
                 Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
             }
