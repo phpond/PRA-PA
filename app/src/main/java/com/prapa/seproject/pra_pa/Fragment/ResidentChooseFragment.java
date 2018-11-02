@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
@@ -36,20 +37,24 @@ public class ResidentChooseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String _room = ((EditText)(getView().findViewById(R.id.resident_fill))).getText().toString();
-                char _phase = _room.charAt(0);
-                char _floor = _room.charAt(1);
-                String _numberRoom = _room.substring(2);
                 try {
-                    if(Integer.parseInt(_numberRoom) <= 12){
-                        _chooseRoom = new Room(Character.toString(_phase), ((int) _floor)-48, _numberRoom);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ShowBillFragment()).addToBackStack(null).commit();
-                        Log.d("CHOOSE_PLAN", "Go to show bill with room :"+ Character.toString(_phase)+(int) _floor+ _numberRoom);
+                    if(_room.isEmpty()){
+                        Log.d("RESCHOOSE", "Empty");
+                        Toast.makeText(getActivity(), "Please fill this out.", Toast.LENGTH_SHORT);
+                    }else{
+                        char _phase = _room.charAt(0);
+                        char _floor = _room.charAt(1);
+                        String _numberRoom = _room.substring(2);
+                        if(Integer.parseInt(_numberRoom) <= 12){
+                            _chooseRoom = new Room(Character.toString(_phase), ((int) _floor)-48, _numberRoom);
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ShowBillFragment()).addToBackStack(null).commit();
+                            Log.d("CHOOSE_PLAN", "Go to show bill with room :"+ Character.toString(_phase)+(int) _floor+ _numberRoom);
+                        }
                     }
+
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-
-                Log.d("CHOOSE_PLAN", _phase + " " + _floor + " "+ _numberRoom);
             }
         });
     }
