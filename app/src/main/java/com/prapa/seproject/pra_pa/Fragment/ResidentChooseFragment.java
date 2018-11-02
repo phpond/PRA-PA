@@ -12,12 +12,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
+
+import java.util.Calendar;
 
 public class ResidentChooseFragment extends Fragment {
 
     protected static Room _chooseRoom;
+
+
+    private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
+    private FirebaseAuth _mAuth = FirebaseAuth.getInstance();
 
     @Nullable
     @Override
@@ -47,8 +61,9 @@ public class ResidentChooseFragment extends Fragment {
                         String _numberRoom = _room.substring(2);
                         if(Integer.parseInt(_numberRoom) <= 12){
                             _chooseRoom = new Room(Character.toString(_phase), ((int) _floor)-48, _numberRoom);
-                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ShowBillFragment()).addToBackStack(null).commit();
-                            Log.d("CHOOSE_PLAN", "Go to show bill with room :"+ Character.toString(_phase)+(int) _floor+ _numberRoom);
+
+                            getDataFromFirebase(_chooseRoom);
+                            Log.d("RESCHOOSE", "");
                         }
                     }
 
@@ -58,4 +73,61 @@ public class ResidentChooseFragment extends Fragment {
             }
         });
     }
+
+    private void getDataFromFirebase(Room _room){
+
+        String _roomNumber = _room.getPhase()+_room.getFloor()+_room.getNumber_room();
+
+        Log.d("RESCHOOSE", "Get form DB " +_roomNumber );
+        _fbfs.collection("Resident")
+//                .document(_mAuth.getCurrentUser().getUid())
+                .document("USER")
+                .collection(_roomNumber)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if(queryDocumentSnapshots.isEmpty()){
+                            Toast.makeText(getActivity(), "ห้องนี้ยังไม่มีการบันทึก", Toast.LENGTH_SHORT).show();
+                            Log.d("RESCHOOSE", "EMPTY DATA" );
+                        }
+                        else {
+                            for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
+                            checkUpdatedData(doc.toObject(Bill.class));
+                            Log.d("RESCHOOSE", "GOTO CHECK UPDATED" );
+                            }
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("RESCHOOSE", "get data from firebase FAIL!!");
+            }
+        });
+
+
+    }
+    private void checkUpdatedData(Bill _bill){
+
+        String _dateBill = "";
+        _dateBill = _bill.getMonth()+_bill.getYear();
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH)+1;
+
+        String _dateCurrunt = String.valueOf(month)+String.valueOf(year);
+
+        if(!_dateBill.equals(_dateCurrunt) ){
+            Toast.makeText(getActivity(), "ในเดือนนี้ยังไม่มีการบันทึก", Toast.LENGTH_SHORT).show();
+            Log.d("RESCHOOSE", "DATA NO UPDATE");
+             }
+        else {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ShowBillFragment()).addToBackStack(null).commit();
+            Log.d("RESCHOOSE", "GOTO SHOW BILL");
+
+        }
+    }
 }
+
+
