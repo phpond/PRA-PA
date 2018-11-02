@@ -12,6 +12,15 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
+            <ImageButton
+                android:id="@+id/home_btn_record_water_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/home_btn"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
             <!--title-->
             <TextView
                 android:id="@+id/title_record_water_bill"
