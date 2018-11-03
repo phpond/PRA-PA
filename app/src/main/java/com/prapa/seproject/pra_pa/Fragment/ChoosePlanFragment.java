@@ -44,8 +44,8 @@ public class ChoosePlanFragment extends Fragment {
                    Toast.makeText(getActivity(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","PHASE OR FLOOR IS EMPTY");
                }
-               else if(!_floorStr.matches("[0-9]+")){
-                   Toast.makeText(getActivity(),"กรุณากรอกตัวเลข",Toast.LENGTH_SHORT).show();
+               else if(!_floorStr.matches("[0-9]") || !_phaseStr.matches("[A-Z]")){
+                   Toast.makeText(getActivity(),"กรุณาตรวจสอบข้อมูลอีกครั้ง",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","FLOOR IS'T NUMERIC");
 
                }
