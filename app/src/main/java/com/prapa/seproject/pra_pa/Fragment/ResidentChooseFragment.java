@@ -60,17 +60,18 @@ public class ResidentChooseFragment extends Fragment {
                     {
                         Toast.makeText(getActivity(), "กรุณาตรวจสอบเลขห้องอีกครั้ง EX. A401", Toast.LENGTH_SHORT).show();
                         Log.d("RESCHOOSE", "WRONG INPUT");
-
                     }
                     else{
                         char _phase = _room.charAt(0);
                         char _floor = _room.charAt(1);
                         String _numberRoom = _room.substring(2);
-                        if(Integer.parseInt(_numberRoom) <= 12){
+                        if(Integer.parseInt(_numberRoom) <= 12 && Integer.parseInt(_numberRoom) > 0){
                             _chooseRoom = new Room(Character.toString(_phase), ((int) _floor)-48, _numberRoom);
-
                             getDataFromFirebase(_chooseRoom);
-                            Log.d("RESCHOOSE", "");
+                            Log.d("RESCHOOSE", "get data");
+                        }else{
+                            Toast.makeText(getActivity(), "ไม่มีหมายเลขห้องนี้", Toast.LENGTH_SHORT).show();
+                            Log.d("RESCHOOSE", "no number room");
                         }
                     }
 
