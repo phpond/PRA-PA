@@ -71,19 +71,14 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="backgroundImage" value="C:\Users\phpond\Desktop\background.png" />
-                                      <entry key="foregroundImage" value="C:\Users\phpond\Desktop\pra_pa_logo.png" />
+                                      <entry key="backgroundImage" value="D:\IT\PRA-PA\app\src\main\res\drawable\background.png" />
+                                      <entry key="foregroundImage" value="D:\IT\PRA-PA\app\src\main\res\drawable\pra_pa_logo.png" />
                                       <entry key="webIconShape" value="NONE" />
                                     </map>
                                   </option>
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
