@@ -69,7 +69,7 @@ public class EditRecordFragment extends Fragment {
         //set room id
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
-         _room = new Room("A", 4, "01");
+         _room = new Room("B", 3, "03");
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.prapa.seproject.pra_pa.Fragment.EditRecordFragment;
+import com.prapa.seproject.pra_pa.Fragment.RecordWaterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
