@@ -78,11 +78,11 @@ public class ShowBillFragment extends Fragment {
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("SHOW_BILL", "get data from firebase FAIL!!");
-                    }
-                });
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("SHOW_BILL", "get data from firebase FAIL!!");
+            }
+        });
 
     }
 }

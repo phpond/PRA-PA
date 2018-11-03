@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,14 +31,16 @@ import java.util.Calendar;
 public class RecordWaterFragment extends Fragment {
 
     FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-    FirebaseAuth _muth = FirebaseAuth.getInstance();
+//    FirebaseAuth _muth = FirebaseAuth.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
-    private DatePickerDialog.OnDateSetListener mDateDataListener2;
 
     private Room _room;
 //    String[] _month = {"ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."};
 //    String[] _month = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+    protected static String PHASE_CHOOSE;
+    protected static String FLOOR_CHOOSE;
 
     @Nullable
     @Override
@@ -57,7 +60,8 @@ public class RecordWaterFragment extends Fragment {
         //check on click
         initSubmitBtn();
         initBillCalendar();
-        initDateRecordCalendar();
+        setDateRecordCalendar();
+        initHomeBtn();
     }
 
     //submit to fire base
@@ -95,7 +99,6 @@ public class RecordWaterFragment extends Fragment {
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-//                showDialogDate(day, month, year);
                 DatePickerDialog dialog = new DatePickerDialog(getContext(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateDataListener,
@@ -107,35 +110,32 @@ public class RecordWaterFragment extends Fragment {
         mDateDataListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                _monthBill.setText(String.format("%02d/%d", month, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
+                _monthBill.setText(String.format("%02d/%d", month+1, year));
+                Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
             }
         };
     }
-    private void initDateRecordCalendar(){
-        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_record_water_bill);
-        _recordDateBill.setOnClickListener(new View.OnClickListener() {
+
+    private void initHomeBtn(){
+        ImageButton _homeBtn = getView().findViewById(R.id.home_btn_record_water_bill);
+        _homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateDataListener2,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                PHASE_CHOOSE = null;
+                FLOOR_CHOOSE = null;
+                goToNextPage();
             }
         });
-        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
-            }
-        };
+    }
+
+    private void setDateRecordCalendar(){
+        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_record_water_bill);
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
+        Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
     }
 
     //up data to firebase
@@ -153,8 +153,10 @@ public class RecordWaterFragment extends Fragment {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d("RECORD", "SUCCESS");
+                PHASE_CHOOSE = _room.getPhase();
+                FLOOR_CHOOSE = String.valueOf(_room.getFloor());
+                goToNextPage();
                 Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ChoosePlanFragment()).addToBackStack(null).commit();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -165,5 +167,12 @@ public class RecordWaterFragment extends Fragment {
                 Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void goToNextPage(){
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_view, new ChoosePlanFragment())
+                .addToBackStack(null).commit();
     }
 }
