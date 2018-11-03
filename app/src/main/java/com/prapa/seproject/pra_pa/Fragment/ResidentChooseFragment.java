@@ -54,8 +54,15 @@ public class ResidentChooseFragment extends Fragment {
                 try {
                     if(_room.isEmpty()){
                         Log.d("RESCHOOSE", "Empty");
-                        Toast.makeText(getActivity(), "Please fill this out.", Toast.LENGTH_SHORT);
-                    }else{
+                        Toast.makeText(getActivity(), "กรุณาใส่เลขห้อง", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(!_room.matches("[A-Z]*\\d{3}"))
+                    {
+                        Toast.makeText(getActivity(), "กรุณาตรวจสอบเลขห้องอีกครั้ง EX. A401", Toast.LENGTH_SHORT).show();
+                        Log.d("RESCHOOSE", "WRONG INPUT");
+
+                    }
+                    else{
                         char _phase = _room.charAt(0);
                         char _floor = _room.charAt(1);
                         String _numberRoom = _room.substring(2);
