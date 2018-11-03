@@ -1,6 +1,8 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -81,9 +83,7 @@ public class RecordWaterFragment extends Fragment {
                     Toast.makeText(getActivity(), "Please fill information", Toast.LENGTH_SHORT).show();
                     Log.d("RECORD", "Information is empty");
                 }else{
-                    final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
-                    Log.d("RECORD", "Before up to firebase");
-                    upToFireBase(_bill);
+                    dialogVerify(_meterStr, _monthYear, _date);
                 }
 
             }
@@ -168,11 +168,37 @@ public class RecordWaterFragment extends Fragment {
             }
         });
     }
-
     private void goToNextPage(){
-        getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_view, new ChoosePlanFragment())
-                .addToBackStack(null).commit();
+        try{
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_view, new ChoosePlanFragment())
+                    .addToBackStack(null).commit();
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void dialogVerify(final String _meterStr, final String[] _monthYear, final String _date){
+        final AlertDialog.Builder _builder = new AlertDialog.Builder(getContext());
+        _builder.setMessage("Want to record?");
+        _builder.setCancelable(true);
+
+        _builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
+                Log.d("RECORD", "Before up to firebase");
+                upToFireBase(_bill);
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog _alert = _builder.create();
+        _alert.show();
     }
 }
