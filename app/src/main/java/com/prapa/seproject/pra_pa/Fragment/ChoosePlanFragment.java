@@ -18,6 +18,9 @@ import com.prapa.seproject.pra_pa.Room;
 
 public class ChoosePlanFragment extends Fragment {
 
+    private String _phaseStr;
+    private String _floorStr;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -28,24 +31,30 @@ public class ChoosePlanFragment extends Fragment {
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initSummit();
+        if(RecordWaterFragment.PHASE_CHOOSE != null || RecordWaterFragment.FLOOR_CHOOSE != null){
+            Log.d("ChoosePlanFragment : ", "go to view plan with old phase/floor : "
+                    +RecordWaterFragment.PHASE_CHOOSE+"/"+RecordWaterFragment.FLOOR_CHOOSE);
+            _phaseStr = RecordWaterFragment.PHASE_CHOOSE;
+            _floorStr = RecordWaterFragment.FLOOR_CHOOSE;
+            gotoNextPage(_phaseStr, _floorStr);
+        }else{
+            initSummit();
+        }
     }
-   void initSummit(){
 
+    void initSummit(){
        Button _btnSummit = getView().findViewById(R.id.submit_btn_choose_plan);
        _btnSummit.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
-               String _phaseStr = ((EditText)(getView().findViewById(R.id.phase_choose_plan))).getText().toString();
-               String _floorStr = ((EditText)(getView().findViewById(R.id.floor_choose_plan))).getText().toString();
-
+               _phaseStr = ((EditText)(getView().findViewById(R.id.phase_choose_plan))).getText().toString();
+               _floorStr = ((EditText)(getView().findViewById(R.id.floor_choose_plan))).getText().toString();
                if(_floorStr.isEmpty() || _phaseStr.isEmpty()){
                    Toast.makeText(getActivity(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","PHASE OR FLOOR IS EMPTY");
                }
-               else if(!_floorStr.matches("[0-9]+")){
-                   Toast.makeText(getActivity(),"กรุณากรอกตัวเลข",Toast.LENGTH_SHORT).show();
+               else if(!_floorStr.matches("[0-9]") || !_phaseStr.matches("[A-Z]")){
+                   Toast.makeText(getActivity(),"กรุณาตรวจสอบข้อมูลอีกครั้ง",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","FLOOR IS'T NUMERIC");
 
                }
