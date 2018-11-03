@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +56,8 @@ public class EditRecordFragment extends Fragment {
     private DatePickerDialog.OnDateSetListener mDateDataListener2;
 
     private Room _room;
+    protected static String PHASE_CHOOSE;
+    protected static String FLOOR_CHOOSE;
 
 
     @Nullable
@@ -70,6 +73,8 @@ public class EditRecordFragment extends Fragment {
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
          _room = new Room("B", 3, "03");
+//        _room = ViewplanFragment._roomOnclick;
+
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
@@ -177,29 +182,48 @@ public class EditRecordFragment extends Fragment {
     }
 
     private void initDateRecordCalendar(){
+//        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
+//        _recordDateBill.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Calendar cal = Calendar.getInstance();
+//                int year = cal.get(Calendar.YEAR);
+//                int month = cal.get(Calendar.MONTH);
+//                int day = cal.get(Calendar.DAY_OF_MONTH);
+//                DatePickerDialog dialog = new DatePickerDialog(getContext(),
+//                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+//                        mDateDataListener2,
+//                        year,month,day);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//            }
+//        });
+//        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month, year));
+//                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
+//            }
+//        };
         final TextView _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
-        _recordDateBill.setOnClickListener(new View.OnClickListener() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
+        Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+    }
+
+    private void initHomeBtn(){
+        ImageButton _homeBtn = getView().findViewById(R.id.home_btn_record_water_bill);
+        _homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateDataListener2,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                PHASE_CHOOSE = null;
+                FLOOR_CHOOSE = null;
+                goToNextPage();
             }
         });
-        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
-            }
-        };
     }
 
 
@@ -221,11 +245,23 @@ public class EditRecordFragment extends Fragment {
                         .collection(_number_room)
                         .document(_bill.getMonth()+_bill.getYear())
                         .set(_bill);
+        PHASE_CHOOSE = _room.getPhase();
+        FLOOR_CHOOSE = String.valueOf(_room.getFloor());
+        goToNextPage();
 
+//        getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.main_view, new ViewplanFragment())
+//                .addToBackStack(null).commit();
+        Log.d("Edit", "updated");
+    }
+
+
+    private void goToNextPage(){
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_view, new ViewplanFragment())
+                .replace(R.id.main_view, new ChoosePlanFragment())
                 .addToBackStack(null).commit();
-        Log.d("Edit", "updated");
+        Log.d("Edit", "Done");
     }
 }
