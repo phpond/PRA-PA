@@ -72,8 +72,8 @@ public class EditRecordFragment extends Fragment {
         //set room id
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
-         _room = new Room("B", 3, "03");
-//        _room = ViewplanFragment._roomOnclick;
+//         _room = new Room("B", 3, "03");
+        _room = ViewplanFragment._roomOnclick;
 
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
