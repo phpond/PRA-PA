@@ -79,13 +79,13 @@ public class RecordWaterFragment extends Fragment {
 
                 String[] _monthYear = _month.split("/");
 
-                if(_meterStr.isEmpty() || _month.isEmpty() || _date.isEmpty()){
+                if(_meterStr.isEmpty() || _month.isEmpty() || _date.isEmpty()) {
                     Toast.makeText(getActivity(), "Please fill information", Toast.LENGTH_SHORT).show();
                     Log.d("RECORD", "Information is empty");
                 }else{
                     dialogVerify(_meterStr, _monthYear, _date);
+                    Log.d("RECORD", "pass | ask dialog");
                 }
-
             }
         });
     }
@@ -161,8 +161,6 @@ public class RecordWaterFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
-
                 Log.d("RECORD", "FAILED");
                 Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
             }

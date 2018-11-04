@@ -72,8 +72,7 @@ public class EditRecordFragment extends Fragment {
         //set room id
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
-         _room = new Room("B", 3, "03");
-//        _room = ViewplanFragment._roomOnclick;
+        _room = ViewplanFragment._roomOnclick;
 
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
@@ -182,29 +181,6 @@ public class EditRecordFragment extends Fragment {
     }
 
     private void initDateRecordCalendar(){
-//        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
-//        _recordDateBill.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Calendar cal = Calendar.getInstance();
-//                int year = cal.get(Calendar.YEAR);
-//                int month = cal.get(Calendar.MONTH);
-//                int day = cal.get(Calendar.DAY_OF_MONTH);
-//                DatePickerDialog dialog = new DatePickerDialog(getContext(),
-//                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-//                        mDateDataListener2,
-//                        year,month,day);
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                dialog.show();
-//            }
-//        });
-//        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month, year));
-//                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
-//            }
-//        };
         final TextView _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -239,12 +215,12 @@ public class EditRecordFragment extends Fragment {
         String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
 
         // Update bill
-                db_cloud.collection("Resident")
+        db_cloud.collection("Resident")
 //                .document(c_auth.getCurrentUser().getUid())
                 .document("USER")
-                        .collection(_number_room)
-                        .document(_bill.getMonth()+_bill.getYear())
-                        .set(_bill);
+                .collection(_number_room)
+                .document(_bill.getMonth()+_bill.getYear())
+                .set(_bill);
         PHASE_CHOOSE = _room.getPhase();
         FLOOR_CHOOSE = String.valueOf(_room.getFloor());
         goToNextPage();
@@ -255,13 +231,17 @@ public class EditRecordFragment extends Fragment {
 //                .addToBackStack(null).commit();
         Log.d("Edit", "updated");
     }
+//        getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.main_view, new ViewplanFragment())
+//                .addToBackStack(null).commit();
 
 
     private void goToNextPage(){
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_view, new ChoosePlanFragment())
+                .replace(R.id.main_view, new ViewplanFragment())
                 .addToBackStack(null).commit();
-        Log.d("Edit", "Done");
+        Log.d("Edit", "updated");
     }
 }

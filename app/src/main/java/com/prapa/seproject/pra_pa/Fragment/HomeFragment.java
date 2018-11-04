@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.prapa.seproject.pra_pa.R;
@@ -68,10 +69,11 @@ public class HomeFragment extends Fragment {
         _legalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_view, new EditRecordFragment())
-                        .addToBackStack(null).commit();
+                Toast.makeText(getActivity(), "ยังไม่เปิดการใช้งาน", Toast.LENGTH_SHORT).show();
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.main_view, new EditRecordFragment())
+//                        .addToBackStack(null).commit();
             }
         });
     }

@@ -51,6 +51,7 @@ public class ResidentChooseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String _room = ((EditText)(getView().findViewById(R.id.resident_fill))).getText().toString();
+                _room = _room.toUpperCase();
                 try {
                     if(_room.isEmpty()){
                         Log.d("RESCHOOSE", "Empty");
