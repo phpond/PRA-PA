@@ -28,7 +28,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal">
 
-                <!--water mether-->
+                <!--หน่วยน้ำ-->
                 <TextView
                     android:id="@+id/water_meter_topic_edit_water_bill"
                     android:layout_width="wrap_content"
