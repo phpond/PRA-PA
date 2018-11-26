@@ -16,10 +16,10 @@
 
     <!--choose_plan-->
     <string name="title_choose_plan">Plan</string>
-    <string name="topic_phase">Phase</string>
-    <string name="topic_floor">Floor</string>
-    <string name="text_enter_phase">Enter Phase</string>
-    <string name="text_enter_floor">Enter Floor</string>
+    <string name="topic_phase">ตึก</string>
+    <string name="topic_floor">ชั้น</string>
+    <string name="text_enter_phase">เลือกตึกที่ต้องการ</string>
+    <string name="text_enter_floor">เลือกชั้นที่ต้องการ</string>
 
     <!--home-->
     <string name="resident_btn">Resident</string>
