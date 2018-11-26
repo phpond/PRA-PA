@@ -61,6 +61,10 @@ public class ResidentChooseFragment extends Fragment {
                     {
                         Toast.makeText(getActivity(), "กรุณาตรวจสอบเลขห้องอีกครั้ง EX. A401", Toast.LENGTH_SHORT).show();
                         Log.d("RESCHOOSE", "WRONG INPUT");
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa2830dc409732386648c27d775d628ae050bbbe
                     }
                     else{
                         char _phase = _room.charAt(0);
