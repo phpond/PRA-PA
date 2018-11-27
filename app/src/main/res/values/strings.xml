@@ -45,7 +45,4 @@
     <!--global-->
     <string name="submit_btn">SUBMIT</string>
 
-    <!--viewplan_edit-->
-    <string name="title_phase">ตึก</string>
-
 </resources>
