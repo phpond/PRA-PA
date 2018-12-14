@@ -2,47 +2,47 @@
     <string name="app_name">PRA-PA</string>
 
     <!--edit_water_bill-->
-    <string name="title_edit">Edit a water bill</string>
-    <string name="text_enter_meters">Enter a water meter</string>
-    <string name="text_enter_month">MM/YYYY</string>
-    <string name="text_enter_record_date">DD/MM/YYYY</string>
-    <string name="topic_water_meter">Water Meter :</string>
-    <string name="topic_month">Year/Month of bill :</string>
-    <string name="topic_date">Record Date : </string>
+    <string name="title_edit">แก้ไขบิลค่าน้ำประปา</string>
+    <string name="text_enter_meters">กรอกหน่วยมิเตอร์น้ำ</string>
+    <string name="text_enter_month">ดด/ปปปป</string>
+    <string name="text_enter_record_date">วว/ดด/ปปปป</string>
+    <string name="topic_water_meter">หน่วยน้ำ :</string>
+    <string name="topic_month">รอบบิล :</string>
+    <string name="topic_date">วันที่บันทึก : </string>
 
     <!--record_water_will-->
-    <string name="title_record">Record a water bill</string>
+    <string name="title_record">บันทึกหน่วยค่าน้ำประปา</string>
     <string name="room_id">A101</string>
 
     <!--choose_plan-->
-    <string name="title_choose_plan">Plan</string>
-    <string name="topic_phase">Phase</string>
-    <string name="topic_floor">Floor</string>
-    <string name="text_enter_phase">Enter Phase</string>
-    <string name="text_enter_floor">Enter Floor</string>
+    <string name="title_choose_plan">แปลนห้อง</string>
+    <string name="topic_phase">ตึก</string>
+    <string name="topic_floor">ชั้น</string>
+    <string name="text_enter_phase">กรอกตึก</string>
+    <string name="text_enter_floor">กรอกชั้น</string>
 
     <!--home-->
-    <string name="resident_btn">Resident</string>
-    <string name="staff_btn">Operational staff</string>
-    <string name="legal_person_btn">legal person</string>
+    <string name="resident_btn">ผู้พักอาศํย</string>
+    <string name="staff_btn">พนักงานบันทึกมิเตอร์น้ำ</string>
+    <string name="legal_person_btn">นิติบุคคล</string>
     <string name="des_img">logo_PRA-PA</string>
 
     <!--show bill-->
-    <string name="topic_showBill">WATER BILL</string>
+    <string name="topic_showBill">บิลค่าน้ำประปา</string>
     <string name="sample_price_total">899</string>
     <string name="bath">฿</string>
-    <string name="name_topic">NAME</string>
-    <string name="topic_room">ROOM ID</string>
+    <string name="name_topic">ชื่อ</string>
+    <string name="topic_room">ห้องชุด</string>
     <string name="sample_meter">0</string>
 
     <!--resident choose room-->
-    <string name="topic_resident_choose">Enter you room</string>
+    <string name="topic_resident_choose">เลือกห้องของคุณ</string>
 
     <!--Viewplan-->
     <string name="number_room">N/A</string>
 
 
     <!--global-->
-    <string name="submit_btn">SUBMIT</string>
+    <string name="submit_btn">ยืนยัน</string>
 
 </resources>
