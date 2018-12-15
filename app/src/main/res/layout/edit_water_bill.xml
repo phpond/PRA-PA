@@ -18,6 +18,11 @@
         app:layout_editor_absoluteX="0dp"
         app:layout_editor_absoluteY="0dp" />
 
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:text="เห็นละลบทิ้งไป!!!"/>
+
             <!--title-->
     <TextView
         android:id="@+id/title_edit_water_bill"
