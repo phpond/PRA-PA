@@ -13,21 +13,20 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="67dp"
         android:fontFamily="@font/thaisanslite"
         android:text="Plum Condo"
         android:textColor="@color/white"
         android:textSize="45dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="-11dp" />
 
 
 
@@ -44,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:layout_editor_absoluteX="119dp" />
+        />
 
             <!--img plan-->
     <ImageView
@@ -58,13 +57,13 @@
         app:layout_constraintTop_toBottomOf="@+id/title_choose_plan"
         app:layout_editor_absoluteX="76dp"
         app:layout_editor_absoluteY="66dp"
-        tools:layout_editor_absoluteX="70dp" />
+        />
 
 
             <!--phase-->
     <TextView
         android:id="@+id/topic_phase_choose_plan"
-        android:layout_width="71dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:fontFamily="@font/thaisanslite"
@@ -72,7 +71,7 @@
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_choose_plan" />
 
@@ -81,7 +80,7 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_choose_plan"
         app:layout_editor_absoluteX="159dp"
@@ -99,7 +98,7 @@
 
     <TextView
         android:id="@+id/topic_floor_choose_plan"
-        android:layout_width="71dp"
+        android:layout_width="44dp"
         android:layout_height="39dp"
         android:layout_gravity="bottom"
         android:layout_marginTop="4dp"
@@ -108,7 +107,7 @@
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topic_phase_choose_plan" />
 
@@ -117,7 +116,7 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayout5"
         app:layout_editor_absoluteX="159dp"
@@ -156,17 +155,26 @@
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_action_back"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_editor_absoluteY="7dp" />
 
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="40dp"
         android:layout_height="39dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_action_exit"
-        tools:layout_editor_absoluteY="8dp" />
+        app:layout_editor_absoluteY="8dp" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="32dp"
+        android:layout_height="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_forchooseplan"
+        app:layout_editor_absoluteY="8dp" />
 
 </android.support.constraint.ConstraintLayout>
