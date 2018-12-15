@@ -44,29 +44,29 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ImageView one = getView().findViewById(R.id.top_1_view_plan);
+        ImageView one = getView().findViewById(R.id.room_01);
         one.setOnClickListener(this); // calling onClick() method
-        ImageView two = getView().findViewById(R.id.top_2_view_plan);
+        ImageView two = getView().findViewById(R.id.room_02);
         two.setOnClickListener(this);
-        ImageView three = getView().findViewById(R.id.top_3_view_plan);
+        ImageView three = getView().findViewById(R.id.room_03);
         three.setOnClickListener(this);
-        ImageView four = getView().findViewById(R.id.top_4_view_plan);
+        ImageView four = getView().findViewById(R.id.room_04);
         four.setOnClickListener(this); // calling onClick() method
-        ImageView five = getView().findViewById(R.id.top_5_view_plan);
+        ImageView five = getView().findViewById(R.id.room_05);
         five.setOnClickListener(this);
-        ImageView six = getView().findViewById(R.id.top_6_view_plan);
+        ImageView six = getView().findViewById(R.id.room_06);
         six.setOnClickListener(this);
-        ImageView seven = getView().findViewById(R.id.bottom_1_view_plan);
+        ImageView seven = getView().findViewById(R.id.room_07);
         seven.setOnClickListener(this); // calling onClick() method
-        ImageView eight = getView().findViewById(R.id.bottom_2_view_plan);
+        ImageView eight = getView().findViewById(R.id.room_08);
         eight.setOnClickListener(this);
-        ImageView nine = getView().findViewById(R.id.bottom_3_view_plan);
+        ImageView nine = getView().findViewById(R.id.room_09);
         nine.setOnClickListener(this);
-        ImageView ten = getView().findViewById(R.id.bottom_4_view_plan);
+        ImageView ten = getView().findViewById(R.id.room_010);
         ten.setOnClickListener(this); // calling onClick() method
-        ImageView eleven = getView().findViewById(R.id.bottom_5_view_plan);
+        ImageView eleven = getView().findViewById(R.id.room_11);
         eleven.setOnClickListener(this);
-        ImageView twelve= getView().findViewById(R.id.bottom_6_view_plan);
+        ImageView twelve= getView().findViewById(R.id.room_12);
         twelve.setOnClickListener(this);
 
         ShowPhaseAndFloor();
@@ -79,62 +79,62 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
        switch (v.getId()) {
 
-            case R.id.top_1_view_plan:
+            case R.id.room_01:
                 // do your code
                 gotoRecordPage("01");
                 break;
 
-            case R.id.top_2_view_plan:
+            case R.id.room_02:
                 // do your code
                 gotoRecordPage("02");
                 break;
 
-            case R.id.top_3_view_plan:
+            case R.id.room_03:
                 // do your code
                 gotoRecordPage("03");
                 break;
 
-            case R.id.top_4_view_plan:
+            case R.id.room_04:
                 // do your code
                 gotoRecordPage("04");
                 break;
 
-            case R.id.top_5_view_plan:
+            case R.id.room_05:
                 // do your code
                 gotoRecordPage("05");
                 break;
 
-            case R.id.top_6_view_plan:
+            case R.id.room_06:
                 // do your code
                 gotoRecordPage("06");
                 break;
 
-            case R.id.bottom_1_view_plan:
+            case R.id.room_07:
                 // do your code
                 gotoRecordPage("07");
                 break;
 
-            case R.id.bottom_2_view_plan:
+            case R.id.room_08:
                 // do your code
                 gotoRecordPage("08");
                 break;
 
-            case R.id.bottom_3_view_plan:
+            case R.id.room_09:
                 // do your code
                 gotoRecordPage("09");
                 break;
 
-            case R.id.bottom_4_view_plan:
+            case R.id.room_010:
                 // do your code
                 gotoRecordPage("10");
                 break;
 
-            case R.id.bottom_5_view_plan:
+            case R.id.room_11:
                 // do your code
                 gotoRecordPage("11");
                 break;
 
-            case R.id.bottom_6_view_plan:
+            case R.id.room_12:
                 // do your code
                 gotoRecordPage("12");
                 break;

@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/room_01"
         android:layout_width="68dp"
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
@@ -138,13 +138,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_01" />
 
     <ImageView
-        android:id="@+id/imageView28"
+        android:id="@+id/room_02"
         android:layout_width="68dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/room_01"
         app:srcCompat="@drawable/left" />
 
     <TextView
@@ -162,13 +162,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_02" />
 
     <ImageView
-        android:id="@+id/imageView29"
+        android:id="@+id/room_03"
         android:layout_width="68dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView28"
+        app:layout_constraintTop_toBottomOf="@+id/room_02"
         app:srcCompat="@drawable/left" />
 
 
@@ -187,13 +187,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_03" />
 
     <ImageView
-        android:id="@+id/imageView30"
+        android:id="@+id/room_04"
         android:layout_width="68dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29"
+        app:layout_constraintTop_toBottomOf="@+id/room_03"
         app:srcCompat="@drawable/left" />
 
 
@@ -212,13 +212,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_04" />
 
     <ImageView
-        android:id="@+id/imageView31"
+        android:id="@+id/room_05"
         android:layout_width="68dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView30"
+        app:layout_constraintTop_toBottomOf="@+id/room_04"
         app:srcCompat="@drawable/left" />
 
 
@@ -237,13 +237,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_05" />
 
     <ImageView
-        android:id="@+id/imageView32"
+        android:id="@+id/room_06"
         android:layout_width="68dp"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView31"
+        app:layout_constraintTop_toBottomOf="@+id/room_05"
         app:srcCompat="@drawable/left" />
 
 
@@ -262,7 +262,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/room_07"
         android:layout_width="69dp"
         android:layout_height="65dp"
         android:layout_marginTop="8dp"
@@ -288,13 +288,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_07" />
 
     <ImageView
-        android:id="@+id/imageView23"
+        android:id="@+id/room_08"
         android:layout_width="69dp"
         android:layout_height="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/room_07"
         app:srcCompat="@drawable/right" />
 
 
@@ -313,13 +313,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_08" />
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/room_09"
         android:layout_width="69dp"
         android:layout_height="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView23"
+        app:layout_constraintTop_toBottomOf="@+id/room_08"
         app:srcCompat="@drawable/right" />
 
     <TextView
@@ -337,13 +337,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_09" />
 
     <ImageView
-        android:id="@+id/imageView25"
+        android:id="@+id/room_010"
         android:layout_width="69dp"
         android:layout_height="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView24"
+        app:layout_constraintTop_toBottomOf="@+id/room_09"
         app:srcCompat="@drawable/right" />
 
     <TextView
@@ -361,13 +361,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_10" />
 
     <ImageView
-        android:id="@+id/imageView26"
+        android:id="@+id/room_11"
         android:layout_width="69dp"
         android:layout_height="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView25"
+        app:layout_constraintTop_toBottomOf="@+id/room_010"
         app:srcCompat="@drawable/right" />
 
     <TextView
@@ -385,13 +385,13 @@
         app:layout_constraintTop_toBottomOf="@+id/top_num_11" />
 
     <ImageView
-        android:id="@+id/imageView27"
+        android:id="@+id/room_12"
         android:layout_width="69dp"
         android:layout_height="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView26"
+        app:layout_constraintTop_toBottomOf="@+id/room_11"
         app:srcCompat="@drawable/right" />
 
     <ImageView
