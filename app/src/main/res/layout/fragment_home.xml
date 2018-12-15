@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="403dp"
-        android:layout_height="215dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
-        android:contentDescription="@string/des_img"
-        android:src="@drawable/prapalogo" />
 
     <EditText
         android:id="@+id/editText4"
@@ -21,8 +13,8 @@
         android:hint="ชื่อผู้ใช้"
         android:inputType="textPersonName"
         android:textAllCaps="false"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="349dp" />
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="335dp" />
 
     <EditText
         android:id="@+id/editText6"
@@ -31,8 +23,8 @@
         android:ems="10"
         android:hint="รหัสผ่าน"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="428dp" />
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="414dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -43,7 +35,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="324dp" />
+        tools:layout_editor_absoluteY="315dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -54,7 +46,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="283dp" />
+        tools:layout_editor_absoluteY="267dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -65,7 +57,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="403dp" />
+        tools:layout_editor_absoluteY="395dp" />
 
     <Button
         android:id="@+id/button2"
@@ -79,5 +71,13 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="86dp"
         tools:layout_editor_absoluteY="483dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="195dp"
+        android:layout_height="182dp"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="45dp"
+        android:src="@drawable/prapalogo_new"
 
 </android.support.constraint.ConstraintLayout>
