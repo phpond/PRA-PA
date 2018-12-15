@@ -6,27 +6,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
-            <!--title-->
-            <TextView
-                android:id="@+id/title_edit_water_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="50dp"
-                android:text="@string/title_edit" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal">
+            <!--title-->
+        <TextView
+            android:id="@+id/title_edit_water_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/title_edit"
+            android:textSize="30sp" />
+
 
                 <!--หน่วยน้ำ-->
                 <TextView
@@ -45,15 +35,7 @@
                     android:ems="10"
                     android:hint="@string/text_enter_meters"
                     android:inputType="numberDecimal" />
-            </LinearLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal">
 
                 <!--month-->
                 <TextView
@@ -72,14 +54,7 @@
                     android:ems="10"
                     android:hint="@string/text_enter_month"
                     android:inputType="date" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal">
                 <!--date-->
                 <TextView
                     android:id="@+id/date_topic_edit_water_bill"
@@ -96,7 +71,7 @@
                     android:ems="10"
                     android:hint="@string/text_enter_record_date"
                     android:inputType="date" />
-            </LinearLayout>
+
 
             <!--submit btn-->
             <Button
@@ -106,7 +81,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/submit_btn" />
-        </LinearLayout>
+
 
     </ScrollView>
 
