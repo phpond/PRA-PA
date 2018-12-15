@@ -7,5 +7,6 @@
     <color name="backgroundNumber">#5C9598</color> //background เลขห้องใน view plan
     <color name="black">#101820</color>
     <color name="white">#ffffff</color>
+    <color name="backgroundedit">#F2F2F2</color>
 
 </resources>
