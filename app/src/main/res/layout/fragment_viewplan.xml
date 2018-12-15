@@ -6,6 +6,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="220dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="456dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="401dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="461dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="281dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="221dp" />
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="388dp"
@@ -15,317 +96,6 @@
         android:theme="?attr/actionBarTheme"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
-
-
-
-        <!--phase-->
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="54dp"
-        android:layout_height="61dp"
-        android:fontFamily="@font/thaisanslite"
-        android:gravity="bottom"
-        android:text="@string/topic_phase"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="77dp" />
-
-    <TextView
-        android:id="@+id/phase_view_plan"
-        android:layout_width="43dp"
-        android:layout_height="33dp"
-        android:ems="5"
-        android:fontFamily="@font/thaisanslite"
-        android:gravity="bottom"
-        android:hint="@string/topic_phase"
-        android:inputType="textPersonName"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="97dp" />
-
-        <!--floor-->
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="54dp"
-        android:layout_height="61dp"
-        android:fontFamily="@font/thaisanslite"
-        android:gravity="bottom"
-        android:text="@string/topic_floor"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:autoSizeTextType="uniform"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="77dp" />
-
-    <TextView
-        android:id="@+id/floor_view_plan"
-        android:layout_width="46dp"
-        android:layout_height="39dp"
-        android:ems="5"
-        android:fontFamily="@font/thaisanslite"
-        android:gravity="bottom"
-        android:hint="@string/topic_floor"
-        android:inputType="textPersonName"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="281dp"
-        tools:layout_editor_absoluteY="91dp" />
-
-
-    <!--top room-->
-
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="377dp">
-
-
-        <!--1-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="176dp" />
-
-
-        <!--2-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="221dp" />
-
-
-        <!--3-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="271dp" />
-
-
-        <!--4-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="325dp" />
-
-
-        <!--5-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_05"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="377dp" />
-
-
-        <!--6-->
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/top_num_06"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundNumber"
-        android:hint="@string/number_room"
-        android:padding="3dp"
-        android:textColorHint="@color/textNumber"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="448dp" />
-
-
-
-
- <!--bottom room-->
-    <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-            <!--7-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="271dp">
-
-        <TextView
-            android:id="@+id/top_num_07"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
-
-        <!--8-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="184dp">
-
-        <TextView
-            android:id="@+id/top_num_08"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
-
-        <!--9-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="377dp">
-
-        <TextView
-            android:id="@+id/top_num_09"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
-
-        <!--10-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="448dp">
-
-        <TextView
-            android:id="@+id/top_num_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
-
-        <!--11-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="325dp">
-
-        <TextView
-            android:id="@+id/top_num_11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
-
-        <!--12-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="229dp">
-
-        <TextView
-            android:id="@+id/top_num_12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/backgroundNumber"
-            android:hint="@string/number_room"
-            android:padding="3dp"
-            android:textColorHint="@color/textNumber" />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/textView7"
@@ -337,6 +107,236 @@
         android:textSize="40dp"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="1dp" />
+
+    <!--ตึก-->
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="54dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/thaisanslite"
+        android:gravity="bottom"
+        android:text="@string/topic_phase"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:autoSizeTextType="uniform"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="78dp" />
+
+    <TextView
+        android:id="@+id/phase_view_plan"
+        android:layout_width="43dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="40dp"
+        android:ems="5"
+        android:fontFamily="@font/thaisanslite"
+        android:gravity="bottom"
+        android:hint="@string/topic_phase"
+        android:inputType="textPersonName"
+
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="141dp" />
+
+    <!--ชั้น-->
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="54dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/thaisanslite"
+        android:gravity="bottom"
+        android:text="@string/topic_floor"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="217dp" />
+
+    <TextView
+        android:id="@+id/floor_view_plan"
+        android:layout_width="46dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="32dp"
+        android:ems="5"
+        android:fontFamily="@font/thaisanslite"
+        android:gravity="bottom"
+        android:hint="@string/topic_floor"
+        android:inputType="textPersonName"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="282dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="1"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="2"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/top_num_03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="3"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="4"
+        android:textColorHint="@color/black"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="5"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="6"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="490dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="7"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="8"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+
+    <TextView
+        android:id="@+id/top_num_09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="9"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="316dp" />
+
+    <TextView
+        android:id="@+id/top_num_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="10"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="363dp" />
+
+    <TextView
+        android:id="@+id/top_num_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="11"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/top_num_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundNumber"
+        android:hint="@string/number_room"
+        android:padding="3dp"
+        android:text="12"
+        android:textColorHint="@color/textNumber"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/room_left"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="161dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="70dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/room_right"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="161dp" />
 
 
 </android.support.constraint.ConstraintLayout>
