@@ -3,8 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#C1DBF4">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="292dp"
+        android:layout_height="303dp"
+        android:background="#E5EFF9"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="248dp" />
     <EditText
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
@@ -34,8 +42,8 @@
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="315dp" />
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="310dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -56,8 +64,8 @@
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="395dp" />
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="389dp" />
 
     <Button
         android:id="@+id/button2"
@@ -74,10 +82,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="195dp"
-        android:layout_height="182dp"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="45dp"
+        android:layout_width="216dp"
+        android:layout_height="200dp"
         android:src="@drawable/prapalogo_new"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+
 
 </android.support.constraint.ConstraintLayout>
