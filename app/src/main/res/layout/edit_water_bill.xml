@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     app:layout_editor_absoluteY="81dp">
 
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="388dp"
@@ -21,7 +23,6 @@
     <TextView
         android:layout_width="10dp"
         android:layout_height="10dp"
-        android:text="เห็นละลบทิ้งไป!!!"/>
 
             <!--title-->
     <TextView
@@ -43,11 +44,13 @@
         android:id="@+id/water_meter_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_water_meter"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_editor_absoluteX="47dp"
@@ -57,12 +60,14 @@
         android:id="@+id/water_meter_edit_water_bill"
         android:layout_width="192dp"
         android:layout_height="57dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:fontFamily="@font/thaisanslite"
         android:hint="@string/text_enter_meters"
         android:inputType="numberDecimal"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_editor_absoluteX="148dp"
@@ -74,11 +79,13 @@
         android:id="@+id/month_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_month"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/water_meter_topic_edit_water_bill"
         app:layout_editor_absoluteX="48dp"
@@ -88,14 +95,16 @@
         android:id="@+id/month_meter_edit_water_bill"
         android:layout_width="191dp"
         android:layout_height="49dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/thaisanslite"
         android:hint="@string/text_enter_month"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/water_meter_edit_water_bill"
         android:inputType="date"
         android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/water_meter_edit_water_bill"
         app:layout_editor_absoluteX="148dp"
         app:layout_editor_absoluteY="199dp" />
 
@@ -104,11 +113,13 @@
         android:id="@+id/date_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_date"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/month_topic_edit_water_bill"
         app:layout_editor_absoluteX="36dp"
@@ -118,14 +129,16 @@
         android:id="@+id/date_meter_edit_water_bill"
         android:layout_width="190dp"
         android:layout_height="52dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/thaisanslite"
         android:hint="@string/text_enter_record_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/month_meter_edit_water_bill"
         android:inputType="date"
         android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/month_meter_edit_water_bill"
         app:layout_editor_absoluteX="148dp"
         app:layout_editor_absoluteY="257dp" />
 
@@ -135,34 +148,19 @@
         android:id="@+id/submit_btn_meter_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/submit_btn"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_meter_edit_water_bill"
         app:layout_editor_absoluteX="148dp"
         app:layout_editor_absoluteY="345dp" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_back"
-        app:layout_editor_absoluteY="7dp" />
+    </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_exit"
-        app:layout_editor_absoluteY="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>
