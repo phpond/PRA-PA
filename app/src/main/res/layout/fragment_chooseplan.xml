@@ -6,128 +6,167 @@
     android:layout_height="match_parent"
     app:layout_editor_absoluteY="81dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
-            <!--title-->
-            <TextView
-                android:id="@+id/title_choose_plan"
-                android:layout_width="250dp"
-                android:layout_height="61dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/title_choose_plan"
-                app:autoSizeTextType="uniform"
-                app:layout_editor_absoluteX="148dp"
-                app:layout_editor_absoluteY="27dp" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/thaisanslite"
+        android:text="Plum Condo"
+        android:textColor="@color/white"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+
+    <!--title-->
+    <TextView
+        android:id="@+id/title_choose_plan"
+        android:layout_width="147dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/title_choose_plan"
+        android:textColor="@color/black"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="119dp" />
 
             <!--img plan-->
-            <ImageView
-                android:id="@+id/img_choose_plan"
-                android:layout_width="244dp"
-                android:layout_height="234dp"
-                android:src="@drawable/plum_condo"
-                app:layout_editor_absoluteX="76dp"
-                app:layout_editor_absoluteY="66dp" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/img_choose_plan"
+        android:layout_width="244dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/plum_condo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_choose_plan"
+        app:layout_editor_absoluteX="76dp"
+        app:layout_editor_absoluteY="66dp"
+        tools:layout_editor_absoluteX="70dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
 
             <!--phase-->
-            <TextView
-                android:id="@+id/topic_phase_choose_plan"
-                android:layout_width="81dp"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom"
-                android:text="@string/topic_phase"
-                app:autoSizeTextType="uniform"
-                app:layout_editor_absoluteX="71dp"
-                app:layout_editor_absoluteY="268dp"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="334dp" />
+    <TextView
+        android:id="@+id/topic_phase_choose_plan"
+        android:layout_width="71dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_phase"
+        android:textColor="@color/black"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_choose_plan" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInputLayout5"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                app:layout_editor_absoluteX="159dp"
-                app:layout_editor_absoluteY="268dp"
-                tools:layout_editor_absoluteX="159dp"
-                tools:layout_editor_absoluteY="334dp">
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_choose_plan"
+        app:layout_editor_absoluteX="159dp"
+        app:layout_editor_absoluteY="268dp">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/phase_choose_plan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/text_enter_phase" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/phase_choose_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisanslite"
+            android:hint="@string/text_enter_phase" />
 
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/topic_floor_choose_plan"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_floor"
+        android:textColor="@color/black"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topic_phase_choose_plan" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout5"
+        app:layout_editor_absoluteX="159dp"
+        app:layout_editor_absoluteY="328dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/floor_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/thaisanslite"
+            android:hint="@string/text_enter_floor" />
+    </android.support.design.widget.TextInputLayout>
 
-            <!--floor-->
-            <TextView
-                android:id="@+id/topic_floor_choose_plan"
-                android:layout_width="71dp"
-                android:layout_height="39dp"
-                android:layout_gravity="bottom"
-                android:text="@string/topic_floor"
-                app:autoSizeTextType="uniform"
-                app:layout_editor_absoluteX="71dp"
-                app:layout_editor_absoluteY="321dp"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="420dp" />
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInputLayout3"
-                android:layout_width="183dp"
-                android:layout_height="wrap_content"
-                app:layout_editor_absoluteX="159dp"
-                app:layout_editor_absoluteY="328dp"
-                tools:layout_editor_absoluteX="159dp"
-                tools:layout_editor_absoluteY="392dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/floor_choose_plan"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:hint="@string/text_enter_floor" />
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
         <!--submit-->
-        <Button
-            android:id="@+id/submit_btn_choose_plan"
-            android:layout_width="262dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:text="@string/submit_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_editor_absoluteX="71dp"
-            app:layout_editor_absoluteY="386dp"
-            tools:layout_editor_absoluteY="459dp" />
+    <Button
+        android:id="@+id/submit_btn_choose_plan"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/submit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topic_floor_choose_plan" />
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_back"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_exit"
+        tools:layout_editor_absoluteY="8dp" />
+
 
 </android.support.constraint.ConstraintLayout>

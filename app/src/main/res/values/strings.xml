@@ -15,7 +15,7 @@
     <string name="room_id">A101</string>
 
     <!--choose_plan-->
-    <string name="title_choose_plan">แปลนห้อง</string>
+    <string name="title_choose_plan">ตึกและชั้น</string>
     <string name="topic_phase">ตึก</string>
     <string name="topic_floor">ชั้น</string>
     <string name="text_enter_phase">กรอกตึก</string>

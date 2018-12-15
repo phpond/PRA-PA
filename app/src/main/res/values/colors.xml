@@ -6,5 +6,6 @@
     <color name="textNumber">#F2F2F2</color> //สี เลขห้อง ใน view plan
     <color name="backgroundNumber">#9CDBD9</color> //background เลขห้องใน view plan
     <color name="black">#101820</color>
+    <color name="white">#ffffff</color>
 
 </resources>
