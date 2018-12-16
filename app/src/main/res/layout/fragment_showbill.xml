@@ -19,8 +19,7 @@
             android:theme="?attr/actionBarTheme"
             app:layout_editor_absoluteX="0dp"
             app:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+             />
 
 
 
@@ -35,8 +34,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30dp"
-            tools:layout_editor_absoluteX="129dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
 
         <!--topic total-->
         <TextView
@@ -324,8 +322,7 @@
             android:layout_height="39dp"
             app:layout_editor_absoluteY="8dp"
             app:srcCompat="@drawable/ic_action_exit"
-            tools:layout_editor_absoluteX="334dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
 
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
