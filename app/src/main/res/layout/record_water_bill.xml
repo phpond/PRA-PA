@@ -6,9 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -153,25 +150,25 @@
         app:layout_constraintVertical_bias="0.412"
         app:srcCompat="@color/white" />
 
-        <TextView
-            android:id="@+id/month_meter_record_water_bill"
-            android:layout_width="166dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:fontFamily="@font/thaisanslite"
-            android:hint="@string/text_enter_month"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.455" />
+    <EditText
+        android:id="@+id/month_meter_record_water_bill"
+        android:layout_width="166dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_month"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
 
 
         <!--date-->
@@ -210,25 +207,25 @@
         app:layout_constraintVertical_bias="0.606"
         app:srcCompat="@color/white" />
 
-        <TextView
-            android:id="@+id/date_meter_record_water_bill"
-            android:layout_width="193dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:fontFamily="@font/thaisanslite"
-            android:hint="@string/text_enter_record_date"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.92"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/month_meter_record_water_bill"
-            app:layout_constraintVertical_bias="0.161" />
+    <EditText
+        android:id="@+id/date_meter_record_water_bill"
+        android:layout_width="193dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_record_date"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/month_meter_record_water_bill"
+        app:layout_constraintVertical_bias="0.161" />
 
 
         <!--submit btn-->
@@ -274,7 +271,7 @@
             app:layout_editor_absoluteY="8dp"
             app:srcCompat="@drawable/ic_action_exit"
             />
-    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>
 
