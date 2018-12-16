@@ -7,11 +7,14 @@
     android:layout_height="match_parent">
 
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        />
             <!--topic-->
     <TextView
         android:id="@+id/topic_show_bill"
@@ -22,7 +25,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_showBill"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -42,7 +45,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/thaisanslite"
         android:text="ราคา"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -79,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/thaisanslite"
         android:text="@string/bath"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +131,7 @@
         android:text="@string/topic_room"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/thaisanslite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         app:layout_constraintVertical_bias="0.058"
@@ -140,6 +144,7 @@
         android:layout_marginStart="36dp"
         android:ems="13"
         android:text="@string/room_id"
+        android:fontFamily="@font/thaisanslite"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/room_id_topic_show_bill"
@@ -157,6 +162,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/topic_water_meter"
+        android:fontFamily="@font/thaisanslite"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -173,6 +179,7 @@
         android:text="@string/sample_meter"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
+        android:fontFamily="@font/thaisanslite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toEndOf="@+id/water_meter_topic_show_bill"
@@ -190,6 +197,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/topic_month"
+        android:fontFamily="@font/thaisanslite"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -203,6 +211,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:text="@string/text_enter_month"
+        android:fontFamily="@font/thaisanslite"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/month_topic_show_bill"
@@ -219,6 +228,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/topic_date"
+        android:fontFamily="@font/thaisanslite"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -233,6 +243,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/text_enter_record_date"
+        android:fontFamily="@font/thaisanslite"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

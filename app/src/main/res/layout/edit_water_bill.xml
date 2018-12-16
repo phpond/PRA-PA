@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     app:layout_editor_absoluteY="81dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="388dp"
@@ -159,7 +157,26 @@
         app:layout_editor_absoluteX="148dp"
         app:layout_editor_absoluteY="345dp" />
 
-    </ScrollView>
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_back"
+        app:layout_editor_absoluteY="7dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_exit"
+        app:layout_editor_absoluteY="8dp" />
+
 
 
 
