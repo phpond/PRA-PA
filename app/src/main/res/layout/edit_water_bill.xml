@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.084"
         app:srcCompat="@color/white"
-        tools:layout_editor_absoluteX="167dp" />
+         />
 
 
     <EditText
@@ -178,7 +178,7 @@
         app:layout_constraintTop_toBottomOf="@+id/month_meter_edit_water_bill"
         app:layout_constraintVertical_bias="0.153"
         app:srcCompat="@color/white"
-        tools:layout_editor_absoluteX="163dp" />
+         />
 
     <EditText
         android:id="@+id/date_meter_edit_water_bill"
@@ -234,7 +234,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_editor_absoluteY="8dp"
         app:srcCompat="@drawable/ic_action_exit"
-        tools:layout_editor_absoluteY="6dp" />
+         />
 
     </ScrollView>
 
