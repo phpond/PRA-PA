@@ -8,77 +8,87 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="292dp"
-        android:layout_height="303dp"
+        android:layout_width="310dp"
+        android:layout_height="308dp"
         android:background="#E5EFF9"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="248dp" />
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="243dp" />
+
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="wrap_content"
+        android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/RSU_light"
         android:hint="ชื่อผู้ใช้"
         android:inputType="textPersonName"
         android:textAllCaps="false"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="335dp" />
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="331dp" />
 
     <EditText
         android:id="@+id/editText6"
-        android:layout_width="wrap_content"
+        android:layout_width="251dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/RSU_light"
         android:hint="รหัสผ่าน"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="414dp" />
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="413dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/RSU_BOLD"
         android:text="ชื่อผู้ใช้"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="310dp" />
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="302dp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/RSU_Regular"
         android:text="เข้าสู่ระบบ"
+        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="267dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="252dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/RSU_BOLD"
         android:text="รหัสผ่าน"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="389dp" />
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="384dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="213dp"
         android:layout_height="48dp"
         android:background="@color/colorPrimaryDark"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/RSU_Regular"
         android:text="เข้าสู่ระบบ"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="483dp" />
+        tools:layout_editor_absoluteY="486dp" />
 
     <ImageView
         android:id="@+id/imageView"
