@@ -180,20 +180,6 @@ public class EditRecordFragment extends Fragment {
         Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
     }
 
-    private void initHomeBtn(){
-        ImageButton _homeBtn = getView().findViewById(R.id.home_btn_record_water_bill);
-        _homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PHASE_CHOOSE = null;
-                FLOOR_CHOOSE = null;
-                goToNextPage();
-            }
-        });
-    }
-
-
-
     // update to firebase
     private void UpdatetoFireBase(Bill _bill) {
 
