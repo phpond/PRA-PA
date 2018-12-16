@@ -217,7 +217,7 @@
             android:layout_marginTop="44dp"
             android:fontFamily="@font/thaisanslite"
             android:text="@string/submit_btn"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="25dp"
             android:background="#6A83D1"
             app:layout_constraintEnd_toEndOf="parent"
