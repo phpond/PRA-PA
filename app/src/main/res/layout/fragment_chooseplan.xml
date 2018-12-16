@@ -126,6 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/thaisanslite"
+            android:textSize="20dp"
             android:hint="@string/text_enter_phase" />
 
 
@@ -163,21 +164,23 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:fontFamily="@font/thaisanslite"
+            android:textSize="20dp"
             android:hint="@string/text_enter_floor" />
     </android.support.design.widget.TextInputLayout>
 
         <!--submit-->
     <Button
         android:id="@+id/submit_btn_choose_plan"
-        android:layout_width="262dp"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/bgbutton"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/submit_btn"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topic_floor_choose_plan" />
