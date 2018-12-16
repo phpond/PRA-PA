@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.prapa.seproject.pra_pa.GeneratePassword;
 import com.prapa.seproject.pra_pa.R;
 
 public class HomeFragment extends Fragment {
@@ -27,55 +28,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        _mAth.signInAnonymously();
-        Log.d("HOME", "sign in with - "+_mAth.getCurrentUser());
-//        initResidentBtn();
-//        initStaffBtn();
-//        initLegalPersonBtn();
+        Log.d("HOME", "pass random"+GeneratePassword.generatePassword());
     }
-
-//    private void initResidentBtn(){
-//        Log.d("HOME", "click resident btn");
-//        Button _residentBtn = getView().findViewById(R.id.resident_btn_home);
-//        _residentBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.main_view, new ResidentChooseFragment())
-//                        .addToBackStack(null).commit();
-//            }
-//        });
-//    }
-
-//    private void initStaffBtn(){
-//        Log.d("HOME", "click staff btn");
-//        Button _staffBtn = getView().findViewById(R.id.staff_btn_home);
-//        _staffBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.main_view, new ChoosePlanFragment())
-//                        .addToBackStack(null).commit();
-//                Log.d("HOME", "Go to Record");
-//            }
-//        });
-//    }
-
-//    private void initLegalPersonBtn(){
-////        Log.d("HOME", "click legal person btn");
-////        Button _legalBtn = getView().findViewById(R.id.legal_person_btn_home);
-////        _legalBtn.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "ยังไม่เปิดการใช้งาน", Toast.LENGTH_SHORT).show();
-////                getActivity().getSupportFragmentManager()
-////                        .beginTransaction()
-////                        .replace(R.id.main_view, new EditRecordFragment())
-////                        .addToBackStack(null).commit();
-//            }
-//        });
-//    }
 
 }
