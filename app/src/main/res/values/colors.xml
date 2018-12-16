@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<color>
+<resources>
     <color name="colorPrimary">#3c57a8</color> //สีแถบข้างบน
     <color name="colorPrimaryDark">#3C57A8</color> //หัวข้างบนสุด
     <color name="colorAccent">#F2F2F2</color> //
@@ -8,6 +8,6 @@
     <color name="black">#101820</color>
     <color name="white">#ffffff</color>
     <color name="backgroundedit">#f2f2f2</color>
-    <color name="bgblue">#ECF5FD</color>//สีbgหน้าข้างใน
+    <color name="bgblue">#ECF5FD</color>
 
 </resources>
