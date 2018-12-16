@@ -2,12 +2,14 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="388dp"
@@ -17,10 +19,6 @@
             android:theme="?attr/actionBarTheme"
             app:layout_editor_absoluteX="0dp"
             app:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-
 
         <!--title-->
         <TextView
@@ -31,8 +29,7 @@
             android:text="@string/title_record"
             android:textColor="@color/white"
             android:textSize="30dp"
-            tools:layout_editor_absoluteX="90dp"
-            tools:layout_editor_absoluteY="7dp" />
+
 
         <TextView
             android:id="@+id/room_id_record_water_bill"
@@ -192,15 +189,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill"
             app:layout_constraintVertical_bias="0.675"
-            tools:layout_editor_absoluteX="131dp" />
+
         <ImageView
             android:id="@+id/imageView14"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:layout_editor_absoluteY="7dp"
             app:srcCompat="@drawable/ic_action_back"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="7dp" />
+
 
         <ImageView
             android:id="@+id/imageView15"
@@ -208,8 +204,7 @@
             android:layout_height="39dp"
             app:layout_editor_absoluteY="8dp"
             app:srcCompat="@drawable/ic_action_exit"
-            tools:layout_editor_absoluteX="334dp"
-            tools:layout_editor_absoluteY="8dp" />
+
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
