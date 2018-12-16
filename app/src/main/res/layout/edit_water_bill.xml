@@ -181,8 +181,7 @@
             android:layout_height="40dp"
             app:layout_editor_absoluteY="7dp"
             app:srcCompat="@drawable/ic_action_back"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="7dp" />
+             />
 
         <ImageView
             android:id="@+id/imageView15"
@@ -190,8 +189,7 @@
             android:layout_height="39dp"
             app:layout_editor_absoluteY="8dp"
             app:srcCompat="@drawable/ic_action_exit"
-            tools:layout_editor_absoluteX="334dp"
-            tools:layout_editor_absoluteY="8dp" />
+             />
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
