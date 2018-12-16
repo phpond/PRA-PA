@@ -14,9 +14,29 @@
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="243dp" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="254dp"
+        android:layout_height="43dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="254dp"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="426dp" />
+
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="252dp"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/thaisanslite"
@@ -25,12 +45,14 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="332dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="340dp" />
 
     <EditText
         android:id="@+id/editText6"
-        android:layout_width="251dp"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/thaisanslite"
@@ -38,8 +60,8 @@
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="414dp" />
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="421dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -50,8 +72,8 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="309dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="307dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -64,7 +86,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="255dp" />
 
     <TextView
@@ -76,7 +100,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="391dp" />
 
     <Button
@@ -97,9 +121,35 @@
         android:layout_width="216dp"
         android:layout_height="200dp"
         android:src="@drawable/prapalogo_new"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="27dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.574"
+        app:srcCompat="@drawable/ic_username" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732"
+        app:srcCompat="@drawable/ic_password" />
 
 
 </android.support.constraint.ConstraintLayout>
