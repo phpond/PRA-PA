@@ -2,8 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bgblue"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,15 +24,18 @@
 
 
         <!--title-->
-        <TextView
-            android:id="@+id/title_record_water_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisanslite"
-            android:text="@string/title_record"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            />
+    <TextView
+        android:id="@+id/title_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/title_record"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
         <TextView
             android:id="@+id/room_id_record_water_bill"
@@ -73,6 +78,19 @@
             app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill"
             app:layout_constraintVertical_bias="0.047" />
 
+    <ImageView
+        android:id="@+id/square4"
+        android:layout_width="195dp"
+        android:layout_height="60dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_record_water_bill"
+        app:layout_constraintVertical_bias="0.215"
+        app:srcCompat="@color/white"
+         />
+
         <EditText
             android:id="@+id/water_meter_record_water_bill"
             android:layout_width="199dp"
@@ -96,117 +114,150 @@
 
 
         <!--month-->
-        <TextView
-            android:id="@+id/month_topic_record_water_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/thaisanslite"
-            android:text="@string/topic_month"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.119"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/water_meter_topic_record_water_bill"
-            app:layout_constraintVertical_bias="0.067" />
+    <TextView
+        android:id="@+id/month_topic_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_month"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/water_meter_topic_record_water_bill"
+        app:layout_constraintVertical_bias="0.105" />
 
-        <TextView
-            android:id="@+id/month_meter_record_water_bill"
-            android:layout_width="166dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:fontFamily="@font/thaisanslite"
-            android:hint="@string/text_enter_month"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.431" />
+    <ImageView
+        android:id="@+id/square7"
+        android:layout_width="191dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_record_water_bill"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/month_meter_record_water_bill"
+        android:layout_width="166dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_month"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
 
 
         <!--date-->
-        <TextView
-            android:id="@+id/date_topic_record_water_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/thaisanslite"
-            android:text="@string/topic_date"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/month_topic_record_water_bill"
-            app:layout_constraintVertical_bias="0.097" />
+    <TextView
+        android:id="@+id/date_topic_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_date"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/month_topic_record_water_bill"
+        app:layout_constraintVertical_bias="0.178" />
 
-        <TextView
-            android:id="@+id/date_meter_record_water_bill"
-            android:layout_width="193dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:fontFamily="@font/thaisanslite"
-            android:hint="@string/text_enter_record_date"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.92"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/month_meter_record_water_bill"
-            app:layout_constraintVertical_bias="0.074" />
+    <ImageView
+        android:id="@+id/square8"
+        android:layout_width="191dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_record_water_bill"
+        app:layout_constraintVertical_bias="0.589"
+        app:srcCompat="@color/white"
+         />
+
+    <TextView
+        android:id="@+id/date_meter_record_water_bill"
+        android:layout_width="193dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_record_date"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/month_meter_record_water_bill"
+        app:layout_constraintVertical_bias="0.161" />
 
 
         <!--submit btn-->
-        <Button
-            android:id="@+id/submit_btn_meter_record_water_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/thaisanslite"
-            android:text="@string/submit_btn"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill"
-            app:layout_constraintVertical_bias="0.675"
-             />
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_editor_absoluteY="7dp"
-            app:srcCompat="@drawable/ic_action_back"
-            tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="7dp" />
+    <Button
+        android:id="@+id/submit_btn_meter_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/submit_btn"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill"
+        app:layout_constraintVertical_bias="0.73"
+       />
 
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="40dp"
-            android:layout_height="39dp"
-            app:layout_editor_absoluteY="8dp"
-            app:srcCompat="@drawable/ic_action_exit"
-            />
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_editor_absoluteY="7dp"
+        app:srcCompat="@drawable/ic_action_back"
+        />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_editor_absoluteY="8dp"
+        app:srcCompat="@drawable/ic_action_exit"
+        />
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
