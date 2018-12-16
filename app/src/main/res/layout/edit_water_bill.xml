@@ -8,9 +8,7 @@
     android:background="@color/bgblue"
     app:layout_editor_absoluteY="81dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -249,7 +247,7 @@
             app:srcCompat="@drawable/ic_action_exit"
             />
 
-    </ScrollView>
+
 
 
 </android.support.constraint.ConstraintLayout>
