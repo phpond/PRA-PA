@@ -13,7 +13,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <android.support.v7.widget.Toolbar
+        <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="388dp"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:theme="?attr/actionBarTheme"
             app:layout_editor_absoluteX="0dp"
             app:layout_editor_absoluteY="0dp"
-             />
+            />
 
 
 
@@ -32,11 +32,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_showBill"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/imageView14"
          />
 
         <!--topic total-->
@@ -310,30 +314,31 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintVertical_bias="0.548" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_editor_absoluteY="7dp"
-        app:srcCompat="@drawable/ic_action_back"
-         />
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_editor_absoluteY="7dp"
+            app:srcCompat="@drawable/ic_action_back"
+            />
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="8dp"
-        app:srcCompat="@drawable/ic_action_exit"
-         />
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.975"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_editor_absoluteY="8dp"
+            app:srcCompat="@drawable/ic_action_exit"
+            />
 
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
+
