@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
+import com.prapa.seproject.pra_pa.Fragment.HomeFragment;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
 
@@ -56,6 +58,7 @@ public class ShowBillFragment extends Fragment {
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         Log.d("SHOW_BILL", "User room : "+_spfr.getString("room_id", "not found"));
         getDataFromFirebase(_spfr.getString("room_id", "not found"));
+        initLogout();
     }
 
     private void setRecycleView(){
@@ -109,5 +112,23 @@ public class ShowBillFragment extends Fragment {
         Calendar cal = Calendar.getInstance();
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH);
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_show_bill);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("SHOW_BILL", _spfr.getString("room_id", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("SHOW_BILL", "Logout --> Home");
+            }
+        });
     }
 }
