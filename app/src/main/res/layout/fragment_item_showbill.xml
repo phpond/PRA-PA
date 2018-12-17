@@ -2,7 +2,6 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tool="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
@@ -15,6 +14,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/image_status_payment_show_bill"
+            android:layout_width="53dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bath_show_bill"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:srcCompat="@drawable/correct" />
 
         <!--topic total-->
         <TextView
@@ -95,7 +106,7 @@
         <!--water meter-->
         <TextView
             android:id="@+id/water_meter_topic_show_bill"
-            android:layout_width="216dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/thaisanslite"
@@ -180,13 +191,6 @@
             app:layout_constraintStart_toEndOf="@+id/date_topic_show_bill"
             app:layout_constraintTop_toBottomOf="@+id/bill_show_bill" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="53dp"
-            android:layout_height="57dp"
-            tool:srcCompat="@drawable/correct"
-            tools:layout_editor_absoluteX="253dp"
-            tools:layout_editor_absoluteY="16dp" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
