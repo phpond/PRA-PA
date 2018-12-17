@@ -25,9 +25,7 @@ import com.prapa.seproject.pra_pa.User;
 
 public class HomeFragment extends Fragment {
 
-    private FirebaseAuth _mAth = FirebaseAuth.getInstance();
     private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-
     private User user;
     private SharedPreferences _spfr;
 
@@ -41,7 +39,21 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initLogin();
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        String role = _spfr.getString("role","");
+
+        try {
+            if(role.equals("")){
+                initLogin();
+                Log.d("HOME", "Login");
+            }else {
+                nextToPage(role);
+                Log.d("HOME", "Next page auto");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void initLogin(){
@@ -84,9 +96,9 @@ public class HomeFragment extends Fragment {
                             Log.d("HOME", "getData success... user : "+user.getUsername());
 
                             //SharedPreferences
-                            _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = _spfr.edit();
                             editor.putString("room_id", user.getRoom_id());
+                            editor.putString("role", user.getRole());
                             editor.commit();
                             Log.d("HOME", "save on device : "+_spfr.getString("room_id", "not found"));
                         }
@@ -103,28 +115,32 @@ public class HomeFragment extends Fragment {
     private void checkAuthen(String password){
         Log.d("HOME", "Check Authen");
         if(password.equals(user.getPassword())){
-            if(user.getRole().equals("RESIDENT")){
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_view, new ShowBillFragment())
-                        .addToBackStack(null).commit();
-            } else if (user.getRole().equals("STAFF")) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_view, new ChoosePlanFragment())
-                        .addToBackStack(null).commit();
-            } else if (user.getRole().equals("LEGAL")){
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_view, new EditUnitFragment())
-                        .addToBackStack(null).commit();
-            }
-            Toast.makeText(getActivity(), "เข้าสู่ระบบสำเร็จ", Toast.LENGTH_SHORT).show();
-            Log.d("HOME", "เข้าสู่ระบบสำเร็จ go to : "+user.getRole());
+            nextToPage(user.getRole());
         }else{
             Toast.makeText(getActivity(), "รหัสผ่านไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
             Log.d("HOME", "password is wrong");
         }
+    }
+
+    private void nextToPage(String role){
+        if(role.equals("RESIDENT")){
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_view, new ShowBillFragment())
+                    .addToBackStack(null).commit();
+        } else if (role.equals("STAFF")) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_view, new ChoosePlanFragment())
+                    .addToBackStack(null).commit();
+        } else if (role.equals("LEGAL")){
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_view, new EditUnitFragment())
+                    .addToBackStack(null).commit();
+        }
+        Toast.makeText(getActivity(), "เข้าสู่ระบบสำเร็จ", Toast.LENGTH_SHORT).show();
+        Log.d("HOME", "เข้าสู่ระบบสำเร็จ go to : "+role);
     }
 
 }

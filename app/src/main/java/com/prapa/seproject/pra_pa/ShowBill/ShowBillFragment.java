@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
@@ -25,11 +26,11 @@ import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ShowBillFragment extends Fragment {
 
     private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-    private FirebaseAuth _mAuth = FirebaseAuth.getInstance();
 
     private SharedPreferences _spfr;
 
@@ -38,6 +39,9 @@ public class ShowBillFragment extends Fragment {
     private ShowBillAdapter showBillAdapter;
 
     private ArrayList<Bill> _bills = new ArrayList<>();
+
+    private int month;
+    private int year;
 
     @Nullable
     @Override
@@ -48,6 +52,7 @@ public class ShowBillFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        dateCurrent();
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         Log.d("SHOW_BILL", "User room : "+_spfr.getString("room_id", "not found"));
         getDataFromFirebase(_spfr.getString("room_id", "not found"));
@@ -71,18 +76,23 @@ public class ShowBillFragment extends Fragment {
         }
     }
 
+    int count = 0;
     private void getDataFromFirebase(String _room){
-
         Log.d("SHOW_BILL", "Get form DB");
         _fbfs.collection("Resident")
                 .document("USER")
                 .collection(_room)
+                .orderBy("year", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
+                            if(count == 3){
+                                break;
+                            }
                             _bills.add(doc.toObject(Bill.class));
+                            count++;
                             Log.d("SHOW_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
                         }
                         setRecycleView();
@@ -93,5 +103,11 @@ public class ShowBillFragment extends Fragment {
                 Log.d("SHOW_BILL", "get data from firebase FAIL!!");
             }
         });
+    }
+
+    private void dateCurrent(){
+        Calendar cal = Calendar.getInstance();
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
     }
 }

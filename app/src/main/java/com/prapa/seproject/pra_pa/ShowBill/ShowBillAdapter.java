@@ -45,6 +45,7 @@ public class ShowBillAdapter extends RecyclerView.Adapter<ShowBillAdapter.ViewHo
             viewHolder.room.setText(""+_billDataSet.get(position).getRoomString());
             viewHolder.waterMeter.setText(""+_billDataSet.get(position).getWater_bill());
             viewHolder.dateRecord.setText(""+_billDataSet.get(position).getRecord_date());
+            viewHolder.billDate.setText(""+_billDataSet.get(position).getMonth()+"/"+_billDataSet.get(position).getYear());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -62,6 +63,7 @@ public class ShowBillAdapter extends RecyclerView.Adapter<ShowBillAdapter.ViewHo
         public TextView room;
         public TextView waterMeter;
         public TextView dateRecord;
+        public TextView billDate;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -70,6 +72,7 @@ public class ShowBillAdapter extends RecyclerView.Adapter<ShowBillAdapter.ViewHo
             room = itemView.findViewById(R.id.room_id_show_bill);
             waterMeter = itemView.findViewById(R.id.water_meter_show_bill);
             dateRecord = itemView.findViewById(R.id.date_record_show_bill);
+            billDate = itemView.findViewById(R.id.bill_show_bill);
 
         }
     }
