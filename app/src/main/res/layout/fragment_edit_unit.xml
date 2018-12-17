@@ -48,6 +48,7 @@
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:textSize="50sp"
+        android:inputType="number"
         android:text="00"
         android:textColorHint="@color/backgroundNumber"/>
 
