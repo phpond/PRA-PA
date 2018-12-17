@@ -55,12 +55,13 @@ public class ChoosePlanFragment extends Fragment {
            @Override
            public void onClick(View v) {
                _phaseStr = ((EditText)(getView().findViewById(R.id.phase_choose_plan))).getText().toString();
+               _phaseStr = _phaseStr.toUpperCase();
                _floorStr = ((EditText)(getView().findViewById(R.id.floor_choose_plan))).getText().toString();
                if(_floorStr.isEmpty() || _phaseStr.isEmpty()){
                    Toast.makeText(getActivity(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","PHASE OR FLOOR IS EMPTY");
                }
-               else if( !_phaseStr.matches("[A-H]") ){
+               else if( !_phaseStr.matches("[A-H]")){
                    Toast.makeText(getActivity()," Phase : A - H เท่านั้น",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","FLOOR IS'T NUMERIC");
 
