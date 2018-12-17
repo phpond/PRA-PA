@@ -1,5 +1,6 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.prapa.seproject.pra_pa.R;
@@ -31,6 +33,8 @@ public class ChoosePlanFragment extends Fragment {
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //initHomeBtn();
+
         if(RecordWaterFragment.PHASE_CHOOSE != null || RecordWaterFragment.FLOOR_CHOOSE != null){
             Log.d("ChoosePlanFragment : ", "go to view plan with old phase/floor : "
                     +RecordWaterFragment.PHASE_CHOOSE+"/"+RecordWaterFragment.FLOOR_CHOOSE);
@@ -40,6 +44,7 @@ public class ChoosePlanFragment extends Fragment {
         }else{
             initSummit();
         }
+
     }
 
     void initSummit(){

@@ -7,41 +7,41 @@
     android:layout_height="match_parent"
     app:layout_editor_absoluteY="81dp">
 
-    <ImageView
-        android:id="@+id/square"
-        android:layout_width="174dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/square5"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@color/white" />
+    <!--<ImageView-->
+        <!--android:id="@+id/square"-->
+        <!--android:layout_width="174dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="104dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.68"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/square5"-->
+        <!--app:layout_constraintVertical_bias="1.0"-->
+        <!--app:srcCompat="@color/white" />-->
 
-    <ImageView
-        android:id="@+id/square5"
-        android:layout_width="174dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="152dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_choose_plan"
-        app:layout_constraintVertical_bias="0.888"
-        app:srcCompat="@color/white" />
+    <!--<ImageView-->
+        <!--android:id="@+id/square5"-->
+        <!--android:layout_width="174dp"-->
+        <!--android:layout_height="44dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="152dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.685"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/img_choose_plan"-->
+        <!--app:layout_constraintVertical_bias="0.888"-->
+        <!--app:srcCompat="@color/white" />-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="388dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
@@ -109,6 +109,7 @@
         app:layout_constraintTop_toBottomOf="@id/img_choose_plan" />
 
     <android.support.design.widget.TextInputLayout
+        android:background="#fff"
         android:id="@+id/textInputLayout5"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
@@ -148,6 +149,8 @@
         app:layout_constraintTop_toBottomOf="@id/topic_phase_choose_plan" />
 
     <android.support.design.widget.TextInputLayout
+        android:background="#fff"
+
         android:id="@+id/textInputLayout3"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
@@ -159,6 +162,7 @@
         app:layout_editor_absoluteY="328dp">
 
         <android.support.design.widget.TextInputEditText
+
             android:id="@+id/floor_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -185,8 +189,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topic_floor_choose_plan" />
 
-    <ImageView
-        android:id="@+id/imageView14"
+    <Image
+        android:id="@+id/home_btn_choose"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +200,7 @@
         app:layout_editor_absoluteY="7dp" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/logout_btn_choose"
         android:layout_width="40dp"
         android:layout_height="39dp"
         app:layout_constraintEnd_toEndOf="parent"
