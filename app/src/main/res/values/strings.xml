@@ -22,10 +22,9 @@
     <string name="text_enter_floor">กรอกชั้น</string>
 
     <!--home-->
-    <string name="resident_btn">ผู้พักอาศํย</string>
-    <string name="staff_btn">พนักงานบันทึกมิเตอร์น้ำ</string>
-    <string name="legal_person_btn">นิติบุคคล</string>
-    <string name="des_img">logo_PRA-PA</string>
+    <string name="username">ชื่อผู้ใช้</string>
+    <string name="password">รหัสผ่าน</string>
+    <string name="login">เข้าสู่ระบบ</string>
 
     <!--show bill-->
     <string name="topic_showBill">บิลค่าน้ำประปา</string>
