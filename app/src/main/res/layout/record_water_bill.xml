@@ -17,19 +17,39 @@
         app:layout_editor_absoluteY="0dp"
         />
 
+    <ImageView
+        android:id="@+id/back_btn_record_water"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_record_water_bill"
+        app:srcCompat="@drawable/ic_action_back" />
+
+    <ImageView
+        android:id="@+id/logout_record_water"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/title_record_water_bill"
+        app:srcCompat="@drawable/ic_action_exit" />
+
     <!--title-->
     <TextView
         android:id="@+id/title_record_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/title_record"
         android:textColor="@color/white"
         android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/room_id_record_water_bill"
@@ -245,30 +265,6 @@
         app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill"
         app:layout_constraintVertical_bias="0.761" />
 
-    <ImageView
-        android:id="@+id/home_btn_record_water_bill"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_editor_absoluteY="7dp"
-        app:srcCompat="@drawable/ic_action_back"
-        />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="40dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/toolbar"
-            app:layout_constraintHorizontal_bias="0.961"
-            app:layout_constraintStart_toStartOf="@+id/toolbar"
-            app:layout_editor_absoluteY="8dp"
-            app:srcCompat="@drawable/ic_action_exit"
-            />
 
 
 </android.support.constraint.ConstraintLayout>

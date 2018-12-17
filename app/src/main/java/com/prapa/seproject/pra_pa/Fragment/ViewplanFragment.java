@@ -1,5 +1,7 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.support.annotation.NonNull;
@@ -15,7 +17,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -31,8 +32,7 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
     protected static Room _roomOnclick;
 
     private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-    private FirebaseAuth _mAuth = FirebaseAuth.getInstance();
-
+    private SharedPreferences _spfr;
 
     @Nullable
     @Override
@@ -43,6 +43,10 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        initLogout();
+        backBtn();
 
         ImageView one = getView().findViewById(R.id.room_01);
         one.setOnClickListener(this); // calling onClick() method
@@ -270,5 +274,34 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new RecordWaterFragment()).addToBackStack(null).commit();
             Log.d("VIEW_PLAN", "DATE_BILL FALSE : GOTO REC  ON "+_dateCurrunt);
         }
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_view_plan);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("ChoosePlanFragment", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("ChoosePlanFragment", "Logout --> Home");
+            }
+        });
+    }
+
+    private void backBtn(){
+        ImageView _backBtn = getView().findViewById(R.id.icon_back_viewplan);
+        _backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
     }
 }
