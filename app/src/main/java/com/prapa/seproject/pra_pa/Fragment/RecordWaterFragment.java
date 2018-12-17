@@ -1,6 +1,8 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,16 +34,15 @@ import java.util.Calendar;
 public class RecordWaterFragment extends Fragment {
 
     FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-//    FirebaseAuth _muth = FirebaseAuth.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
 
     private Room _room;
-//    String[] _month = {"ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."};
-//    String[] _month = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     protected static String PHASE_CHOOSE;
     protected static String FLOOR_CHOOSE;
+
+    private SharedPreferences _spfr;
 
     @Nullable
     @Override
@@ -52,6 +54,10 @@ public class RecordWaterFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        initLogout();
+        backBtn();
+
         //set room id
         TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
         _room = ViewplanFragment._roomOnclick;
@@ -61,7 +67,7 @@ public class RecordWaterFragment extends Fragment {
         initSubmitBtn();
         initBillCalendar();
         setDateRecordCalendar();
-        initHomeBtn();
+
     }
 
     //submit to fire base
@@ -116,17 +122,6 @@ public class RecordWaterFragment extends Fragment {
         };
     }
 
-    private void initHomeBtn(){
-        ImageButton _homeBtn = getView().findViewById(R.id.home_btn_record_water_bill);
-        _homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PHASE_CHOOSE = null;
-                FLOOR_CHOOSE = null;
-                goToNextPage();
-            }
-        });
-    }
 
     private void setDateRecordCalendar(){
         final TextView _recordDateBill = getView().findViewById(R.id.date_meter_record_water_bill);
@@ -144,7 +139,6 @@ public class RecordWaterFragment extends Fragment {
         Log.d("RECORD", "Up to firebase"+_fbfs);
         String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
         _fbfs.collection("Resident")
-//                .document(_muth.getCurrentUser().getUid())
                 .document("USER")
                 .collection(_number_room)
                 .document(_bill.getMonth()+_bill.getYear())
@@ -172,5 +166,34 @@ public class RecordWaterFragment extends Fragment {
                 .beginTransaction()
                 .replace(R.id.main_view, new ChoosePlanFragment())
                 .addToBackStack(null).commit();
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_record_water);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("RECORD", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("RECORD", "Logout --> Home");
+            }
+        });
+    }
+
+    private void backBtn(){
+        ImageView _backBtn = getView().findViewById(R.id.back_btn_record_water);
+        _backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
     }
 }

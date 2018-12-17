@@ -1,43 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/bgblue"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_editor_absoluteY="81dp">
-
-    <!--<ImageView-->
-        <!--android:id="@+id/square"-->
-        <!--android:layout_width="174dp"-->
-        <!--android:layout_height="42dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginBottom="104dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.68"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/square5"-->
-        <!--app:layout_constraintVertical_bias="1.0"-->
-        <!--app:srcCompat="@color/white" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/square5"-->
-        <!--android:layout_width="174dp"-->
-        <!--android:layout_height="44dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginBottom="152dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.685"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/img_choose_plan"-->
-        <!--app:layout_constraintVertical_bias="0.888"-->
-        <!--app:srcCompat="@color/white" />-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -48,20 +17,38 @@
         android:theme="?attr/actionBarTheme"
         />
 
+
+    <ImageView
+        android:id="@+id/icon_logo"
+        android:layout_width="32dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/ic_action_forchooseplan" />
+
+    <ImageView
+        android:id="@+id/logout_choose_plan"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/ic_action_exit" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="67dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/thaisanslite"
         android:text="Plum Condo"
         android:textColor="@color/white"
-        android:textSize="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-11dp" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--title-->
     <TextView
@@ -73,62 +60,54 @@
         android:text="@string/title_choose_plan"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         />
 
-            <!--img plan-->
+    <!--img plan-->
     <ImageView
         android:id="@+id/img_choose_plan"
         android:layout_width="244dp"
         android:layout_height="234dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/plum_condo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_choose_plan"
-        app:layout_editor_absoluteX="76dp"
-        app:layout_editor_absoluteY="66dp"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/title_choose_plan" />
 
-
-            <!--phase-->
+    <!--phase-->
     <TextView
         android:id="@+id/topic_phase_choose_plan"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_phase"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_choose_plan" />
+        app:layout_constraintStart_toStartOf="@+id/img_choose_plan"
+        app:layout_constraintTop_toBottomOf="@+id/img_choose_plan" />
 
     <android.support.design.widget.TextInputLayout
-        android:background="#fff"
         android:id="@+id/textInputLayout5"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_choose_plan"
-        app:layout_editor_absoluteX="159dp"
-        app:layout_editor_absoluteY="268dp">
-
-
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/topic_phase_choose_plan"
+        app:layout_constraintTop_toTopOf="@+id/topic_phase_choose_plan">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/phase_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/thaisanslite"
-            android:textSize="20dp"
-            android:hint="@string/text_enter_phase" />
+            android:hint="@string/text_enter_phase"
+            android:textSize="20dp" />
 
 
     </android.support.design.widget.TextInputLayout>
@@ -138,47 +117,58 @@
         android:layout_width="44dp"
         android:layout_height="39dp"
         android:layout_gravity="bottom"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_floor"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topic_phase_choose_plan" />
+        app:layout_constraintStart_toStartOf="@+id/topic_phase_choose_plan"
+        app:layout_constraintTop_toBottomOf="@+id/topic_phase_choose_plan" />
 
     <android.support.design.widget.TextInputLayout
-        android:background="#fff"
-
         android:id="@+id/textInputLayout3"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout5"
-        app:layout_editor_absoluteX="159dp"
-        app:layout_editor_absoluteY="328dp">
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/topic_floor_choose_plan"
+        app:layout_constraintTop_toTopOf="@+id/topic_floor_choose_plan">
 
         <android.support.design.widget.TextInputEditText
-
             android:id="@+id/floor_choose_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:fontFamily="@font/thaisanslite"
-            android:textSize="20dp"
-            android:hint="@string/text_enter_floor" />
+            android:hint="@string/text_enter_floor"
+            android:textSize="20dp" />
     </android.support.design.widget.TextInputLayout>
 
-        <!--submit-->
+    <ImageView
+        android:id="@+id/square5"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout5"
+        android:translationZ="-1dp"
+        app:srcCompat="@color/white" />
+
+    <ImageView
+        android:id="@+id/square"
+        android:layout_width="174dp"
+        android:layout_height="45dp"
+        android:translationZ="-1dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@+id/topic_floor_choose_plan"
+        app:layout_constraintTop_toTopOf="@+id/topic_floor_choose_plan"
+        app:srcCompat="@color/white" />
+
+    <!--submit-->
     <Button
         android:id="@+id/submit_btn_choose_plan"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
         android:fontFamily="@font/thaisanslite"
@@ -187,36 +177,7 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topic_floor_choose_plan" />
+        app:layout_constraintTop_toBottomOf="@+id/topic_floor_choose_plan" />
 
-    <Image
-        android:id="@+id/home_btn_choose"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_back"
-        app:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/logout_btn_choose"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_exit"
-        app:layout_editor_absoluteY="8dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="32dp"
-        android:layout_height="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_forchooseplan"
-        app:layout_editor_absoluteY="8dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -33,7 +33,7 @@
     <string name="name_topic">ชื่อ</string>
     <string name="topic_room">ห้องชุด : </string>
     <string name="sample_meter">0</string>
-    <string name="price_topic">ราคา</string>
+    <string name="price">ราคา</string>
 
     <!--resident choose room-->
     <string name="topic_resident_choose">เลือกห้องของคุณ</string>

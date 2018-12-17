@@ -2,17 +2,30 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tool="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     android:id="@+id/parentLayout"
     tool:cardCornerRadius="40dp">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_margin="10dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/image_status_payment_show_bill"
+            android:layout_width="53dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bath_show_bill"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:srcCompat="@drawable/correct" />
 
         <!--topic total-->
         <TextView
@@ -23,7 +36,7 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="70dp"
             android:fontFamily="@font/thaisanslite"
-            android:text="@string/price_topic"
+            android:text="@string/price"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold"
@@ -32,10 +45,9 @@
 
         <TextView
             android:id="@+id/price_total_show_bill"
-            android:layout_width="93dp"
-            android:layout_height="43dp"
-            android:layout_marginLeft="8dp"
-            android:ems="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
             android:fontFamily="@font/thaisanslite"
             android:text="@string/sample_price_total"
             android:textAlignment="center"
@@ -110,7 +122,7 @@
             android:layout_width="36dp"
             android:layout_height="38dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/thaisanslite"
             android:text="@string/sample_meter"
@@ -121,14 +133,14 @@
             app:layout_constraintStart_toEndOf="@+id/water_meter_topic_show_bill"
             app:layout_constraintTop_toBottomOf="@+id/room_id_show_bill" />
 
-        <!--record date&ndash;&gt;-->
+        <!--bill-->
         <TextView
-            android:id="@+id/date_topic_show_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/bill_topic"
+            android:layout_width="96dp"
+            android:layout_height="36dp"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/thaisanslite"
-            android:text="@string/topic_date"
+            android:text="รอบบิล :"
             android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold"
@@ -136,19 +148,48 @@
             app:layout_constraintTop_toBottomOf="@+id/water_meter_topic_show_bill" />
 
         <TextView
+            android:id="@+id/bill_show_bill"
+            android:layout_width="86dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/thaisanslite"
+            android:text="ดด/ปปปป"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bill_topic"
+            app:layout_constraintTop_toBottomOf="@+id/water_meter_show_bill" />
+
+        <!--record date-->
+        <TextView
+            android:id="@+id/date_topic_show_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="70dp"
+            android:fontFamily="@font/thaisanslite"
+            android:text="@string/topic_date"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/bill_topic"
+            app:layout_constraintTop_toBottomOf="@+id/bill_topic" />
+
+        <TextView
             android:id="@+id/date_record_show_bill"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/thaisanslite"
             android:text="@string/text_enter_record_date"
             android:textColor="@color/colorPrimary"
             android:textSize="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/date_topic_show_bill"
-            app:layout_constraintTop_toBottomOf="@+id/water_meter_show_bill" />
+            app:layout_constraintTop_toBottomOf="@+id/bill_show_bill" />
 
     </android.support.constraint.ConstraintLayout>
 
