@@ -114,10 +114,10 @@ public class HomeFragment extends Fragment {
                         .replace(R.id.main_view, new ChoosePlanFragment())
                         .addToBackStack(null).commit();
             } else if (user.getRole().equals("LEGAL")){
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.main_view, ())
-//                        .addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new EditUnitFragment())
+                        .addToBackStack(null).commit();
             }
             Toast.makeText(getActivity(), "เข้าสู่ระบบสำเร็จ", Toast.LENGTH_SHORT).show();
             Log.d("HOME", "เข้าสู่ระบบสำเร็จ go to : "+user.getRole());

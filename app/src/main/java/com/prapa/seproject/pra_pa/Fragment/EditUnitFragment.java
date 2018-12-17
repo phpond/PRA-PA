@@ -1,4 +1,4 @@
-package com.prapa.seproject.pra_pa.Unit;
+package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.Unit;
 
 import java.util.Calendar;
 
