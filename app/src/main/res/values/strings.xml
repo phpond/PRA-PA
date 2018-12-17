@@ -31,8 +31,9 @@
     <string name="sample_price_total">899</string>
     <string name="bath">฿</string>
     <string name="name_topic">ชื่อ</string>
-    <string name="topic_room">ห้องชุด</string>
+    <string name="topic_room">ห้องชุด : </string>
     <string name="sample_meter">0</string>
+    <string name="price_topic">ราคา</string>
 
     <!--resident choose room-->
     <string name="topic_resident_choose">เลือกห้องของคุณ</string>

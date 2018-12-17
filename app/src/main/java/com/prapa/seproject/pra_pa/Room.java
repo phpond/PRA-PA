@@ -16,6 +16,10 @@ public class Room implements Parcelable {
         this.number_room = number_room;
     }
 
+    public String getRoom(){
+        return phase+floor+number_room;
+    }
+
     public String getPhase() {
         return phase;
     }

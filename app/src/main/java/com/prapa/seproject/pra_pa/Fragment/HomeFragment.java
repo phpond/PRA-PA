@@ -1,5 +1,7 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,20 +17,20 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.prapa.seproject.pra_pa.GeneratePassword;
 import com.prapa.seproject.pra_pa.R;
-import com.prapa.seproject.pra_pa.Room;
+import com.prapa.seproject.pra_pa.ShowBill.ShowBillFragment;
 import com.prapa.seproject.pra_pa.User;
 
 public class HomeFragment extends Fragment {
 
-    FirebaseAuth _mAth = FirebaseAuth.getInstance();
-    FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
+    private FirebaseAuth _mAth = FirebaseAuth.getInstance();
+    private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
 
     private User user;
+    private SharedPreferences _spfr;
+
 
     @Nullable
     @Override
@@ -40,7 +42,6 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initLogin();
-        Log.d("HOME", "pass random : "+GeneratePassword.generatePassword());
     }
 
     private void initLogin(){
@@ -81,6 +82,13 @@ public class HomeFragment extends Fragment {
                             user = documentSnapshot.toObject(User.class);
                             checkAuthen(password);
                             Log.d("HOME", "getData success... user : "+user.getUsername());
+
+                            //SharedPreferences
+                            _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = _spfr.edit();
+                            editor.putString("room_id", user.getRoom_id());
+                            editor.commit();
+                            Log.d("HOME", "save on device : "+_spfr.getString("room_id", "not found"));
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
