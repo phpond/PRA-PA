@@ -140,6 +140,7 @@
             android:layout_gravity="bottom"
             android:fontFamily="@font/thaisanslite"
             android:hint="@string/text_enter_floor"
+            android:inputType="number"
             android:textSize="20dp" />
     </android.support.design.widget.TextInputLayout>
 
