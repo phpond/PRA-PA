@@ -1,7 +1,9 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,6 +34,8 @@ public class EditUnitFragment extends Fragment {
     EditText unitCurrunt;
     String unitCurruntStr, year, month, noUnit;
 
+    private SharedPreferences _spfr;
+
         @Nullable
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,6 +49,10 @@ public class EditUnitFragment extends Fragment {
             cal = Calendar.getInstance();
             year = String.valueOf(cal.get(Calendar.YEAR));
             month = String.valueOf(cal.get(Calendar.MONTH)+1);
+
+
+            _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+            initLogout();
 
 
             initBtbEdit();
@@ -132,6 +141,24 @@ public class EditUnitFragment extends Fragment {
             String unitStr = String.valueOf(u);
             unitCurrunt = getView().findViewById(R.id.per_unit_str);
             unitCurrunt.setText(unitStr);
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_edit_unit);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("EditUnitFragment", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("EditUnitFragment", "Logout --> Home");
+            }
+        });
     }
 
 }

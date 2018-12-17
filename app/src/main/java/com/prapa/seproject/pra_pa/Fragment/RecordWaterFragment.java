@@ -176,12 +176,12 @@ public class RecordWaterFragment extends Fragment {
                 SharedPreferences.Editor editor = _spfr.edit();
                 editor.clear();
                 editor.commit();
-                Log.d("ChoosePlanFragment", _spfr.getString("role", "not found"));
+                Log.d("RECORD", _spfr.getString("role", "not found"));
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.main_view, new HomeFragment())
                         .addToBackStack(null).commit();
-                Log.d("ChoosePlanFragment", "Logout --> Home");
+                Log.d("RECORD", "Logout --> Home");
             }
         });
     }

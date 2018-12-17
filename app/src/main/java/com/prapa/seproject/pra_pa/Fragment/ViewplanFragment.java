@@ -284,12 +284,12 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
                 SharedPreferences.Editor editor = _spfr.edit();
                 editor.clear();
                 editor.commit();
-                Log.d("ChoosePlanFragment", _spfr.getString("role", "not found"));
+                Log.d("VIEW_PLAN", _spfr.getString("role", "not found"));
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.main_view, new HomeFragment())
                         .addToBackStack(null).commit();
-                Log.d("ChoosePlanFragment", "Logout --> Home");
+                Log.d("VIEW_PLAN", "Logout --> Home");
             }
         });
     }
