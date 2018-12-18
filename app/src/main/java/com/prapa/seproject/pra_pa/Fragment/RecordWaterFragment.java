@@ -59,6 +59,9 @@ public class RecordWaterFragment extends Fragment {
     private TextView _recordDateBill;
     private TextView _monthBill;
 
+    private TextView _recordDateBill;
+    private TextView _monthBill;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,6 +85,9 @@ public class RecordWaterFragment extends Fragment {
         //check on click
         initSubmitBtn();
         initBillCalendar();
+        initLogout();
+        backBtn();
+        initRecordCalendar();
         initLogout();
         backBtn();
         initRecordCalendar();
@@ -119,11 +125,8 @@ public class RecordWaterFragment extends Fragment {
                     upToFireBase(_bill);
                 }
 
-
-
             }
         });
-//        return current_meter;
     }
 
     private void initBillCalendar(){

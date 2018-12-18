@@ -24,7 +24,7 @@ public class ChoosePlanFragment extends Fragment {
     private String _phaseStr;
     private String _floorStr;
 
-    private SharedPreferences _spfr;
+    private SharedPreferences _spfr, _editor;
 
     @Nullable
     @Override
@@ -37,6 +37,8 @@ public class ChoosePlanFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        _editor = getActivity().getSharedPreferences("PHASE_FLOOR", Context.MODE_PRIVATE);
+
         initLogout();
         if(RecordWaterFragment.PHASE_CHOOSE != null || RecordWaterFragment.FLOOR_CHOOSE != null){
             Log.d("ChoosePlanFragment : ", "go to view plan with old phase/floor : "
@@ -55,16 +57,22 @@ public class ChoosePlanFragment extends Fragment {
            @Override
            public void onClick(View v) {
                _phaseStr = ((EditText)(getView().findViewById(R.id.phase_choose_plan))).getText().toString();
+               _phaseStr = _phaseStr.toUpperCase();
                _floorStr = ((EditText)(getView().findViewById(R.id.floor_choose_plan))).getText().toString();
                if(_floorStr.isEmpty() || _phaseStr.isEmpty()){
                    Toast.makeText(getActivity(),"กรุณากรอกข้อมูลให้ครบถ้วน",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","PHASE OR FLOOR IS EMPTY");
                }
-               else if(!_floorStr.matches("[0-9]") || !_phaseStr.matches("[A-Z]")){
-                   Toast.makeText(getActivity(),"กรุณาตรวจสอบข้อมูลอีกครั้ง",Toast.LENGTH_SHORT).show();
+               else if( !_phaseStr.matches("[A-H]")){
+                   Toast.makeText(getActivity()," Phase : A - H เท่านั้น",Toast.LENGTH_SHORT).show();
                    Log.d("ChoosePlanFragment : ","FLOOR IS'T NUMERIC");
 
                }
+               else if(!_floorStr.matches("[1-8]") ){
+                   Toast.makeText(getActivity()," Floor : 1 - 8 เท่านั้น",Toast.LENGTH_SHORT).show();
+                   Log.d("ChoosePlanFragment : ","FLOOR IS'T NUMERIC");
+               }
+
                else {
                    SharedPreferences.Editor editor = _spfr.edit();
                    editor.putString("phase_choose", _phaseStr);
@@ -86,20 +94,25 @@ public class ChoosePlanFragment extends Fragment {
        nr.setFloor(_floorInt);
        nr.setNumber_room("0");
 
-       Bundle bundle = new Bundle();
-       bundle.putParcelable("PhaseAndFloor", nr);
+       SharedPreferences.Editor editor = _editor.edit();
+       editor.putString("PHASE",_phaseStr);
+       editor.putString("FLOOR",_floorStr);
+       editor.commit();
 
-       Fragment fragmentGet = new ViewplanFragment();
-       fragmentGet.setArguments(bundle);
-       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-       fragmentTransaction.replace(R.id.main_view, fragmentGet);
-       fragmentTransaction.addToBackStack(null);
-       fragmentTransaction.commit();
+       getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_view, new ViewplanFragment())
+               .commit();
+//
+//       Fragment fragmentGet = new ViewplanFragment();
+//       fragmentGet.setArguments(bundle);
+//       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//       fragmentTransaction.replace(R.id.main_view, fragmentGet);
+//       fragmentTransaction.addToBackStack(null);
+//       fragmentTransaction.commit();
    }
 
     private void initLogout(){
-        ImageView _logout = getView().findViewById(R.id.logout_choose_plan);
+        ImageView _logout = getView().findViewById(R.id.logout_choose_plan );
         _logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

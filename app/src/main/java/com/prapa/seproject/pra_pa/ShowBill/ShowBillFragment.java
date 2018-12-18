@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,6 +47,8 @@ public class ShowBillFragment extends Fragment {
     private int month;
     private int year;
 
+    private int price_not_pay = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +66,8 @@ public class ShowBillFragment extends Fragment {
     }
 
     private void setRecycleView(){
+        TextView not_pay = getView().findViewById(R.id.not_payment_show_bill);
+        not_pay.setText(""+price_not_pay);
         recyclerView = getView().findViewById(R.id.recycle_list_show_bill);
         Log.d("SHOW_BILL", "set recycle prepare... : "+recyclerView + "bills : "+_bills);
         if(recyclerView != null && _bills != null){
@@ -94,9 +100,26 @@ public class ShowBillFragment extends Fragment {
                             if(count == 3){
                                 break;
                             }
+                            if(doc.toObject(Bill.class).getStatus().equals("ยังไม่ชำระเงิน")){
+                                price_not_pay += doc.toObject(Bill.class).getTotal_price_bill();
+                            }
                             _bills.add(doc.toObject(Bill.class));
                             count++;
                             Log.d("SHOW_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
+                        }
+                        if(_bills.isEmpty()){
+                            Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.showBillLayout), "ไม่พบข้อมูล", Snackbar.LENGTH_LONG);
+                            snackbar.setAction("refresh", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    getActivity().getSupportFragmentManager()
+                                            .beginTransaction()
+                                            .replace(R.id.main_view, new ShowBillFragment())
+                                            .addToBackStack(null).commit();
+                                }
+                            });
+                            snackbar.show();
+
                         }
                         setRecycleView();
                     }
@@ -107,6 +130,7 @@ public class ShowBillFragment extends Fragment {
             }
         });
     }
+
 
     private void dateCurrent(){
         Calendar cal = Calendar.getInstance();

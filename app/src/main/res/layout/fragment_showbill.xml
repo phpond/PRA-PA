@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="@color/bgblue"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/showBillLayout">
 
 
     <android.support.v7.widget.Toolbar
@@ -44,9 +45,56 @@
         android:id="@+id/recycle_list_show_bill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
     </android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisanslite"
+            android:text="ยอดค้างชำระ :"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/not_payment_show_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/thaisanslite"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/thaisanslite"
+            android:text="@string/bath"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
 

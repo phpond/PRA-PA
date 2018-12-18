@@ -31,8 +31,12 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
     protected static Room _roomOnclick;
 
+    private String Phase;
+    private String Floor;
+
     private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-    private SharedPreferences _spfr;
+    private SharedPreferences _spfr, _editor;
+
 
     @Nullable
     @Override
@@ -45,6 +49,8 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
 
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        _editor = getActivity().getSharedPreferences("PHASE_FLOOR", Context.MODE_PRIVATE);
+
         initLogout();
         backBtn();
 
@@ -150,18 +156,10 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
 
         void ShowPhaseAndFloor(){
-            String Phase;
-            String Floor;
-            Room nr;
 
+            Phase = _editor.getString("PHASE","0");
+            Floor = _editor.getString("FLOOR","0");
 
-            Bundle bundle = this.getArguments();
-            if (bundle != null) {
-                nr = bundle.getParcelable("PhaseAndFloor");
-
-
-                Phase = nr.getPhase();
-                Floor = Integer.toString(nr.getFloor());
                 TextView _phaseStr = getView().findViewById(R.id.phase_view_plan);
                 TextView _floorStr = getView().findViewById(R.id.floor_view_plan);
 
@@ -170,7 +168,7 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
                 ShowNumberRoom(Phase, Floor);
 
-                }
+
         }
 
         void ShowNumberRoom(String Phase, String Floor){
@@ -205,19 +203,16 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
         void gotoRecordPage(String NumberRoom){
 
-            Room nr;
-            Bundle bundle = this.getArguments();
-            if (bundle != null) {
+            Room nr = new Room();
+//            Phase = _editor.getString("PHASE","0");
+//            Floor = _editor.getString("FLOOR","0");
 
-                nr = bundle.getParcelable("PhaseAndFloor");
+            nr.setPhase(Phase);
+            nr.setFloor(Integer.parseInt(Floor));
+            nr.setNumber_room(NumberRoom);
+            getDataFromFirebase(Phase+Floor+NumberRoom);
 
-                String Phase = nr.getPhase();
-                int Floor = nr.getFloor();
-                nr.setNumber_room(NumberRoom);
-
-                getDataFromFirebase(Phase+Floor+NumberRoom);
-                _roomOnclick = nr;
-            }
+            _roomOnclick = nr;
     }
 
 
@@ -256,6 +251,7 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
 
     }
     private void checkUpdatedData(Bill _bill){
+        Log.e("VIEW_PLAN"," inCheckUpdate");
 
         String _dateBill = "";
         _dateBill = _bill.getMonth()+_bill.getYear();
@@ -265,6 +261,8 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         int month = cal.get(Calendar.MONTH)+1;
 
         String _dateCurrunt = String.valueOf(month)+String.valueOf(year);
+
+        Log.e("VIEW_PLAN"," " +_dateCurrunt + " " + _dateBill);
 
         if(_dateBill.equals(_dateCurrunt) )
         {   getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new EditRecordFragment()).addToBackStack(null).commit();
@@ -282,6 +280,9 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = _spfr.edit();
+                SharedPreferences.Editor editor_ = _editor.edit();
+                editor_.clear();
+                editor_.commit();
                 editor.clear();
                 editor.commit();
                 Log.d("VIEW_PLAN", _spfr.getString("role", "not found"));
@@ -299,8 +300,12 @@ public class ViewplanFragment extends Fragment implements View.OnClickListener {
         _backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                SharedPreferences.Editor editor_ = _editor.edit();
+//                editor_.clear();
+//                editor_.commit();
                 getActivity().getSupportFragmentManager()
-                        .popBackStack();
+                       .beginTransaction().addToBackStack(null).replace(R.id.main_view, new ChoosePlanFragment()).commit();
+
             }
         });
     }

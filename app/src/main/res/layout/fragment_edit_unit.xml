@@ -37,32 +37,70 @@
         android:layout_width="match_parent"
         android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:hint="ค่าน้ำต่อหน่วยปัจุบัน"/>
+        android:hint="ค่าน้ำต่อหน่วยปัจุบัน"
+        android:textSize="30dp"
+        android:fontFamily="@font/thaisanslite"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
 
     <EditText
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
         android:id="@+id/per_unit_str"
-        android:background="@color/colorAccent"
         android:layout_width="wrap_content"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
+        android:background="@color/colorAccent"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="00"
-        android:textColorHint="@color/backgroundNumber"/>
+        android:textAlignment="center"
+        android:textColorHint="@color/backgroundNumber"
+        android:textSize="50sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="บาท / หน่วย"/>
+        android:hint="บาท / หน่วย"
+        android:textSize="30dp"
+        android:fontFamily="@font/thaisanslite"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/unit_edit_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="แก้ไข"
         android:textColorHint="@color/textNumber"
-        android:hint="แก้ไข"/>
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
+
+    <ImageView
+        android:id="@+id/icon_back_unit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:srcCompat="@drawable/ic_action_back" />
+
+    <TextView
+        android:id="@+id/show_u_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="แก้ไขหน่วยมิเตอร์น้ำ"
+        android:textColor="@color/white"
+        android:textSize="34dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

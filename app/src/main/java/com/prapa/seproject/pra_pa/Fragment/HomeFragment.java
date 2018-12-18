@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prapa.seproject.pra_pa.Payment.PaymentFragment;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.ShowBill.ShowBillFragment;
 import com.prapa.seproject.pra_pa.User;
@@ -41,6 +42,7 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         String role = _spfr.getString("role","");
+        Log.d("HOME", "role : "+role);
 
         try {
             if(role.equals("")){
@@ -136,7 +138,7 @@ public class HomeFragment extends Fragment {
         } else if (role.equals("LEGAL")){
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.main_view, new EditUnitFragment())
+                    .replace(R.id.main_view, new MenuNitiFragment())
                     .addToBackStack(null).commit();
         }
         Toast.makeText(getActivity(), "เข้าสู่ระบบสำเร็จ", Toast.LENGTH_SHORT).show();

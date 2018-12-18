@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundedit"
+    android:id="@+id/payment_item_layout">
+
+    <TextView
+        android:id="@+id/room_id_payment_status_payment_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:padding="10dp"
+        android:text="@string/room_id"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/price_total_payment_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:ems="2"
+        android:fontFamily="@font/thaisanslite"
+        android:padding="10dp"
+        android:text="@string/sample_price_total"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/room_id_payment_status_payment_item"
+        app:layout_constraintStart_toEndOf="@+id/room_id_payment_status_payment_item"
+        app:layout_constraintTop_toTopOf="@+id/room_id_payment_status_payment_item"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/date_bill_payment_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/thaisanslite"
+        android:padding="10dp"
+        android:text="ดด/ปปปป"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/price_total_payment_item"
+        app:layout_constraintStart_toEndOf="@+id/price_total_payment_item"
+        app:layout_constraintTop_toTopOf="@+id/price_total_payment_item"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/status_check_payment_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:padding="10dp"
+        android:text="ยืนยัน"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@drawable/button_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bill_payment_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/date_bill_payment_item"
+        app:layout_constraintTop_toTopOf="@+id/date_bill_payment_item" />
+
+
+</android.support.constraint.ConstraintLayout>

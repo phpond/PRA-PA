@@ -85,7 +85,6 @@
         android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_phase"
         android:textColor="@color/black"
@@ -104,9 +103,11 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/phase_choose_plan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="41dp"
+            android:background="@drawable/rounded"
             android:fontFamily="@font/thaisanslite"
             android:hint="@string/text_enter_phase"
+            android:textAlignment="center"
             android:textSize="20dp" />
 
 
@@ -129,52 +130,38 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@+id/topic_floor_choose_plan"
         app:layout_constraintTop_toTopOf="@+id/topic_floor_choose_plan">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/floor_choose_plan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="176dp"
+            android:layout_height="38dp"
             android:layout_gravity="bottom"
+            android:background="@drawable/rounded"
             android:fontFamily="@font/thaisanslite"
             android:hint="@string/text_enter_floor"
+            android:inputType="number"
+            android:textAlignment="center"
             android:textSize="20dp" />
     </android.support.design.widget.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/square5"
-        android:layout_width="174dp"
-        android:layout_height="45dp"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-        app:layout_constraintTop_toTopOf="@+id/textInputLayout5"
-        android:translationZ="-1dp"
-        app:srcCompat="@color/white" />
-
-    <ImageView
-        android:id="@+id/square"
-        android:layout_width="174dp"
-        android:layout_height="45dp"
-        android:translationZ="-1dp"
-        android:layout_marginStart="5dp"
-        app:layout_constraintStart_toEndOf="@+id/topic_floor_choose_plan"
-        app:layout_constraintTop_toTopOf="@+id/topic_floor_choose_plan"
-        app:srcCompat="@color/white" />
 
     <!--submit-->
     <Button
         android:id="@+id/submit_btn_choose_plan"
-        android:layout_width="124dp"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/button_bg"
         android:backgroundTint="@color/colorPrimaryDark"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/submit_btn"
         android:textColor="@color/white"
         android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topic_floor_choose_plan" />
