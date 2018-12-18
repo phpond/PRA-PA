@@ -77,6 +77,9 @@ public class EditRecordFragment extends Fragment {
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
 
+        String roomNumber = _room.getPhase()+_room.getFloor()+_room.getNumber_room();
+        TextView textView = getView().findViewById(R.id.room_id_edit_water_bill);
+        textView.setText(roomNumber);
         EditSubmitBtn();
         initBillCalendar();
         initDateRecordCalendar();
