@@ -72,6 +72,7 @@ public class SearchUsernameFragment extends Fragment {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         Log.d("ShowUsernamePwd", "... "+documentSnapshot.toObject(User.class));
                         if(documentSnapshot.toObject(User.class) == null){
+                            SetUsernamePassword("-","-");
                             Toast.makeText(getContext(),"ไม่มีเลขห้องนี้",Toast.LENGTH_LONG).show();
                             Log.e("ShowUsernamePwd","Unknown Error") ;
                         }else{
