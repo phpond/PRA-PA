@@ -64,18 +64,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/thaisanslite"
         android:padding="10dp"
-        android:text="ยืนยันการชำระเงิน"
-        android:textColor="@color/black"
+        android:text="ยืนยัน"
+        android:textColor="@color/white"
         android:textSize="20dp"
+        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="@+id/date_bill_payment_item"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/date_bill_payment_item"
-        app:layout_constraintTop_toTopOf="@+id/date_bill_payment_item"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/date_bill_payment_item" />
 
 
 </android.support.constraint.ConstraintLayout>
