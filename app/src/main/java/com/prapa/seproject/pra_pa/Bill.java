@@ -15,12 +15,13 @@ public class Bill {
     private String status = "ยังไม่ชำระเงิน";
 
     public Bill(){}
-    public Bill(Room room, int water_bill, String month, String year, String record_date) {
+    public Bill(Room room, int water_bill, String month, String year, String record_date, int history_water_bill) {
         this.room = room;
         this.month = month;
         this.year = year;
         this.water_bill = water_bill;
         this.record_date = record_date;
+        this.history_water_bill = history_water_bill;
         calculateBill();
     }
 
@@ -88,7 +89,7 @@ public class Bill {
         this.total_price_bill = total_peice_bill;
     }
     private void calculateBill(){
-        total_price_bill = water_bill*price_meter;
+        total_price_bill = (water_bill-history_water_bill)*price_meter;
     }
 
     public Room getRoom() {

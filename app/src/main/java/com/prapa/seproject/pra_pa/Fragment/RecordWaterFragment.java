@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +26,14 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RecordWaterFragment extends Fragment {
@@ -42,7 +47,13 @@ public class RecordWaterFragment extends Fragment {
     protected static String PHASE_CHOOSE;
     protected static String FLOOR_CHOOSE;
 
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
     private SharedPreferences _spfr;
+    private ArrayList<Bill> _bills = new ArrayList<>();
+
+    private int month;
+    private int year;
 
     @Nullable
     @Override
@@ -68,8 +79,13 @@ public class RecordWaterFragment extends Fragment {
         initBillCalendar();
         setDateRecordCalendar();
 
+        getDataFromFirebase(_spfr.getString("room_id", "not found"));
+
     }
 
+    int current_meter;
+    String current_date;
+    String current_month;
     //submit to fire base
     private void initSubmitBtn(){
         Button _submitBtn = getView().findViewById(R.id.submit_btn_meter_record_water_bill);
@@ -82,18 +98,25 @@ public class RecordWaterFragment extends Fragment {
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_record_water_bill))).getText().toString();
 
                 String[] _monthYear = _month.split("/");
+                current_date = _date;
+                current_month = _monthYear[0];
+                current_meter = Integer.parseInt(_meterStr);
+                int HistoryMeter = CalculateHistoryMeter(_bills, current_meter, current_date, current_month);
 
                 if(_meterStr.isEmpty() || _month.isEmpty() || _date.isEmpty()){
                     Toast.makeText(getActivity(), "Please fill information", Toast.LENGTH_SHORT).show();
                     Log.d("RECORD", "Information is empty");
                 }else{
-                    final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
+                    final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date, HistoryMeter);
                     Log.d("RECORD", "Before up to firebase");
                     upToFireBase(_bill);
                 }
 
+
+
             }
         });
+//        return current_meter;
     }
 
     private void initBillCalendar(){
@@ -131,6 +154,63 @@ public class RecordWaterFragment extends Fragment {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
         Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+    }
+
+    int count = 0;
+    private void getDataFromFirebase(String _room){
+        Log.d("GET_BILL", "Get form DB");
+        _fbfs.collection("Resident")
+                .document("USER")
+                .collection(_room)
+                .orderBy("year", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
+                            if(count == 2){
+                                break;
+                            }
+                            _bills.add(doc.toObject(Bill.class));
+                            count++;
+                            Log.d("GET_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
+                        }
+//                        setRecycleView();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("GET_BILL", "get data from firebase FAIL!!");
+            }
+        });
+    }
+
+    public int CalculateHistoryMeter(ArrayList<Bill> _billDataSet, int current_meter, String current_date, String current_month){
+        this.current_meter = current_meter;
+        this.current_date = current_date;
+        this.current_month = current_month;
+
+        int History = 0;
+        for(int i=1; i<=_billDataSet.size(); i++){
+
+//            _billDataSet.get(i).getWater_bill();
+//            _billDataSet.get(i).getRecord_date();
+//            _billDataSet.get(i).getMonth();
+//            _billDataSet.get(i).getYear();
+            if(_billDataSet.get(i).getMonth().equals(current_month)){
+                History = _billDataSet.get(i+1).getWater_bill();
+//                current_meter = current_meter - History;
+                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
+            }
+            else
+            {
+                History = _billDataSet.get(i).getWater_bill();
+//                current_meter = current_meter - History;
+                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
+            }
+            break;
+        }
+        return History;
     }
 
     //up data to firebase

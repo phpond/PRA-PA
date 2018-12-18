@@ -2,6 +2,7 @@ package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
@@ -30,6 +32,7 @@ import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -41,6 +44,7 @@ public class EditRecordFragment extends Fragment {
 
     FirebaseFirestore db_cloud = FirebaseFirestore.getInstance();
     FirebaseAuth c_auth = FirebaseAuth.getInstance();
+    FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
     private DatePickerDialog.OnDateSetListener mDateDataListener2;
@@ -49,6 +53,8 @@ public class EditRecordFragment extends Fragment {
     protected static String PHASE_CHOOSE;
     protected static String FLOOR_CHOOSE;
 
+    private SharedPreferences _spfr;
+    private ArrayList<Bill> _bills = new ArrayList<>();
 
     @Nullable
     @Override
@@ -68,9 +74,11 @@ public class EditRecordFragment extends Fragment {
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
 
+
         EditSubmitBtn();
         initBillCalendar();
         initDateRecordCalendar();
+        getDataFromFirebase(_spfr.getString("room_id", "not found"));
     }
 
     private void setTextOnFragment(Bill _bill){
@@ -91,7 +99,9 @@ public class EditRecordFragment extends Fragment {
         }
     }
 
-
+    int current_meter;
+    String current_date;
+    String current_month;
 
     //edit_submit button on click
     private void EditSubmitBtn(){
@@ -105,9 +115,14 @@ public class EditRecordFragment extends Fragment {
                 String _meterStr = ((EditText)(getView().findViewById(R.id.water_meter_edit_water_bill))).getText().toString();
                 String _month = ((TextView)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_edit_water_bill))).getText().toString();
-
                 String[] _monthYear = _month.split("/");
-                final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
+
+                current_date = _date;
+                current_month = _monthYear[0];
+                current_meter = Integer.parseInt(_meterStr);
+                int HistoryMeter = CalculateHistoryMeter(_bills, current_meter, current_date, current_month);
+
+                final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date, HistoryMeter);
                 Log.d("edit", "new bill");
 
                 UpdatetoFireBase(_bill);
@@ -179,6 +194,64 @@ public class EditRecordFragment extends Fragment {
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
         Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
     }
+
+    int count = 0;
+    private void getDataFromFirebase(String _room){
+        Log.d("GET_BILL", "Get form DB");
+        _fbfs.collection("Resident")
+                .document("USER")
+                .collection(_room)
+                .orderBy("year", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
+                            if(count == 2){
+                                break;
+                            }
+                            _bills.add(doc.toObject(Bill.class));
+                            count++;
+                            Log.d("GET_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
+                        }
+//                        setRecycleView();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("GET_BILL", "get data from firebase FAIL!!");
+            }
+        });
+    }
+    public int CalculateHistoryMeter(ArrayList<Bill> _billDataSet, int current_meter, String current_date, String current_month){
+        this.current_meter = current_meter;
+        this.current_date = current_date;
+        this.current_month = current_month;
+
+        int History = 0;
+        for(int i=1; i<=_billDataSet.size(); i++){
+
+//            _billDataSet.get(i).getWater_bill();
+//            _billDataSet.get(i).getRecord_date();
+//            _billDataSet.get(i).getMonth();
+//            _billDataSet.get(i).getYear();
+            if(_billDataSet.get(i).getMonth().equals(current_month)){
+                History = _billDataSet.get(i+1).getWater_bill();
+//                current_meter = current_meter - History;
+                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
+            }
+            else
+            {
+                History = _billDataSet.get(i).getWater_bill();
+//                current_meter = current_meter - History;
+                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
+            }
+            break;
+        }
+        return History;
+    }
+
+
 
     // update to firebase
     private void UpdatetoFireBase(Bill _bill) {
