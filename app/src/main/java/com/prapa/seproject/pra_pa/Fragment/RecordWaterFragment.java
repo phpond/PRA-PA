@@ -53,14 +53,12 @@ public class RecordWaterFragment extends Fragment {
     private SharedPreferences _spfr;
     private ArrayList<Bill> _bills = new ArrayList<>();
 
-    private int month;
-    private int year;
+
 
     private TextView _recordDateBill;
     private TextView _monthBill;
 
-    private TextView _recordDateBill;
-    private TextView _monthBill;
+
 
     @Nullable
     @Override
@@ -87,9 +85,7 @@ public class RecordWaterFragment extends Fragment {
         initBillCalendar();
         initLogout();
         backBtn();
-        initRecordCalendar();
-        initLogout();
-        backBtn();
+
         initRecordCalendar();
 
         getDataFromFirebase(_spfr.getString("room_id", "not found"));
