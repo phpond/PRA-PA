@@ -66,4 +66,28 @@
         android:hint="แก้ไข"/>
 
 </LinearLayout>
+
+    <ImageView
+        android:id="@+id/icon_back_unit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title"
+        app:srcCompat="@drawable/ic_action_back" />
+
+    <TextView
+        android:id="@+id/show_u_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="แก้ไขหน่วยมิเตอร์น้ำ"
+        android:textColor="@color/white"
+        android:textSize="34dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
