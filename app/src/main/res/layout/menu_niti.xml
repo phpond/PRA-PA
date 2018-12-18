@@ -39,31 +39,31 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton10"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.15"
         app:srcCompat="@drawable/ic_action_edit" />
 
     <ImageButton
         android:id="@+id/imageButton10"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
-        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.085"
+        app:layout_constraintVertical_bias="0.077"
         app:srcCompat="@drawable/ic_action_people" />
 
     <ImageButton
@@ -77,10 +77,10 @@
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.168"
+        app:layout_constraintVertical_bias="0.165"
         app:srcCompat="@drawable/ic_action_setting" />
 
 
@@ -107,17 +107,20 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/thaisanslite"
-        android:text="ข้อมูลผู้อยู่อาศัย"
+        android:text="ชื่อและรหัสผู้ใช้งาน"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toEndOf="@+id/imageButton10"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.149" />
 
     <TextView
         android:id="@+id/textView8"
@@ -133,10 +136,10 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toEndOf="@+id/imageButton7"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.225" />
 
     <ImageView
         android:id="@+id/imageView15"
