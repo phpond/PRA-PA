@@ -43,10 +43,12 @@ import static android.support.constraint.Constraints.TAG;
 public class EditRecordFragment extends Fragment {
 
     FirebaseFirestore db_cloud = FirebaseFirestore.getInstance();
-    FirebaseAuth c_auth = FirebaseAuth.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
     private DatePickerDialog.OnDateSetListener mDateDataListener2;
+
+    private TextView _recordDateBill;
+    private TextView _monthBill;
 
     private Room _room;
     protected static String PHASE_CHOOSE;
@@ -66,7 +68,6 @@ public class EditRecordFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         //set room id
 
-//        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
         _room = ViewplanFragment._roomOnclick;
 
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
@@ -81,14 +82,12 @@ public class EditRecordFragment extends Fragment {
         TextView textView = getView().findViewById(R.id.room_id_edit_water_bill);
         textView.setText(roomNumber);
         EditSubmitBtn();
-        initBillCalendar();
         initDateRecordCalendar();
+        initBillCalendar();
+        initRecordCalendar();
     }
 
     private void setTextOnFragment(Bill _bill){
-//        TextView _totalPrice  = getView().findViewById(R.id.price_total_show_bill);
-//        TextView _name = getView().findViewById(R.id.name_show_bill);
-//        TextView _room_id = getView().findViewById(R.id.room_id_show_bill);
         TextView _month = getView().findViewById(R.id.month_meter_edit_water_bill);
         TextView _waterMeter = getView().findViewById(R.id.water_meter_edit_water_bill);
         TextView _recordDate = getView().findViewById(R.id.date_meter_edit_water_bill);
@@ -154,15 +153,16 @@ public class EditRecordFragment extends Fragment {
 
 
     private void initBillCalendar(){
-        final TextView _monthBill = getView().findViewById(R.id.month_meter_edit_water_bill);
-        _monthBill.setOnClickListener(new View.OnClickListener() {
+
+        _monthBill = getView().findViewById(R.id.month_meter_edit_water_bill);
+        ImageView _selectDate = getView().findViewById(R.id.date_bill_edit_water_bill);
+        _selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-//                showDialogDate(day, month, year);
                 DatePickerDialog dialog = new DatePickerDialog(getContext(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateDataListener,
@@ -174,18 +174,47 @@ public class EditRecordFragment extends Fragment {
         mDateDataListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                _monthBill.setText(String.format("%02d/%d", month, year));
-                Log.d("Edit", "On date : "+ day +" / "+month + " / "+year);
+                _monthBill.setText(String.format("%02d/%d", month+1, year));
+                Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
+            }
+        };
+    }
+
+    private void initRecordCalendar(){
+
+        ImageView _selectDate = getView().findViewById(R.id.date_record_edit_water_bill);
+        _selectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(getContext(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateDataListener2,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
+                Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
             }
         };
     }
 
     private void initDateRecordCalendar(){
-        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
+        _recordDateBill = getView().findViewById(R.id.date_meter_edit_water_bill);
+
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
+
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
         Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
     }
@@ -194,15 +223,11 @@ public class EditRecordFragment extends Fragment {
     private void UpdatetoFireBase(Bill _bill) {
 
         //replace previous bill by new value
-//        _bill.setWater_bill(meter);
-//        _bill.setMonth(month);
-//        _bill.setRecord_date(date);
         //get room number
         String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
 
         // Update bill
         db_cloud.collection("Resident")
-//                .document(c_auth.getCurrentUser().getUid())
                 .document("USER")
                 .collection(_number_room)
                 .document(_bill.getMonth()+_bill.getYear())
