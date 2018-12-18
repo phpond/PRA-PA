@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgblue">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/show_u_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/thaisanslite"
+        android:text="ค้นหาชื่อและรหัสผู้ใช้"
+        android:textColor="@color/white"
+        android:textSize="34dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:padding="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/show_u_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisanslite"
+            android:hint="กรุณากรอกเลขห้อง"
+            android:textAlignment="center"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/show_u_number_room"
+                android:paddingStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="8"
+                android:fontFamily="@font/thaisanslite"
+                android:hint="เลขห้อง" />
+
+            <ImageView
+                android:id="@+id/show_u_btn_submit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/show_u_head_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/thaisanslite"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/username"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/show_u_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/thaisanslite"
+                    android:textColor="@color/black"
+                    android:text="5555"
+                    android:layout_marginStart="25pt"
+                    android:textSize="25sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/show_u_head_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/thaisanslite"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/password"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/show_u_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/thaisanslite"
+                    android:textColor="@color/black"
+                    android:text="5555"
+                    android:layout_marginStart="18pt"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logout_search_user"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_exit" />
+
+    <ImageView
+        android:id="@+id/back_btn_search_user"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_action_back"
+        app:layout_editor_absoluteY="7dp" />
+
+</android.support.constraint.ConstraintLayout>
