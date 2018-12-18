@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -98,6 +100,20 @@ public class ShowBillFragment extends Fragment {
                             count++;
                             Log.d("SHOW_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
                         }
+                        if(_bills.isEmpty()){
+                            Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.showBillLayout), "ไม่พบข้อมูล", Snackbar.LENGTH_INDEFINITE);
+                            snackbar.setAction("refresh", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    getActivity().getSupportFragmentManager()
+                                            .beginTransaction()
+                                            .replace(R.id.main_view, new ShowBillFragment())
+                                            .addToBackStack(null).commit();
+                                }
+                            });
+                            snackbar.show();
+
+                        }
                         setRecycleView();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -107,6 +123,7 @@ public class ShowBillFragment extends Fragment {
             }
         });
     }
+
 
     private void dateCurrent(){
         Calendar cal = Calendar.getInstance();
