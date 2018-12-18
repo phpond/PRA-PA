@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C1DBF4">
+    android:background="#C1DBF4"
+    >
 
 
     <ImageView
@@ -16,7 +17,8 @@
         android:src="@drawable/prapalogo_new"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
         android:id="@+id/white_bg"
@@ -27,7 +29,8 @@
         android:background="#E5EFF9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/prapa_logo_img" />
+        app:layout_constraintTop_toBottomOf="@id/prapa_logo_img"
+        />
 
     <TextView
         android:id="@+id/login_topic"
