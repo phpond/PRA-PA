@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgblue">
+    android:background="@color/bgblue"
+
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -45,109 +46,123 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/show_u_number_room"
-        android:layout_width="203dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="152dp"
-        android:background="@color/white"
-        android:ems="8"
-        android:fontFamily="@font/thaisanslite"
-        android:textAlignment="center"
-        android:hint="กรอกหมายเลขห้องชุด"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/show_u_topic"
-        app:layout_constraintHorizontal_bias="0.364"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_editor_absoluteX="79dp"
-        app:layout_editor_absoluteY="153dp" />
-
-
-    <ImageView
-        android:id="@+id/show_u_btn_submit"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="152dp"
-        android:background="@color/colorPrimary"
-        android:padding="5dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="@+id/show_u_topic"
-        app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_editor_absoluteX="282dp"
-        app:layout_editor_absoluteY="153dp" />
-
-
-    <TextView
-        android:id="@+id/show_u_head_user"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/thaisanslite"
-        android:padding="3dp"
-        android:text="@string/username"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426"
-        app:layout_editor_absoluteY="240dp" />
+        <EditText
+            android:id="@+id/show_u_number_room"
+            android:layout_width="203dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="152dp"
+            android:background="@color/white"
+            android:ems="8"
+            android:fontFamily="@font/thaisanslite"
+            android:hint="กรอกหมายเลขห้องชุด"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/show_u_topic"
+            app:layout_constraintHorizontal_bias="0.364"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_editor_absoluteX="79dp"
+            app:layout_editor_absoluteY="153dp" />
 
-    <TextView
-        android:id="@+id/show_u_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
-        android:fontFamily="@font/thaisanslite"
-        android:text="-"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/show_u_number_room"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_editor_absoluteX="198dp"
-        app:layout_editor_absoluteY="313dp" />
 
-    <TextView
-        android:id="@+id/show_u_head_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="304dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/thaisanslite"
-        android:text="@string/password"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/show_u_btn_submit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="152dp"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="@+id/show_u_topic"
+            app:layout_constraintHorizontal_bias="0.781"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_editor_absoluteX="282dp"
+            app:layout_editor_absoluteY="153dp" />
 
-    <TextView
-        android:id="@+id/show_u_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="304dp"
-        android:fontFamily="@font/thaisanslite"
-        android:text="-"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_editor_absoluteX="202dp"
-        app:layout_editor_absoluteY="248dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="32dp"
+                android:layout_height="42dp"
+                app:srcCompat="@drawable/ic_username" />
+
+            <TextView
+                android:id="@+id/show_u_head_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/thaisanslite"
+                android:padding="3dp"
+                android:text="@string/username"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/show_u_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:fontFamily="@font/thaisanslite"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="32dp"
+                android:layout_height="43dp"
+                app:srcCompat="@drawable/ic_password" />
+
+            <TextView
+                android:id="@+id/show_u_head_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/thaisanslite"
+                android:text="@string/password"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/show_u_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:fontFamily="@font/thaisanslite"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/logout_search_user"
@@ -166,37 +181,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_action_back"
-        app:layout_editor_absoluteY="7dp" />
+        app:layout_editor_absoluteY="7dp"
+        app:srcCompat="@drawable/ic_action_back" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="139dp"
-        android:layout_height="126dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="440dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/prapalogo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end|bottom">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="32dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="216dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_username" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="32dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="300dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_password" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="139dp"
+            android:layout_height="126dp"
+            app:srcCompat="@drawable/prapalogo" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

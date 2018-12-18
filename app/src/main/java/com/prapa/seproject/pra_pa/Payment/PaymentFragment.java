@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,8 +55,6 @@ public class PaymentFragment extends Fragment {
         backBtn();
         initSerch();
 
-        getDataFromFirebase();
-
     }
 
     private void initSerch(){
@@ -63,8 +62,34 @@ public class PaymentFragment extends Fragment {
         _serchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String _room = ((EditText)(getView().findViewById(R.id.serch_room_payment))).getText().toString();
-                if(_room.isEmpty()){
+                try {
+                    String _room = ((EditText)(getView().findViewById(R.id.serch_room_payment))).getText().toString();
+                    if(_room.length() == 4){
+                        String _phase = ""+_room.charAt(0);
+                        int _floor = Integer.parseInt(""+_room.charAt(1));
+                        int _roomId = Integer.parseInt(""+_room.charAt(2)+_room.charAt(3));
+                        if(_room.isEmpty()) {
+                            Toast.makeText(getActivity(), "กรุณาใส่ข้อมูล", Toast.LENGTH_SHORT).show();
+                            Log.d("PAYMENT", "Empty");
+                        }else if(!_phase.matches("[A-Z]")){
+                            Toast.makeText(getActivity(), "เฟส A-Z เท่านั้น", Toast.LENGTH_SHORT).show();
+                            Log.d("PAYMENT", "Phase not matches");
+                        }else if(_floor > 8 || _floor < 1){
+                            Toast.makeText(getActivity(), "ชั้น 1-8 เท่านั้น", Toast.LENGTH_SHORT).show();
+                            Log.d("PAYMENT", "floor not matches");
+                        }else if(_roomId > 12 || _roomId < 1){
+                            Toast.makeText(getActivity(), "เลขห้อง 1-12 เท่านั้น", Toast.LENGTH_SHORT).show();
+                            Log.d("PAYMENT", "room_id not matches");
+                        }else{
+                            Toast.makeText(getActivity(), "ดึงข้อมูลเสร็จสิ้น", Toast.LENGTH_SHORT).show();
+                            Log.d("PAYMENT", "pass");
+                            getDataFromFirebase(_room);
+                        }
+                    }else {
+                        Toast.makeText(getActivity(), "กรุณาใส่หมายเลขห้องให้ครบถ้วน", Toast.LENGTH_SHORT).show();
+                        Log.d("PAYMENT", "room len < 4");
+                    }
+                }catch (Exception e){
 
                 }
             }
@@ -89,10 +114,10 @@ public class PaymentFragment extends Fragment {
         }
     }
 
-    private void getDataFromFirebase(){
+    private void getDataFromFirebase(String room){
         _fbfs.collection("Resident")
                 .document("USER")
-                .collection("A211")
+                .collection(room)
                 .orderBy("year", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

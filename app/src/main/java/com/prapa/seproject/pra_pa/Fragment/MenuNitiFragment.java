@@ -58,7 +58,7 @@ public class MenuNitiFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new EditUnitFragment())
+                        .replace(R.id.main_view, new SearchUsernameFragment())
                         .addToBackStack(null).commit();
                 Log.d("MENU_NITI", "Menu niti --> View Resident");
             }

@@ -42,8 +42,9 @@ public class SearchUsernameFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
-        initLogout();
 
+        initLogout();
+        initBackBtn();
         initSearch();
     }
 
@@ -57,8 +58,9 @@ public class SearchUsernameFragment extends Fragment {
                     Log.e("ShowUsernamePwd", "NumberRoom is Empty");
                 }
                 else{
-                    numberRoom.toUpperCase();
-                    getDataFromFireBase(numberRoom);
+                    String numberUpper = numberRoom.toUpperCase();
+                    getDataFromFireBase(numberUpper);
+                    Log.e("ShowUsernamePwd", "NumberRoom is "+numberUpper);
                 }
             }
         });
@@ -116,4 +118,17 @@ public class SearchUsernameFragment extends Fragment {
         });
     }
 
+    private void initBackBtn() {
+        ImageView _backBtn = getView().findViewById(R.id.back_btn_search_user);
+        _backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
+
+    }
 }
+
+
