@@ -24,7 +24,7 @@ public class ChoosePlanFragment extends Fragment {
     private String _phaseStr;
     private String _floorStr;
 
-    private SharedPreferences _spfr;
+    private SharedPreferences _spfr, _editor;
 
     @Nullable
     @Override
@@ -37,6 +37,8 @@ public class ChoosePlanFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        _editor = getActivity().getSharedPreferences("PHASE_FLOOR", Context.MODE_PRIVATE);
+
         initLogout();
         if(RecordWaterFragment.PHASE_CHOOSE != null || RecordWaterFragment.FLOOR_CHOOSE != null){
             Log.d("ChoosePlanFragment : ", "go to view plan with old phase/floor : "
@@ -92,16 +94,21 @@ public class ChoosePlanFragment extends Fragment {
        nr.setFloor(_floorInt);
        nr.setNumber_room("0");
 
-       Bundle bundle = new Bundle();
-       bundle.putParcelable("PhaseAndFloor", nr);
+       SharedPreferences.Editor editor = _editor.edit();
+       editor.putString("PHASE",_phaseStr);
+       editor.putString("FLOOR",_floorStr);
+       editor.commit();
 
-       Fragment fragmentGet = new ViewplanFragment();
-       fragmentGet.setArguments(bundle);
-       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-       fragmentTransaction.replace(R.id.main_view, fragmentGet);
-       fragmentTransaction.addToBackStack(null);
-       fragmentTransaction.commit();
+       getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_view, new ViewplanFragment())
+               .commit();
+//
+//       Fragment fragmentGet = new ViewplanFragment();
+//       fragmentGet.setArguments(bundle);
+//       FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//       fragmentTransaction.replace(R.id.main_view, fragmentGet);
+//       fragmentTransaction.addToBackStack(null);
+//       fragmentTransaction.commit();
    }
 
     private void initLogout(){
