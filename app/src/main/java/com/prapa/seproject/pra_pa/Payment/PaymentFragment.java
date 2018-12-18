@@ -34,7 +34,7 @@ public class PaymentFragment extends Fragment {
     private SharedPreferences _spfr;
 
     private FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
-    private ArrayList<Bill> _bills = new ArrayList<>();
+    private ArrayList<Bill> _bills;
     
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -115,6 +115,7 @@ public class PaymentFragment extends Fragment {
     }
 
     private void getDataFromFirebase(String room){
+        _bills = new ArrayList<>();
         _fbfs.collection("Resident")
                 .document("USER")
                 .collection(room)

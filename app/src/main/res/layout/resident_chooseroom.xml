@@ -15,22 +15,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/topic_resident_choose"/>
+            android:fontFamily="@font/thaisanslite"
+            android:text="@string/topic_resident_choose"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/resident_fill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Room ID"/>
+            android:fontFamily="@font/thaisanslite"
+            android:hint="Room ID"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <Button
 
             android:id="@+id/submit_btn_resident"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisanslite"
             android:text="@string/submit_btn"
-            />
+            android:textSize="24sp" />
 
     </LinearLayout>
 

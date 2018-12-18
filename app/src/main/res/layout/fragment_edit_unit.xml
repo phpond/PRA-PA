@@ -69,11 +69,14 @@
 
     <Button
         android:id="@+id/unit_edit_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/thaisanslite"
         android:hint="แก้ไข"
-        android:textColorHint="@color/textNumber" />
+        android:textColorHint="@color/textNumber"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
 

@@ -56,14 +56,13 @@
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:text="@string/room_id"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_edit_water_bill" />
 
@@ -72,22 +71,22 @@
         android:id="@+id/water_meter_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_water_meter"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toStartOf="@+id/room_id_edit_water_bill"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/room_id_edit_water_bill"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/room_id_edit_water_bill" />
 
 
     <EditText
         android:id="@+id/water_meter_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/rounded"
         android:ems="5"
         android:fontFamily="@font/thaisanslite"
@@ -105,7 +104,8 @@
         android:id="@+id/month_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_month"
         android:textColor="@color/black"
@@ -116,7 +116,7 @@
 
     <EditText
         android:id="@+id/month_meter_edit_water_bill"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded"
         android:ems="4"
@@ -134,7 +134,7 @@
         android:id="@+id/date_topic_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/thaisanslite"
         android:text="@string/topic_date"
         android:textColor="@color/black"
@@ -147,6 +147,7 @@
         android:id="@+id/date_meter_edit_water_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:background="@drawable/rounded"
         android:ems="4"
         android:fontFamily="@font/thaisanslite"
@@ -161,8 +162,8 @@
         <!--submit btn-->
     <Button
         android:id="@+id/submit_btn_meter_edit_water_bill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="108dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
@@ -171,6 +172,7 @@
         android:text="@string/submit_btn"
         android:textColor="@color/white"
         android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_topic_edit_water_bill" />
