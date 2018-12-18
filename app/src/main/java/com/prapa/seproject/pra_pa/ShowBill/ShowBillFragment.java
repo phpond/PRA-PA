@@ -47,6 +47,8 @@ public class ShowBillFragment extends Fragment {
     private int month;
     private int year;
 
+    private int price_not_pay = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,6 +66,8 @@ public class ShowBillFragment extends Fragment {
     }
 
     private void setRecycleView(){
+        TextView not_pay = getView().findViewById(R.id.not_payment_show_bill);
+        not_pay.setText(""+price_not_pay);
         recyclerView = getView().findViewById(R.id.recycle_list_show_bill);
         Log.d("SHOW_BILL", "set recycle prepare... : "+recyclerView + "bills : "+_bills);
         if(recyclerView != null && _bills != null){
@@ -95,6 +99,9 @@ public class ShowBillFragment extends Fragment {
                         for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
                             if(count == 3){
                                 break;
+                            }
+                            if(doc.toObject(Bill.class).getStatus().equals("ยังไม่ชำระเงิน")){
+                                price_not_pay += doc.toObject(Bill.class).getTotal_price_bill();
                             }
                             _bills.add(doc.toObject(Bill.class));
                             count++;

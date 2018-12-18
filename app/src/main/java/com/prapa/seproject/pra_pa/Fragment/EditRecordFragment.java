@@ -229,7 +229,7 @@ public class EditRecordFragment extends Fragment {
     }
 
     private void initLogout(){
-        ImageView _logout = getView().findViewById(R.id.logout_record_water);
+        ImageView _logout = getView().findViewById(R.id.logout_edit_water_bill);
         _logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,7 +247,7 @@ public class EditRecordFragment extends Fragment {
     }
 
     private void backBtn(){
-        ImageView _backBtn = getView().findViewById(R.id.back_btn_record_water);
+        ImageView _backBtn = getView().findViewById(R.id.back_btn_edit_water_bill);
         _backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
