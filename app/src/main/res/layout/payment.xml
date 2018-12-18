@@ -51,12 +51,13 @@
         android:layout_width="75dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/thaisanslite"
         android:padding="10dp"
         android:text="ห้องชุด"
-        android:textColor="@color/white"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -93,7 +94,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/price_topic_payment"
         app:layout_constraintStart_toEndOf="@+id/price_topic_payment"
         app:layout_constraintTop_toTopOf="@+id/price_topic_payment"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/status_topic_payment"
@@ -101,17 +102,19 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/thaisanslite"
+        android:padding="10dp"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
-        android:padding="10dp"
         android:text="ยืนยันการชำระเงิน"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/date_bill_topic_payment"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView_list_payment"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/date_bill_topic_payment"
-        app:layout_constraintTop_toTopOf="@+id/date_bill_topic_payment" />
+        app:layout_constraintTop_toTopOf="@+id/date_bill_topic_payment"
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <android.support.v7.widget.RecyclerView
@@ -126,6 +129,30 @@
         app:layout_constraintTop_toBottomOf="@+id/room_topic_payment">
 
     </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="338dp"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:fontFamily="@font/thaisanslite"
+        android:text="ค้นหาหมายเลขห้องชุด"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="42dp"
+        android:background="@color/colorPrimary"
+
+        app:srcCompat="@android:drawable/ic_menu_search"
+
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="56dp" />
 
 
 </android.support.constraint.ConstraintLayout>
