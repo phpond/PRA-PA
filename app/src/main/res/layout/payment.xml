@@ -51,8 +51,6 @@
         android:layout_width="75dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/thaisanslite"
         android:padding="10dp"
@@ -84,37 +82,36 @@
     <TextView
         android:id="@+id/date_bill_topic_payment"
         android:layout_width="82dp"
-        android:layout_height="46dp"
+        android:layout_height="45dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/thaisanslite"
         android:padding="10dp"
         android:text="รอบบิล"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/price_topic_payment"
+        app:layout_constraintStart_toEndOf="@+id/price_topic_payment"
         app:layout_constraintTop_toTopOf="@+id/price_topic_payment"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="166dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/status_topic_payment"
-        android:layout_width="128dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/thaisanslite"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
         android:padding="10dp"
         android:text="ยืนยันการชำระเงิน"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/date_bill_topic_payment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView_list_payment"
         app:layout_constraintStart_toEndOf="@+id/date_bill_topic_payment"
-        app:layout_constraintTop_toTopOf="@+id/date_bill_topic_payment"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/date_bill_topic_payment" />
 
 
     <android.support.v7.widget.RecyclerView
