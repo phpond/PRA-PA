@@ -101,7 +101,7 @@ public class ShowBillFragment extends Fragment {
                             Log.d("SHOW_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
                         }
                         if(_bills.isEmpty()){
-                            Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.showBillLayout), "ไม่พบข้อมูล", Snackbar.LENGTH_INDEFINITE);
+                            Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.showBillLayout), "ไม่พบข้อมูล", Snackbar.LENGTH_LONG);
                             snackbar.setAction("refresh", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

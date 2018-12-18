@@ -130,29 +130,38 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="338dp"
-        android:layout_height="42dp"
-        android:background="@color/white"
-        android:fontFamily="@font/thaisanslite"
-        android:text="ค้นหาหมายเลขห้องชุด"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="56dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="42dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:background="@color/colorPrimary"
+        android:gravity="center_horizontal">
 
-        app:srcCompat="@android:drawable/ic_menu_search"
+        <EditText
+            android:id="@+id/serch_room_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="@font/thaisanslite"
+            android:hint="ค้นหาหมายเลขห้องชุด"
+            android:paddingStart="35dp"
+            android:paddingEnd="35sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="56dp" />
+        <ImageButton
+            android:id="@+id/serch_room_btn"
+            android:layout_width="50dp"
+            android:layout_height="42dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/serch_room_payment"
+            app:layout_constraintTop_toTopOf="@+id/serch_room_payment"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

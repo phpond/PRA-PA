@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -50,9 +52,23 @@ public class PaymentFragment extends Fragment {
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         initLogout();
         backBtn();
+        initSerch();
 
         getDataFromFirebase();
 
+    }
+
+    private void initSerch(){
+        ImageButton _serchBtn = getView().findViewById(R.id.serch_room_btn);
+        _serchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String _room = ((EditText)(getView().findViewById(R.id.serch_room_payment))).getText().toString();
+                if(_room.isEmpty()){
+
+                }
+            }
+        });
     }
 
     private void setRecycleView(){
@@ -76,7 +92,7 @@ public class PaymentFragment extends Fragment {
     private void getDataFromFirebase(){
         _fbfs.collection("Resident")
                 .document("USER")
-                .collection("A101")
+                .collection("A211")
                 .orderBy("year", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
