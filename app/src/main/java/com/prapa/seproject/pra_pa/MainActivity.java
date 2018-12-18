@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Main", "out fade | count : "+COUNT+" state : "+savedInstanceState);
             COUNT = 0;
             if(savedInstanceState == null){
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new ChoosePlanFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new HomeFragment()).commit();
             }
         }
 
