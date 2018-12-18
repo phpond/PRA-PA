@@ -128,8 +128,6 @@ public class EditRecordFragment extends Fragment {
     private void GetDataFromFirebase(String _room){
 
         db_cloud.collection("Resident")
-//                .document(c_auth.getCurrentUser().getUid())
-//                .collection("A401")
                 .document("USER")
                 .collection(_room)
                 .get()
