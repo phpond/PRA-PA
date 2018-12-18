@@ -117,19 +117,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_list_payment"
-        android:layout_width="369dp"
-        android:layout_height="186dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/room_topic_payment"
-        app:layout_constraintTop_toBottomOf="@+id/room_topic_payment">
-
-    </android.support.v7.widget.RecyclerView>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -162,6 +149,19 @@
             app:srcCompat="@android:drawable/ic_menu_search" />
 
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_list_payment"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/room_topic_payment"
+        app:layout_constraintTop_toBottomOf="@id/room_topic_payment">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </android.support.constraint.ConstraintLayout>
