@@ -204,21 +204,13 @@ public class EditRecordFragment extends Fragment {
                 .collection(_number_room)
                 .document(_bill.getMonth()+_bill.getYear())
                 .set(_bill);
+
         PHASE_CHOOSE = _room.getPhase();
         FLOOR_CHOOSE = String.valueOf(_room.getFloor());
         goToNextPage();
 
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.main_view, new ViewplanFragment())
-//                .addToBackStack(null).commit();
-        Log.d("Edit", "updated");
+        Log.d("Edit", "updated"+PHASE_CHOOSE +FLOOR_CHOOSE);
     }
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.main_view, new ViewplanFragment())
-//                .addToBackStack(null).commit();
-
 
     private void goToNextPage(){
         getActivity().getSupportFragmentManager()
