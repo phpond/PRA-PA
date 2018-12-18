@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -58,7 +59,6 @@ public class EditRecordFragment extends Fragment {
     protected static String FLOOR_CHOOSE;
 
     private SharedPreferences _spfr;
-
     private ArrayList<Bill> _bills = new ArrayList<>();
 
     @Nullable
@@ -73,11 +73,9 @@ public class EditRecordFragment extends Fragment {
         //set room id
 
         _room = ViewplanFragment._roomOnclick;
-
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         initLogout();
         backBtn();
-
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
@@ -107,11 +105,11 @@ public class EditRecordFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
     int current_meter;
     String current_date;
-    String current_month;
-
-
+    String current_year;
+    int current_month;
 
     //edit_submit button on click
     private void EditSubmitBtn(){
@@ -126,15 +124,14 @@ public class EditRecordFragment extends Fragment {
                 String _month = ((TextView)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_edit_water_bill))).getText().toString();
 
+
                 String[] _monthYear = _month.split("/");
                 current_date = _date;
-                current_month = _monthYear[0];
+                current_month = Integer.parseInt(_monthYear[0]);
+                current_year = _monthYear[1];
                 current_meter = Integer.parseInt(_meterStr);
-                int HistoryMeter = CalculateHistoryMeter(_bills, current_meter, current_date, current_month);
-                final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date, HistoryMeter);
-                Log.d("Edit", "new bill");
+                CalculateHistoryMeter(_room, Integer.parseInt(_meterStr), current_date, current_year, current_month);
 
-                UpdatetoFireBase(_bill);
             }
         });
     }
@@ -251,7 +248,7 @@ public class EditRecordFragment extends Fragment {
                             count++;
                             Log.d("GET_BILL", "get data SUCCESS... : "+doc.toObject(Bill.class).getMonth()+"/"+doc.toObject(Bill.class).getYear());
                         }
-//                        setRecycleView();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -261,34 +258,53 @@ public class EditRecordFragment extends Fragment {
         });
     }
 
-    public int CalculateHistoryMeter(ArrayList<Bill> _billDataSet, int current_meter, String current_date, String current_month){
-        this.current_meter = current_meter;
-        this.current_date = current_date;
-        this.current_month = current_month;
+    private int history;
+    public void CalculateHistoryMeter(Room room, final int meter, final String current_date, final String current_year, final int current_month) {
 
-        int History = 0;
-        for(int i=1; i<=_billDataSet.size(); i++){
+        String history_month = "00";
+        String history_year = current_year;
 
-            if(_billDataSet.get(i).getMonth().equals(current_month)){
-                History = _billDataSet.get(i+1).getWater_bill();
-//                current_meter = current_meter - History;
-                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
-            }
-            else
-            {
-                History = _billDataSet.get(i).getWater_bill();
-//                current_meter = current_meter - History;
-                Log.d("SHOW_HISTORY", "History meter and Current is : "+History + current_meter);
-            }
-            break;
+        //current month = 1 --> year -1
+        if (current_month < 2) {
+            history_year = String.valueOf(Integer.parseInt(current_year) - 1);
+            Log.d("RECORD", "History year : " + history_year);
+        } else {
+            history_month = String.format("%02d", current_month - 1);
         }
-        return History;
+        Log.d("RECORD", "Room : " + _room.getRoom() + " history month : " + history_month + " year : " + history_year);
+        _fbfs.collection("Resident")
+                .document("USER")
+                .collection(_room.getRoom())
+                .document(history_month + "" + history_year)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        try {
+                            Bill bill = documentSnapshot.toObject(Bill.class);
+                            history = bill.getWater_bill();
+                            Log.d("UPDATE", "history in firebase : " + history);
+
+                            Log.d("UPDATE", "History meter : " + history);
+                            Bill _bill = new Bill(_room, meter, String.format("%02d", current_month), current_year, current_date, history);
+                            Log.d("UPDATE", "Before up to firebase");
+                            UpdatetoFireBase(_bill);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.d("UPDATE", "Error : " + e.getMessage());
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("UPDATE", "getData is Fail");
+            }
+        });
+
     }
     // update to firebase
     private void UpdatetoFireBase(Bill _bill) {
 
-        //replace previous bill by new value
-        //get room number
         String _number_room = _bill.getRoom().getPhase()+String.valueOf(_bill.getRoom().getFloor())+_bill.getRoom().getNumber_room();
 
         // Update bill
@@ -297,11 +313,9 @@ public class EditRecordFragment extends Fragment {
                 .collection(_number_room)
                 .document(_bill.getMonth()+_bill.getYear())
                 .set(_bill);
-
         PHASE_CHOOSE = _room.getPhase();
         FLOOR_CHOOSE = String.valueOf(_room.getFloor());
         goToNextPage();
-
         Log.d("Edit", "updated"+PHASE_CHOOSE +FLOOR_CHOOSE);
     }
 
