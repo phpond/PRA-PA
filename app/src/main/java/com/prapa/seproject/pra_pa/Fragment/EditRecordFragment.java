@@ -2,6 +2,7 @@ package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,11 +45,10 @@ import static android.support.constraint.Constraints.TAG;
 public class EditRecordFragment extends Fragment {
 
     FirebaseFirestore db_cloud = FirebaseFirestore.getInstance();
-    FirebaseAuth c_auth = FirebaseAuth.getInstance();
     FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
-    private DatePickerDialog.OnDateSetListener mDateDataListener2;
+
 
     private Room _room;
     protected static String PHASE_CHOOSE;
@@ -55,6 +56,7 @@ public class EditRecordFragment extends Fragment {
 
     private SharedPreferences _spfr;
     private ArrayList<Bill> _bills = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -70,11 +72,17 @@ public class EditRecordFragment extends Fragment {
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
         _room = ViewplanFragment._roomOnclick;
 
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        initLogout();
+        backBtn();
+
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
         GetDataFromFirebase(_room.getPhase()+_room.getFloor()+_room.getNumber_room());
 
-
+        String roomNumber = _room.getPhase()+_room.getFloor()+_room.getNumber_room();
+        TextView textView = getView().findViewById(R.id.room_id_edit_water_bill);
+        textView.setText(roomNumber);
         EditSubmitBtn();
         initBillCalendar();
         initDateRecordCalendar();
@@ -98,7 +106,6 @@ public class EditRecordFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
     int current_meter;
     String current_date;
     String current_month;
@@ -116,14 +123,12 @@ public class EditRecordFragment extends Fragment {
                 String _month = ((TextView)(getView().findViewById(R.id.month_meter_edit_water_bill))).getText().toString();
                 String _date = ((TextView)(getView().findViewById(R.id.date_meter_edit_water_bill))).getText().toString();
                 String[] _monthYear = _month.split("/");
-
                 current_date = _date;
                 current_month = _monthYear[0];
                 current_meter = Integer.parseInt(_meterStr);
                 int HistoryMeter = CalculateHistoryMeter(_bills, current_meter, current_date, current_month);
-
                 final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date, HistoryMeter);
-                Log.d("edit", "new bill");
+                Log.d("Edit", "new bill");
 
                 UpdatetoFireBase(_bill);
             }
@@ -134,8 +139,6 @@ public class EditRecordFragment extends Fragment {
     private void GetDataFromFirebase(String _room){
 
         db_cloud.collection("Resident")
-//                .document(c_auth.getCurrentUser().getUid())
-//                .collection("A401")
                 .document("USER")
                 .collection(_room)
                 .get()
@@ -144,7 +147,7 @@ public class EditRecordFragment extends Fragment {
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
                             setTextOnFragment(doc.toObject(Bill.class));
-                            Log.d("SHOW_BILL", "SUCCESS : "+doc.toObject(Bill.class).getTotal_price_bill());
+                            Log.d("Edit", "SUCCESS : "+doc.toObject(Bill.class).getTotal_price_bill());
 
                         }
                     }
@@ -180,7 +183,7 @@ public class EditRecordFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 _monthBill.setText(String.format("%02d/%d", month, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
+                Log.d("Edit", "On date : "+ day +" / "+month + " / "+year);
             }
         };
     }
@@ -192,7 +195,7 @@ public class EditRecordFragment extends Fragment {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
-        Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+        Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
     }
 
     int count = 0;
@@ -223,6 +226,7 @@ public class EditRecordFragment extends Fragment {
             }
         });
     }
+
     public int CalculateHistoryMeter(ArrayList<Bill> _billDataSet, int current_meter, String current_date, String current_month){
         this.current_meter = current_meter;
         this.current_date = current_date;
@@ -270,21 +274,13 @@ public class EditRecordFragment extends Fragment {
                 .collection(_number_room)
                 .document(_bill.getMonth()+_bill.getYear())
                 .set(_bill);
+
         PHASE_CHOOSE = _room.getPhase();
         FLOOR_CHOOSE = String.valueOf(_room.getFloor());
         goToNextPage();
 
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.main_view, new ViewplanFragment())
-//                .addToBackStack(null).commit();
-        Log.d("Edit", "updated");
+        Log.d("Edit", "updated"+PHASE_CHOOSE +FLOOR_CHOOSE);
     }
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.main_view, new ViewplanFragment())
-//                .addToBackStack(null).commit();
-
 
     private void goToNextPage(){
         getActivity().getSupportFragmentManager()
@@ -292,5 +288,34 @@ public class EditRecordFragment extends Fragment {
                 .replace(R.id.main_view, new ViewplanFragment())
                 .addToBackStack(null).commit();
         Log.d("Edit", "updated");
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_edit_water_bill);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("Edit", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("Edit", "Logout --> Home");
+            }
+        });
+    }
+
+    private void backBtn(){
+        ImageView _backBtn = getView().findViewById(R.id.back_btn_edit_water_bill);
+        _backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
     }
 }

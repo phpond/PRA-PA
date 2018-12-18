@@ -41,6 +41,7 @@ public class RecordWaterFragment extends Fragment {
     FirebaseFirestore _fbfs = FirebaseFirestore.getInstance();
 
     private DatePickerDialog.OnDateSetListener mDateDataListener;
+    private DatePickerDialog.OnDateSetListener mDateDataListener2;
 
     private Room _room;
 
@@ -55,6 +56,9 @@ public class RecordWaterFragment extends Fragment {
     private int month;
     private int year;
 
+    private TextView _recordDateBill;
+    private TextView _monthBill;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,9 +69,10 @@ public class RecordWaterFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //set date
+        setDateRecordCalendar();
+
         _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
-        initLogout();
-        backBtn();
 
         //set room id
         TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
@@ -77,7 +82,9 @@ public class RecordWaterFragment extends Fragment {
         //check on click
         initSubmitBtn();
         initBillCalendar();
-        setDateRecordCalendar();
+        initLogout();
+        backBtn();
+        initRecordCalendar();
 
         getDataFromFirebase(_spfr.getString("room_id", "not found"));
 
@@ -120,8 +127,9 @@ public class RecordWaterFragment extends Fragment {
     }
 
     private void initBillCalendar(){
-        final TextView _monthBill = getView().findViewById(R.id.month_meter_record_water_bill);
-        _monthBill.setOnClickListener(new View.OnClickListener() {
+
+        ImageView _selectDate = getView().findViewById(R.id.date_bill_record_water_bill);
+        _selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -145,14 +153,45 @@ public class RecordWaterFragment extends Fragment {
         };
     }
 
+    private void initRecordCalendar(){
+
+        ImageView _selectDate = getView().findViewById(R.id.date_record_record_water_bill);
+        _selectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(getContext(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateDataListener2,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mDateDataListener2 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
+                Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+            }
+        };
+    }
+
+
 
     private void setDateRecordCalendar(){
-        final TextView _recordDateBill = getView().findViewById(R.id.date_meter_record_water_bill);
+        _recordDateBill = getView().findViewById(R.id.date_meter_record_water_bill);
+        _monthBill = getView().findViewById(R.id.month_meter_record_water_bill);
+
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
+        _monthBill.setText(String.format("%02d/%d", month+1, year));
         Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
     }
 
