@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
+import com.prapa.seproject.pra_pa.ShowBill.ShowBillFragment;
 
 import java.util.Calendar;
 
@@ -51,6 +52,7 @@ public class ResidentChooseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String _room = ((EditText)(getView().findViewById(R.id.resident_fill))).getText().toString();
+                _room = _room.toUpperCase();
                 try {
                     if(_room.isEmpty()){
                         Log.d("RESCHOOSE", "Empty");
@@ -60,6 +62,7 @@ public class ResidentChooseFragment extends Fragment {
                     {
                         Toast.makeText(getActivity(), "กรุณาตรวจสอบเลขห้องอีกครั้ง EX. A401", Toast.LENGTH_SHORT).show();
                         Log.d("RESCHOOSE", "WRONG INPUT");
+
                     }
                     else{
                         char _phase = _room.charAt(0);

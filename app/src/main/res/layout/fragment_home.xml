@@ -1,49 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#C1DBF4">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="50dp">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:contentDescription="@string/des_img"
-                android:layout_width="403dp"
-                android:layout_height="215dp"
-                android:layout_marginBottom="50dp"
-                android:src="@drawable/prapalogo"
-                android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:id="@+id/prapa_logo_img"
+        android:layout_width="216dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/prapalogo_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/resident_btn_home"
-                android:layout_width="190dp"
-                android:layout_height="53dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/resident_btn"
-                android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:id="@+id/white_bg"
+        android:layout_width="310dp"
+        android:layout_height="308dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#E5EFF9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prapa_logo_img" />
 
-            <Button
-                android:id="@+id/staff_btn_home"
-                android:layout_width="190dp"
-                android:layout_height="53dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/staff_btn"
-                android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/login_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prapa_logo_img"/>
 
-            <Button
-                android:id="@+id/legal_person_btn_home"
-                android:layout_width="190dp"
-                android:layout_height="53dp"
-                android:text="@string/legal_person_btn"
-                android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/username_topic"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/username"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/login_topic"
+        app:layout_constraintRight_toLeftOf="@id/login_topic"/>
 
-        </LinearLayout>
-    </ScrollView>
+    <ImageView
+        android:id="@+id/username_bg"
+        android:layout_width="254dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_topic" />
+
+    <ImageView
+        android:id="@+id/password_bg"
+        android:layout_width="254dp"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_topic"/>
+
+    <EditText
+        android:id="@+id/username_home"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_topic" />
+
+    <EditText
+        android:id="@+id/password_home"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_topic" />
+
+    <TextView
+        android:id="@+id/password_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/username_topic"
+        app:layout_constraintTop_toBottomOf="@+id/username_bg" />
+
+
+    <ImageView
+        android:id="@+id/icon_username"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/username_topic"
+        app:layout_constraintRight_toLeftOf="@id/username_topic"
+        app:srcCompat="@drawable/ic_username" />
+
+    <ImageView
+        android:id="@+id/icon_pass"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintRight_toLeftOf="@id/password_topic"
+        app:layout_constraintTop_toBottomOf="@id/password_topic"
+        app:srcCompat="@drawable/ic_password" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="154dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#3C57A8"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/login"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_bg" />
+
+
 </android.support.constraint.ConstraintLayout>

@@ -95,6 +95,8 @@ public class Bill {
         return room;
     }
 
+    public String getRoomString(){return room.getRoom();}
+
     public void setRoom(Room room) {
         this.room = room;
     }

@@ -1,207 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/bgblue"
     android:layout_height="match_parent">
 
-    <ScrollView
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
+    <!--title-->
+    <TextView
+        android:id="@+id/topic_show_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_showBill"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-            <!--topic-->
-            <TextView
-                android:id="@+id/topic_show_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="70dp"
-                android:fontFamily="sans-serif"
-                android:text="@string/topic_showBill"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="45sp"
-                android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/logout_show_bill"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_exit" />
 
-            <!--topic total-->
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif"
-                android:text="Grand Total"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_list_show_bill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-            <!--show total-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
-                <!--total-->
-                <TextView
-                    android:id="@+id/price_total_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:ems="3"
-                    android:text="@string/sample_price_total"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/bath_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/bath"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <!--name-->
-            <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginLeft="15dp"-->
-                <!--android:layout_marginTop="40dp">-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/name_topic_show_bill"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/name_topic"-->
-                    <!--android:textSize="15sp"-->
-                    <!--android:textStyle="bold" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/name_show_bill"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:ems="13"-->
-                    <!--android:text="@string/name_topic"-->
-                    <!--android:textColor="@color/colorPrimary"-->
-                    <!--android:textSize="18sp" />-->
-
-            <!--</LinearLayout>-->
-
-            <!--room id-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="40dp">
-
-                <TextView
-                    android:id="@+id/room_id_topic_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_room"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/room_id_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/room_id"
-                    android:ems="13"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="10dp"/>
-
-            </LinearLayout>
-
-            <!--water meter-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/water_meter_topic_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_water_meter"
-                    android:textStyle="bold"
-                    android:textSize="15sp" />
-                <TextView
-                    android:id="@+id/water_meter_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sample_meter"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="10dp"/>
-
-            </LinearLayout>
-
-            <!--month/year-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/month_topic_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_month"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/month_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_enter_month"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="10dp"/>
-
-            </LinearLayout>
-
-            <!--record date-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/date_topic_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_date"
-                    android:textStyle="bold"
-                    android:textSize="15sp" />
-                <TextView
-                    android:id="@+id/date_show_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_enter_record_date"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="10dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-
-
+    </android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>
+

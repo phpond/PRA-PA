@@ -1,5 +1,7 @@
 package com.prapa.seproject.pra_pa.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.prapa.seproject.pra_pa.R;
@@ -20,6 +23,8 @@ public class ChoosePlanFragment extends Fragment {
 
     private String _phaseStr;
     private String _floorStr;
+
+    private SharedPreferences _spfr;
 
     @Nullable
     @Override
@@ -31,6 +36,8 @@ public class ChoosePlanFragment extends Fragment {
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        initLogout();
         if(RecordWaterFragment.PHASE_CHOOSE != null || RecordWaterFragment.FLOOR_CHOOSE != null){
             Log.d("ChoosePlanFragment : ", "go to view plan with old phase/floor : "
                     +RecordWaterFragment.PHASE_CHOOSE+"/"+RecordWaterFragment.FLOOR_CHOOSE);
@@ -59,6 +66,10 @@ public class ChoosePlanFragment extends Fragment {
 
                }
                else {
+                   SharedPreferences.Editor editor = _spfr.edit();
+                   editor.putString("phase_choose", _phaseStr);
+                   editor.putString("floor_choose", _floorStr);
+                   editor.commit();
                    gotoNextPage(_phaseStr,_floorStr);
                    Log.d("ChoosePlanFragment" ,"GO TO PHASE : "+_floorStr +" FLOOR : "+_floorStr);
                }
@@ -86,4 +97,23 @@ public class ChoosePlanFragment extends Fragment {
        fragmentTransaction.addToBackStack(null);
        fragmentTransaction.commit();
    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_choose_plan);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("ChoosePlanFragment", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("ChoosePlanFragment", "Logout --> Home");
+            }
+        });
+    }
+
 }

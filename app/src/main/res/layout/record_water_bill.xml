@@ -1,128 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgblue"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_horizontal">
 
-    <ScrollView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_editor_absoluteX="0dp"
+        app:layout_editor_absoluteY="0dp"
+        />
 
-            <ImageButton
-                android:id="@+id/home_btn_record_water_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:src="@drawable/home_btn"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
+    <ImageView
+        android:id="@+id/back_btn_record_water"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_record_water_bill"
+        app:srcCompat="@drawable/ic_action_back" />
 
-            <!--title-->
-            <TextView
-                android:id="@+id/title_record_water_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_record"
-                android:textSize="30sp"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="50dp"/>
+    <ImageView
+        android:id="@+id/logout_record_water"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/title_record_water_bill"
+        app:srcCompat="@drawable/ic_action_exit" />
 
-            <TextView
-                android:id="@+id/room_id_record_water_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/room_id"
-                android:textSize="20sp"/>
+    <!--title-->
+    <TextView
+        android:id="@+id/title_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/title_record"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/room_id_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/room_id"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-                <!--water meter-->
-                <TextView
-                    android:id="@+id/water_meter_topic_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_water_meter"
-                    />
-                <EditText
-                    android:id="@+id/water_meter_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/text_enter_meters"
-                    android:inputType="number"/>
 
-            </LinearLayout>
+    <!--water meter-->
+    <TextView
+        android:id="@+id/water_meter_topic_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_water_meter"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/room_id_record_water_bill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/room_id_record_water_bill" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal">
 
-                <!--month-->
-                <TextView
-                    android:id="@+id/month_topic_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_month"/>
-                <TextView
-                    android:id="@+id/month_meter_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:ems="10"
-                    android:textSize="18sp"
-                    android:hint="@string/text_enter_month"/>
+    <EditText
+        android:id="@+id/water_meter_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/white"
+        android:ems="5"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_meters"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/water_meter_topic_record_water_bill"
+        app:layout_constraintTop_toTopOf="@+id/water_meter_topic_record_water_bill" />
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal">
+    <!--month-->
+    <TextView
+        android:id="@+id/month_topic_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_month"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/water_meter_topic_record_water_bill"
+        app:layout_constraintTop_toBottomOf="@+id/water_meter_topic_record_water_bill" />
 
-                <!--date-->
-                <TextView
-                    android:id="@+id/date_topic_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/topic_date" />
-                <TextView
-                    android:id="@+id/date_meter_record_water_bill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:ems="10"
-                    android:textSize="18sp"
-                    android:hint="@string/text_enter_record_date" />
 
-            </LinearLayout>
+    <EditText
+        android:id="@+id/month_meter_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:ems="5"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_month"
+        android:padding="3dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/water_meter_record_water_bill"
+        app:layout_constraintTop_toTopOf="@+id/month_topic_record_water_bill" />
 
-            <!--submit btn-->
-            <Button
-                android:id="@+id/submit_btn_meter_record_water_bill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/submit_btn" />
 
-        </LinearLayout>
+    <!--date-->
+    <TextView
+        android:id="@+id/date_topic_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/topic_date"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/month_topic_record_water_bill"
+        app:layout_constraintTop_toBottomOf="@+id/month_topic_record_water_bill" />
 
-    </ScrollView>
+    <EditText
+        android:id="@+id/date_meter_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@color/white"
+        android:ems="5"
+        android:fontFamily="@font/thaisanslite"
+        android:hint="@string/text_enter_record_date"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/month_meter_record_water_bill"
+        app:layout_constraintTop_toTopOf="@+id/date_topic_record_water_bill" />
 
+
+    <!--submit btn-->
+    <Button
+        android:id="@+id/submit_btn_meter_record_water_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="@font/thaisanslite"
+        android:text="@string/submit_btn"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_topic_record_water_bill" />
 
 </android.support.constraint.ConstraintLayout>
+

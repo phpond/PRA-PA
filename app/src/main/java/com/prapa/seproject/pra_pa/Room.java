@@ -11,9 +11,13 @@ public class Room implements Parcelable {
     public Room() { }
 
     public Room(String phase, int floor, String number_room) {
-        this.phase = phase;
+        this.phase = phase.toUpperCase();
         this.floor = floor;
         this.number_room = number_room;
+    }
+
+    public String getRoom(){
+        return phase+floor+number_room;
     }
 
     public String getPhase() {
@@ -21,7 +25,7 @@ public class Room implements Parcelable {
     }
 
     public void setPhase(String phase) {
-        this.phase = phase;
+        this.phase = phase.toUpperCase();
     }
 
     public int getFloor() {

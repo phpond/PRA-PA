@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="textNumber">#ffffff</color>
-    <color name="backgroundNumber">#b18f69</color>
+    <color name="colorPrimary">#3c57a8</color> //สีแถบข้างบน
+    <color name="colorPrimaryDark">#3C57A8</color> //หัวข้างบนสุด
+    <color name="colorAccent">#F2F2F2</color> //
+    <color name="textNumber">#F2F2F2</color> //สี เลขห้อง ใน view plan
+    <color name="backgroundNumber">#5C9598</color> //background เลขห้องใน view plan
+    <color name="black">#101820</color>
+    <color name="white">#ffffff</color>
+    <color name="backgroundedit">#f2f2f2</color>
+    <color name="bgblue">#ECF5FD</color>
+    <color name="bgbutton">#6A83D1</color>
 </resources>
