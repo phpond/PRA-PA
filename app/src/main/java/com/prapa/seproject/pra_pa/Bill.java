@@ -89,7 +89,7 @@ public class Bill {
         this.total_price_bill = total_peice_bill;
     }
     private void calculateBill(){
-        total_price_bill = (water_bill-history_water_bill)*price_meter;
+        total_price_bill = (water_bill - history_water_bill)* price_meter;
     }
 
     public Room getRoom() {

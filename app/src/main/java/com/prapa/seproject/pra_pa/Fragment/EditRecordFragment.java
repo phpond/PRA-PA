@@ -269,10 +269,6 @@ public class EditRecordFragment extends Fragment {
         int History = 0;
         for(int i=1; i<=_billDataSet.size(); i++){
 
-//            _billDataSet.get(i).getWater_bill();
-//            _billDataSet.get(i).getRecord_date();
-//            _billDataSet.get(i).getMonth();
-//            _billDataSet.get(i).getYear();
             if(_billDataSet.get(i).getMonth().equals(current_month)){
                 History = _billDataSet.get(i+1).getWater_bill();
 //                current_meter = current_meter - History;

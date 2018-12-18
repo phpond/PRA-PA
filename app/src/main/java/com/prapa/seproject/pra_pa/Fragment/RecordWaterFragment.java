@@ -48,8 +48,6 @@ public class RecordWaterFragment extends Fragment {
     protected static String PHASE_CHOOSE;
     protected static String FLOOR_CHOOSE;
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
     private SharedPreferences _spfr;
     private ArrayList<Bill> _bills = new ArrayList<>();
 
