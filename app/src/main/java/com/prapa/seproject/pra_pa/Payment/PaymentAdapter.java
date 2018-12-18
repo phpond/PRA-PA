@@ -63,8 +63,8 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ViewHold
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    viewHolder.status.setText("ชำระเงินเรียบร้อย");
-                                    viewHolder.status.setBackgroundResource(R.color.backgroundNumber);
+                                    viewHolder.status.setText("ชำระเรียบร้อย");
+                                    viewHolder.status.setBackgroundResource(R.drawable.success_btn);
                                     Log.d("PAYMENT_ADAP", "Update data success : Room "+_billDataSet.get(position).getRoomString()
                                     +"Bill : "+_billDataSet.get(position).getMonth()+"/"+_billDataSet.get(position).getYear());
                                 }
