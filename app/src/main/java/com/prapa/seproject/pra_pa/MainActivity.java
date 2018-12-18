@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.prapa.seproject.pra_pa.Fragment.ChoosePlanFragment;
 import com.prapa.seproject.pra_pa.Fragment.HomeFragment;
+import com.prapa.seproject.pra_pa.Fragment.SearchUsernameFragment;
 
 public class MainActivity extends AppCompatActivity {
 
