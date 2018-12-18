@@ -2,6 +2,8 @@ package com.prapa.seproject.pra_pa.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -49,6 +52,8 @@ public class EditRecordFragment extends Fragment {
     protected static String PHASE_CHOOSE;
     protected static String FLOOR_CHOOSE;
 
+    private SharedPreferences _spfr;
+
 
     @Nullable
     @Override
@@ -63,6 +68,10 @@ public class EditRecordFragment extends Fragment {
 
 //        TextView _roomID = getView().findViewById(R.id.room_id_record_water_bill);
         _room = ViewplanFragment._roomOnclick;
+
+        _spfr = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        initLogout();
+        backBtn();
 
 
         Log.d("EDIT", ""+_room.getPhase()+_room.getFloor()+_room.getNumber_room());
@@ -108,7 +117,7 @@ public class EditRecordFragment extends Fragment {
 
                 String[] _monthYear = _month.split("/");
                 final Bill _bill = new Bill(_room, Integer.parseInt(_meterStr), _monthYear[0], _monthYear[1], _date);
-                Log.d("edit", "new bill");
+                Log.d("Edit", "new bill");
 
                 UpdatetoFireBase(_bill);
             }
@@ -129,7 +138,7 @@ public class EditRecordFragment extends Fragment {
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
                             setTextOnFragment(doc.toObject(Bill.class));
-                            Log.d("SHOW_BILL", "SUCCESS : "+doc.toObject(Bill.class).getTotal_price_bill());
+                            Log.d("Edit", "SUCCESS : "+doc.toObject(Bill.class).getTotal_price_bill());
 
                         }
                     }
@@ -165,7 +174,7 @@ public class EditRecordFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 _monthBill.setText(String.format("%02d/%d", month, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month + " / "+year);
+                Log.d("Edit", "On date : "+ day +" / "+month + " / "+year);
             }
         };
     }
@@ -177,7 +186,7 @@ public class EditRecordFragment extends Fragment {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
         _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
-        Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+        Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
     }
 
     // update to firebase
@@ -219,5 +228,34 @@ public class EditRecordFragment extends Fragment {
                 .replace(R.id.main_view, new ViewplanFragment())
                 .addToBackStack(null).commit();
         Log.d("Edit", "updated");
+    }
+
+    private void initLogout(){
+        ImageView _logout = getView().findViewById(R.id.logout_record_water);
+        _logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = _spfr.edit();
+                editor.clear();
+                editor.commit();
+                Log.d("Edit", _spfr.getString("role", "not found"));
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new HomeFragment())
+                        .addToBackStack(null).commit();
+                Log.d("Edit", "Logout --> Home");
+            }
+        });
+    }
+
+    private void backBtn(){
+        ImageView _backBtn = getView().findViewById(R.id.back_btn_record_water);
+        _backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
     }
 }

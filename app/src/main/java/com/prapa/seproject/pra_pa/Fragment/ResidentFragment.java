@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.prapa.seproject.pra_pa.R;
+import com.prapa.seproject.pra_pa.ShowBill.ShowBillFragment;
 
 
 public class ResidentFragment extends Fragment {
