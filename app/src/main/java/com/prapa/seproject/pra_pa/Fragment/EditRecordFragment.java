@@ -175,7 +175,7 @@ public class EditRecordFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 _monthBill.setText(String.format("%02d/%d", month+1, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+                Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
             }
         };
     }
@@ -202,7 +202,7 @@ public class EditRecordFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 _recordDateBill.setText(String.format("%02d/%02d/%d", day, month+1, year));
-                Log.d("RECORD", "On date : "+ day +" / "+month+1 + " / "+year);
+                Log.d("Edit", "On date : "+ day +" / "+month+1 + " / "+year);
             }
         };
     }
