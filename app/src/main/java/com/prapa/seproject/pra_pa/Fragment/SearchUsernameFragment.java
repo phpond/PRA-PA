@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.prapa.seproject.pra_pa.GeneratePassword;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.User;
 
@@ -46,8 +48,10 @@ public class SearchUsernameFragment extends Fragment {
         initLogout();
         initBackBtn();
         initSearch();
+        rePassword();
     }
 
+    private String numberUpper;
     private void initSearch(){
         ImageView _btnSearch = getView().findViewById(R.id.show_u_btn_submit);
         _btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -58,13 +62,57 @@ public class SearchUsernameFragment extends Fragment {
                     Log.e("ShowUsernamePwd", "NumberRoom is Empty");
                 }
                 else{
-                    String numberUpper = numberRoom.toUpperCase();
+                    numberUpper = numberRoom.toUpperCase();
                     getDataFromFireBase(numberUpper);
                     Log.e("ShowUsernamePwd", "NumberRoom is "+numberUpper);
                 }
             }
         });
     }
+
+    private void rePassword(){
+        usernameStr = getView().findViewById(R.id.show_u_username);
+        pwdStr = getView().findViewById(R.id.show_u_pwd);
+        Button _rePass = getView().findViewById(R.id.re_password_btn_search_user);
+        _rePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    String _username = usernameStr.getText().toString();
+                    String _pass = pwdStr.getText().toString();
+                    Log.d("ShowUsernamePwd", "username : "+_username +" password : "+_pass);
+                    if(_username.equals("-") || _pass.equals("-")){
+                        Toast.makeText(getContext(),"ข้อมูลผู้ใช้ว่าง",Toast.LENGTH_LONG).show();
+                        Log.d("ShowUsernamePwd", "Empty");
+                    }else {
+                        final String newPwd = GeneratePassword.generatePassword();
+                        User user = new User(numberRoom, _username, newPwd, "RESIDENT");
+                        _fbfs.collection("User_Pass")
+                                .document("Room"+numberUpper)
+                                .set(user)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        pwdStr.setText(newPwd);
+                                        Log.d("ShowUsernamePwd", "set password success \n New password: "+newPwd);
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.e("ShowUsernamePwd", "set password failed");
+                                    }
+                                });
+                    }
+
+                }catch (Exception e){
+                    Log.e("ShowUsernamePwd",""+e.getMessage()) ;
+                }
+            }
+        });
+
+    }
+
     private void getDataFromFireBase(String _numberRoom){
         _fbfs.collection("User_Pass")
                 .document("Room"+_numberRoom)

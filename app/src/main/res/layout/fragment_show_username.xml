@@ -47,6 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -161,6 +162,22 @@
                 android:textSize="30dp" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/re_password_btn_search_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisanslite"
+            android:padding="10dp"
+            android:text="รับรหัสผ่านใหม่"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_bg"
+            />
+
     </LinearLayout>
 
 
@@ -183,6 +200,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_editor_absoluteY="7dp"
         app:srcCompat="@drawable/ic_action_back" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
