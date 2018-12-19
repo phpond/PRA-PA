@@ -9,8 +9,8 @@ public class Bill {
     private int history_water_bill = 0;
     private String record_date;
 
-    private int total_price_bill;
-    private int price_meter = 18;
+    private float total_price_bill;
+    private float price_meter = 18;
 
     private String status = "ยังไม่ชำระเงิน";
 
@@ -65,11 +65,12 @@ public class Bill {
         this.status = status;
     }
 
-    public int getPrice_meter() {
+    public float getPrice_meter() {
         return price_meter;
     }
 
-    public void setPrice_meter(int price_meter) {
+    public void setPrice_meter(float price_meter) {
+
         this.price_meter = price_meter;
     }
 
@@ -81,12 +82,12 @@ public class Bill {
         this.history_water_bill = history_water_bill;
     }
 
-    public int getTotal_price_bill() {
+    public float getTotal_price_bill() {
         return total_price_bill;
     }
 
-    public void setTotal_price_bill(int total_peice_bill) {
-        this.total_price_bill = total_peice_bill;
+    public void setTotal_price_bill(int total_price_bill) {
+        this.total_price_bill = total_price_bill;
     }
     private void calculateBill(){
         total_price_bill = (water_bill - history_water_bill)* price_meter;
@@ -101,6 +102,7 @@ public class Bill {
     public void setRoom(Room room) {
         this.room = room;
     }
+
 
 
 

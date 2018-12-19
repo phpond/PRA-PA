@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,6 +34,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.prapa.seproject.pra_pa.Bill;
 import com.prapa.seproject.pra_pa.R;
 import com.prapa.seproject.pra_pa.Room;
+import com.prapa.seproject.pra_pa.Unit;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -130,7 +132,24 @@ public class EditRecordFragment extends Fragment {
                 current_month = Integer.parseInt(_monthYear[0]);
                 current_year = _monthYear[1];
                 current_meter = Integer.parseInt(_meterStr);
-                CalculateHistoryMeter(_room, Integer.parseInt(_meterStr), current_date, current_year, current_month);
+
+                _fbfs.collection("UnitMeter")
+                        .document("UnitMeter")
+                        .get()
+                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                Unit unit = documentSnapshot.toObject(Unit.class);
+                                float price_meter = unit.getPerunit();
+                                CalculateHistoryMeter(_room, current_meter, current_date, current_year, current_month, price_meter);
+                                Log.d("RECORD", "get data unit current success : "+ unit.getPerunit());
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("RECORD", "get data unit current FAIL!!");
+                    }
+                });
 
             }
         });
@@ -259,7 +278,7 @@ public class EditRecordFragment extends Fragment {
     }
 
     private int history;
-    public void CalculateHistoryMeter(Room room, final int meter, final String current_date, final String current_year, final int current_month) {
+    public void CalculateHistoryMeter(Room room, final int meter, final String current_date, final String current_year, final int current_month, final float price_meter){
 
         String history_month = "00";
         String history_year = current_year;
@@ -267,11 +286,11 @@ public class EditRecordFragment extends Fragment {
         //current month = 1 --> year -1
         if (current_month < 2) {
             history_year = String.valueOf(Integer.parseInt(current_year) - 1);
-            Log.d("RECORD", "History year : " + history_year);
+            Log.d("UPDATE", "History year : " + history_year);
         } else {
             history_month = String.format("%02d", current_month - 1);
         }
-        Log.d("RECORD", "Room : " + _room.getRoom() + " history month : " + history_month + " year : " + history_year);
+        Log.d("UPDATE", "Room : " + _room.getRoom() + " history month : " + history_month + " year : " + history_year);
         _fbfs.collection("Resident")
                 .document("USER")
                 .collection(_room.getRoom())
@@ -282,11 +301,16 @@ public class EditRecordFragment extends Fragment {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         try {
                             Bill bill = documentSnapshot.toObject(Bill.class);
-                            history = bill.getWater_bill();
-                            Log.d("UPDATE", "history in firebase : " + history);
-
+                            if(bill != null){
+                                history = bill.getWater_bill();
+                            }else{
+                                history = 0;
+                            }
                             Log.d("UPDATE", "History meter : " + history);
+
                             Bill _bill = new Bill(_room, meter, String.format("%02d", current_month), current_year, current_date, history);
+                            _bill.setPrice_meter(price_meter);
+
                             Log.d("UPDATE", "Before up to firebase");
                             UpdatetoFireBase(_bill);
                         } catch (Exception e) {
